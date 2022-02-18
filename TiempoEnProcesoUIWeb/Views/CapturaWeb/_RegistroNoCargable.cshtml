@@ -1,0 +1,18 @@
+﻿@using GridMvc.Html
+
+@model IEnumerable<TiempoEnProcesoUIWeb.Models.RegistroNoCargableModel>
+
+@Html.Grid(Model).Named("NoCargableGrid").SetLanguage("es").Columns(
+                        columns =>
+                        {
+
+                            columns.Add(model => model.linea).Encoded(false).Sanitized(false).RenderValueAs(model => Ajax.ActionLink("Eliminar", "EliminaNoCargable", new { id = model.linea }, new AjaxOptions { UpdateTargetId = "divNoCargableGrid", InsertionMode = InsertionMode.Replace, HttpMethod = "GET", Confirm = "Esta seguro de eliminar la Linea?", OnSuccess = "OnEliminarAct" }));
+                            columns.Add(model => model.id_oficina).Titled("Cod.").Css("col-md-1");
+                            columns.Add(model => model.oficina).Titled("Oficina").Css("col-md-2");
+                            columns.Add(model => model.id_concepto).Titled("Cod.").Css("col-md-1");
+                            columns.Add(model => model.concepto).Titled("Concepto").Css("col-md-2");
+                            columns.Add(model => model.horas).Titled("Horas").Css("col-md-1");
+                            columns.Add(model => model.descripcion).Titled("Descripcion").Css("col-md-2");
+                        }
+                       ).EmptyText("No hay registros que mostrar")
+

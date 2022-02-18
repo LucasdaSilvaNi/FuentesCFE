@@ -1,0 +1,140 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.645
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiempoEnProcesoBL", "TiempoEnProcesoBL\TiempoEnProcesoBL.csproj", "{77697AC9-8273-4A3D-AD9C-B8DCBB974EE9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiempoEnProcesoDL", "TiempoEnProcesoDL\TiempoEnProcesoDL.csproj", "{3D41362B-8855-491B-92D3-49E95A0C0295}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiempoEnProcesoHelper", "TiempoEnProcesoHelper\TiempoEnProcesoHelper.csproj", "{9B47EA58-6973-4B72-AC72-D5648BBDA67E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiempoEnProcesoWeb", "TiempoEnProcesoWeb\TiempoEnProcesoWeb.csproj", "{36A95E33-FFDD-414E-AD43-E1A5E35ED8A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiempoEnProcesoEN", "TiempoEnProcesoEN\TiempoEnProcesoEN.csproj", "{274A34C1-A231-486C-9FED-EE328E899F63}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{F127C0EE-A18A-4151-AED6-CDC0E79D7163}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiempoEnProcesoUIWeb", "TiempoEnProcesoUIWeb\TiempoEnProcesoUIWeb.csproj", "{A8C7345A-BE36-41B9-9D30-EAB036DF5505}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TiempoEnProceso", "TiempoEnProceso\TiempoEnProceso.csproj", "{940EC72E-4479-4D25-81C9-3BB4B47D7318}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		CD_ROM|Any CPU = CD_ROM|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		DVD-5|Any CPU = DVD-5|Any CPU
+		Release|Any CPU = Release|Any CPU
+		SingleImage|Any CPU = SingleImage|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{77697AC9-8273-4A3D-AD9C-B8DCBB974EE9}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{77697AC9-8273-4A3D-AD9C-B8DCBB974EE9}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{77697AC9-8273-4A3D-AD9C-B8DCBB974EE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77697AC9-8273-4A3D-AD9C-B8DCBB974EE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77697AC9-8273-4A3D-AD9C-B8DCBB974EE9}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{77697AC9-8273-4A3D-AD9C-B8DCBB974EE9}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{77697AC9-8273-4A3D-AD9C-B8DCBB974EE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77697AC9-8273-4A3D-AD9C-B8DCBB974EE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77697AC9-8273-4A3D-AD9C-B8DCBB974EE9}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{77697AC9-8273-4A3D-AD9C-B8DCBB974EE9}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+		{3D41362B-8855-491B-92D3-49E95A0C0295}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{3D41362B-8855-491B-92D3-49E95A0C0295}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{3D41362B-8855-491B-92D3-49E95A0C0295}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D41362B-8855-491B-92D3-49E95A0C0295}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D41362B-8855-491B-92D3-49E95A0C0295}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D41362B-8855-491B-92D3-49E95A0C0295}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{3D41362B-8855-491B-92D3-49E95A0C0295}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D41362B-8855-491B-92D3-49E95A0C0295}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D41362B-8855-491B-92D3-49E95A0C0295}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{3D41362B-8855-491B-92D3-49E95A0C0295}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+		{9B47EA58-6973-4B72-AC72-D5648BBDA67E}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{9B47EA58-6973-4B72-AC72-D5648BBDA67E}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{9B47EA58-6973-4B72-AC72-D5648BBDA67E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B47EA58-6973-4B72-AC72-D5648BBDA67E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B47EA58-6973-4B72-AC72-D5648BBDA67E}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B47EA58-6973-4B72-AC72-D5648BBDA67E}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{9B47EA58-6973-4B72-AC72-D5648BBDA67E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B47EA58-6973-4B72-AC72-D5648BBDA67E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B47EA58-6973-4B72-AC72-D5648BBDA67E}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{9B47EA58-6973-4B72-AC72-D5648BBDA67E}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+		{36A95E33-FFDD-414E-AD43-E1A5E35ED8A0}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{36A95E33-FFDD-414E-AD43-E1A5E35ED8A0}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{36A95E33-FFDD-414E-AD43-E1A5E35ED8A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36A95E33-FFDD-414E-AD43-E1A5E35ED8A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36A95E33-FFDD-414E-AD43-E1A5E35ED8A0}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{36A95E33-FFDD-414E-AD43-E1A5E35ED8A0}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{36A95E33-FFDD-414E-AD43-E1A5E35ED8A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36A95E33-FFDD-414E-AD43-E1A5E35ED8A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36A95E33-FFDD-414E-AD43-E1A5E35ED8A0}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{36A95E33-FFDD-414E-AD43-E1A5E35ED8A0}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+		{274A34C1-A231-486C-9FED-EE328E899F63}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{274A34C1-A231-486C-9FED-EE328E899F63}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{274A34C1-A231-486C-9FED-EE328E899F63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{274A34C1-A231-486C-9FED-EE328E899F63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{274A34C1-A231-486C-9FED-EE328E899F63}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{274A34C1-A231-486C-9FED-EE328E899F63}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{274A34C1-A231-486C-9FED-EE328E899F63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{274A34C1-A231-486C-9FED-EE328E899F63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{274A34C1-A231-486C-9FED-EE328E899F63}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{274A34C1-A231-486C-9FED-EE328E899F63}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+		{A8C7345A-BE36-41B9-9D30-EAB036DF5505}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{A8C7345A-BE36-41B9-9D30-EAB036DF5505}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{A8C7345A-BE36-41B9-9D30-EAB036DF5505}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8C7345A-BE36-41B9-9D30-EAB036DF5505}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8C7345A-BE36-41B9-9D30-EAB036DF5505}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8C7345A-BE36-41B9-9D30-EAB036DF5505}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{A8C7345A-BE36-41B9-9D30-EAB036DF5505}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8C7345A-BE36-41B9-9D30-EAB036DF5505}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8C7345A-BE36-41B9-9D30-EAB036DF5505}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{A8C7345A-BE36-41B9-9D30-EAB036DF5505}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+		{940EC72E-4479-4D25-81C9-3BB4B47D7318}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{940EC72E-4479-4D25-81C9-3BB4B47D7318}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{940EC72E-4479-4D25-81C9-3BB4B47D7318}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{940EC72E-4479-4D25-81C9-3BB4B47D7318}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{940EC72E-4479-4D25-81C9-3BB4B47D7318}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{940EC72E-4479-4D25-81C9-3BB4B47D7318}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{940EC72E-4479-4D25-81C9-3BB4B47D7318}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{940EC72E-4479-4D25-81C9-3BB4B47D7318}.Release|Any CPU.Build.0 = Release|Any CPU
+		{940EC72E-4479-4D25-81C9-3BB4B47D7318}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{940EC72E-4479-4D25-81C9-3BB4B47D7318}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {67F7B8E9-26D3-4224-938E-D6A46F275AB3}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 8
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://stevelopezc.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = TiempoEnProcesoBL\\TiempoEnProcesoBL.csproj
+		SccProjectName1 = TiempoEnProcesoBL
+		SccLocalPath1 = TiempoEnProcesoBL
+		SccProjectUniqueName2 = TiempoEnProcesoDL\\TiempoEnProcesoDL.csproj
+		SccProjectName2 = TiempoEnProcesoDL
+		SccLocalPath2 = TiempoEnProcesoDL
+		SccProjectUniqueName3 = TiempoEnProcesoEN\\TiempoEnProcesoEN.csproj
+		SccProjectName3 = TiempoEnProcesoEN
+		SccLocalPath3 = TiempoEnProcesoEN
+		SccProjectUniqueName4 = TiempoEnProcesoHelper\\TiempoEnProcesoHelper.csproj
+		SccProjectName4 = TiempoEnProcesoHelper
+		SccLocalPath4 = TiempoEnProcesoHelper
+		SccProjectUniqueName5 = TiempoEnProcesoUIWeb\\TiempoEnProcesoUIWeb.csproj
+		SccProjectName5 = TiempoEnProcesoUIWeb
+		SccLocalPath5 = TiempoEnProcesoUIWeb
+		SccProjectUniqueName6 = TiempoEnProcesoWeb\\TiempoEnProcesoWeb.csproj
+		SccProjectName6 = TiempoEnProcesoWeb
+		SccLocalPath6 = TiempoEnProcesoWeb
+		SccProjectUniqueName7 = TiempoEnProceso\\TiempoEnProceso.csproj
+		SccProjectName7 = TiempoEnProceso
+		SccLocalPath7 = TiempoEnProceso
+	EndGlobalSection
+EndGlobal

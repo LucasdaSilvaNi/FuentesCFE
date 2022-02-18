@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="~/Content/css/jquery-ui.css">
+
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="~/Content/css/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Timeline CSS -->
+    <link href="~/Content/css/timeline.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="~/Content/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="~/Content/css/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="~/Content/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <link href="~/Content/css/select2.css" type="text/css" rel="stylesheet" />
+
+    <style>
+        .preloader{
+              background:rgba(255,255,255,0.9);
+              position:fixed;
+              top:0px;
+              left:0px;
+              width:100%;
+              height:100%;
+              z-index:9998;
+              opacity:1;
+              transition: all 0.5s ease-in-out;
+              -moz-transition: all 0.5s ease-in-out;
+              -o-transition: all 0.5s ease-in-out;
+              -webkit-transition: all 0.5s ease-in-out;
+              visibility:visible;
+            }
+            .preloader img{
+              position:fixed;
+              z-index:9999;
+              top:40%;
+              left:45%;
+            }
+            .panel-primary {
+                border-color: #5cb85c;
+            }
+            .panel-heading
+            {
+                background-color:#5cb85c;
+            }
+            .page-header
+            {
+                font-family: Georgia;
+                font:bold;
+            }
+           .btn-success {
+                background-color: #a32020;
+                border-color: #a32020;
+            }
+            .text-primary {
+                color: #602320;
+                font:bold;
+            }
+            a {
+                color: #6f6a6a;
+            }
+            .btn-primary {
+                background-color: #a32020;
+                border-color: #a32020;
+            }
+            .btn-primary:active {
+                background-color: #a32020;
+                border-color: #a32020;
+            }
+            .btn-info
+            {
+                background-color:#ffb600;
+                border-color:#ffb600;
+            }
+            .panel-primary {
+                border-color: #5cb85c;
+            }
+            .panel-heading
+            {
+                background-color:#5cb85c;
+            }
+            .btn-success {
+                color: #fff;
+                background-color: #5cb85c;
+                border-color: #5cb85c;
+            }
+            .btn-primary:hover {
+                background-color: #5cb85c;
+                border-color: #5cb85c;
+            }
+            .btn-success:hover {
+                background-color: #ffb600;
+                border-color: #ffb600;
+            }
+            .btn-info:hover
+            {
+                background-color:#a32020;
+                border-color:#a32020;
+            }
+            .text-primary {
+                color: #5cb85c;
+            }
+            a {
+                color: #6f6a6a;
+            }
+            .page-header
+            {
+                font-family:Georgia;
+                font-style:italic;
+                font-weight:bold;
+            }
+    </style>
+</head>
+<body>
+    <div class="preloader">
+        <div><img src="~/Images/Preloader_1.gif"/></div>
+    </div>
+    <div id="wrapper">
+        @Html.Action("Menu", "Home")
+         <!-- /#page-wrapper -->
+        <div id="page-wrapper">
+        @RenderBody()
+        </div>
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="~/Scripts/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="~/Scripts/metisMenu.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="~/Scripts/raphael-min.js"></script>
+    <script src="~/Scripts/morris.min.js"></script>
+
+    <!-- Flot Charts JavaScript -->
+    <script src="~/Scripts/excanvas.min.js"></script>
+    <script src="~/Scripts/jquery.flot.js"></script>
+    <script src="~/Scripts/jquery.flot.pie.js"></script>
+    <script src="~/Scripts/jquery.flot.resize.js"></script>
+    <script src="~/Scripts/jquery.flot.time.js"></script>
+    <script src="~/Scripts/jquery.flot.tooltip.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="~/Scripts/sb-admin-2.js"></script>    
+    
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/jquery-ui.js"></script> 
+
+    <script src="~/Scripts/select2.js"></script>
+    <script src="~/Scripts/TiempoEnProceso.js" ></script>  
+    
+</body>
+</html>

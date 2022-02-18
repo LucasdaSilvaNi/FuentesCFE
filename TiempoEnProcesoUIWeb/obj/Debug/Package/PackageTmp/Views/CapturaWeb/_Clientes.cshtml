@@ -1,0 +1,12 @@
+﻿@using GridMvc.Html
+
+@model IEnumerable<TiempoEnProcesoUIWeb.Models.ClientesModel>
+
+@Html.Grid(Model).Named("ClientesGrid").SetLanguage("es").Columns(
+                        columns =>
+                        {
+                            columns.Add(model => model.id_cliente).Titled("ID Cliente").Css("col-lg-2 col-md-2 col-sm-2");
+                            columns.Add(model => model.nombre).Titled("Razon Social").Css("col-lg-6 col-md-6 col-sm-6");
+                        }
+                       ).WithPaging(10,6,"pageNo").Sortable().Filterable().WithMultipleFilters()
+

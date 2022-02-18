@@ -1,0 +1,94 @@
+﻿@model TiempoEnProcesoWeb.Models.IntegracionTepEmpleadoGastoModel
+
+            @using (Html.BeginForm("Generate","IntegracionTepEmpleadoGasto", FormMethod.Post, new {role="form", id="formData"}))
+            {
+                <div class="row">
+                    <div class="col-lg-10 col-lg-offset-2">
+                        <p class="form-control-static text-primary" style="text-align:right">@Session[TiempoEnProcesoHelper.Constantes.S_NOMBREEMP]</p> 
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <div class="row">
+                    <div class="col-lg-10 col-lg-offset-1">
+                        <h1 class="page-header">Integración TEP Empleado Gasto</h1>
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <div class="row">
+                    <div class="col-lg-10 col-lg-offset-1">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading" >
+                                Parametros
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-6 ">                                    
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Socio)
+                                            @Html.DropDownListFor(model => model.Socio, new SelectList((List<TiempoEnProcesoEN.SocioEN>)ViewData[TiempoEnProcesoHelper.Constantes.S_SOCIO], "id_empleado", "nombrecompleto"), new { @Class="form-control" })
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">                                    
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Encargado)
+                                            @Html.DropDownListFor(model => model.Encargado, new SelectList((List<TiempoEnProcesoEN.EncargadoEN>)ViewData[TiempoEnProcesoHelper.Constantes.S_ENCARGADO], "id_empleado", "nombrecompleto"), new { @Class="form-control"})
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 ">                                    
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Cliente)
+                                            @Html.DropDownListFor(model => model.Cliente, new SelectList((List<TiempoEnProcesoEN.ClienteEN>)ViewData[TiempoEnProcesoHelper.Constantes.S_CLIENTE], "id_cliente", "razon_social"), new { @Class="form-control" })
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">                                    
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Servicio)
+                                            @Html.DropDownListFor(model => model.Servicio, new SelectList((List<TiempoEnProcesoEN.ServicioEN>)ViewData[TiempoEnProcesoHelper.Constantes.S_SERVICIO], "id_servicio", "Nombre_largo"), new { @Class="form-control"})
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 ">                                    
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Job)
+                                            @Html.DropDownListFor(model => model.Job, new SelectList((List<TiempoEnProcesoEN.JobsEN>)ViewData[TiempoEnProcesoHelper.Constantes.S_JOBS], "id_job", "descripcion"), new { @Class="form-control" })
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 ">                                    
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Anio)
+                                            @Html.TextBoxFor(model => model.Anio, new { @Class="form-control",  maxlength = 4, autocomplete = "off" })
+                                        </div>
+                                    </div> 
+                                    <div class="col-md-4 col-md-offset-2">                                    
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Periodo)
+                                            @Html.TextBoxFor(model => model.Periodo, new { @Class="form-control",  maxlength = 2, autocomplete = "off" })
+                                        </div>
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @Html.HiddenFor(model => model.EsSocio)
+                @Html.HiddenFor(model => model.EsGerente)
+                @Html.HiddenFor(model => model.EsAdmin)
+                @Html.HiddenFor(model => model.ValEncargado)
+                @Html.HiddenFor(model => model.ValSocio)
+                @Html.HiddenFor(model => model.id_pais)
+                <div>
+                    <div class="row">
+                        <div class="col-lg-1 col-lg-offset-1">
+                            <input type="submit" class="btn btn-success" value="Generar"/>
+                        </div>
+                    </div>
+                </div>
+            }

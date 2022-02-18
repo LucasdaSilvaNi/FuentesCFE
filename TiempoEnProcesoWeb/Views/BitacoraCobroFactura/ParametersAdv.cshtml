@@ -1,0 +1,49 @@
+﻿@model TiempoEnProcesoWeb.Models.BitacoraCobroFacturaModel
+
+            @using (Html.BeginForm("Generate","BitacoraCobroFactura", FormMethod.Post, new {role="form", id="formData"}))
+            {
+                <div class="row">
+                    <div class="col-lg-10 col-lg-offset-2">
+                        <p class="form-control-static text-primary" style="text-align:right">@Session[TiempoEnProcesoHelper.Constantes.S_NOMBREEMP]</p> 
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <div class="row">
+                    <div class="col-lg-10 col-lg-offset-1">
+                        <h1 class="page-header" >Bitacora de Cobros por Factura</h1>
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <div class="row">
+                    <div class="col-lg-10 col-lg-offset-1">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                Parametros
+                            </div>
+                            <div class="panel-body">
+                                <div class="row cnt_columns">
+                                    <div class="col-md-6 ">                                    
+                                            @Html.LabelFor(model => model.id_entidad)
+                                            @Html.DropDownListFor(model => model.id_entidad, new SelectList((List<TiempoEnProcesoEN.EntidadLegalEN>)ViewData[TiempoEnProcesoHelper.Constantes.S_ENTIDAD_LEGAL], "id_entidad", "Razon_social"), new { @Class="form-control" })
+                                    </div>
+                                </div>
+                                <div class="row cnt_columns">
+                                      <div class="col-md-6">
+                                        <input type="button" class="btn btn-success" value="Buscar" id="btnFiltroBitacora"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @Html.HiddenFor(model => model.EsSocio)
+                @Html.HiddenFor(model => model.EsGerente)
+                @Html.HiddenFor(model => model.NoFactura) 
+                
+                <div id="divCargableGridPanel" class="panel" hidden>
+                    <!-- Default panel contents -->
+                    <div class="panel-heading">Facturas</div>
+                    <div id="divCargableGrid" class="panel-body" >                
+                    </div>
+                </div>
+            }

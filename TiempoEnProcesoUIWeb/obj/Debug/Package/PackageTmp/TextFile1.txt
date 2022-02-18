@@ -1,0 +1,34 @@
+﻿<div class="alerts_container col-md-6 col-md-offset-4 ">
+                <div class="alert alert-success alert-dismissible hide" role="alert" id="alert_success" style="text-align:center">
+                    <!--<button type="button" class="close" data-dismiss="alert">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>-->
+                    <label id="lblAlertSuccess" style="text-align:center" ></label>
+                </div>
+
+                <div class="alert alert-warning alert-dismissible hide" role="alert" id="alert_warning" style="text-align:center">
+                    <!--<button type="button" class="close" data-dismiss="alert">
+                        <span aria-hidden="true">&times;</span>
+                        
+                    </button>-->
+                    <label id="lblAlertWarning" style="text-align:center"></label>
+                </div>
+
+                <div class="alert alert-danger alert-dismissible hide" role="alert" id="alert_error" style="text-align:center" >
+                    <button type="button" class="close" data-dismiss="alert">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <label id="lblAlertError"></label>
+                </div>
+
+                <div class="alert alert-info alert-dismissible hide" role="alert" id="alert_info" style="text-align:center">
+                    <button type="button" class="close" data-dismiss="alert">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                     <label id="lblAlertInfo" ></label>
+                </div>
+
+            </div>

@@ -1,0 +1,16 @@
+﻿@using GridMvc.Html
+
+@model IEnumerable<TiempoEnProcesoEN.FacturasPorSGEN>
+
+@Html.Grid(Model).Named("detalleGrid").SetLanguage("es").Columns(
+                        columns =>
+                        {
+                            columns.Add().Encoded(false).Sanitized(false).RenderValueAs(o => @<input id="@string.Format("id{0}", o.numero_documento)" class="btn btn-success" onclick="javascript:imprimeBitacoraFact(@string.Format("'{0}'", o.numero_documento))" type="button" value="Imprimir" />);
+                            columns.Add(model => model.id_cliente).Titled("Cliente").Filterable(true);
+                            columns.Add(model => model.NOMBRECLIENTE).Titled("Nombre");
+                            columns.Add(model => model.numero_documento).Titled("Documento");
+                            columns.Add(model => model.concepto).Titled("Concepto");
+                            columns.Add(model => model.saldo).Titled("Saldo");
+                        }
+                       ).WithPaging(1000,60000,"pageNo").Sortable().Filterable(true).WithMultipleFilters()
+

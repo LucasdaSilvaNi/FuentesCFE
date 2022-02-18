@@ -1,0 +1,743 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3D41362B-8855-491B-92D3-49E95A0C0295}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TiempoEnProcesoDL</RootNamespace>
+    <AssemblyName>TiempoEnProcesoDL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CAES_Solicitados.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConnectionDL.cs" />
+    <Compile Include="EntidadesDL.cs" />
+    <Compile Include="Factura_Electronica_GT_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Get_Claves_Historicas_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Periodo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="rpt_auxiliar_trabajo_proceso_facturas_anticipos_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_auxiliar_trabajo_proceso_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_auxiliar_trabajo_proceso_sub_reporte_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_balance_antiguedad_saldos_anticipos_por_aplicar_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_balance_antiguedad_saldos_resumen_definitiva_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_balance_antiguedad_saldos_resumen_preliminar_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_balance_antiguedad_saldo_rangos_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_balance_antiguedad_saldo_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_catalogo_clientes_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_catalogo_empleados_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_catalogo_gastos_administrativos_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_catalogo_grupos_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_catalogo_industrias_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_catalogo_servicios_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_consulta_clientes_gastos_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_consulta_cliente_facturas_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_consulta_cliente_fpreliminar_def_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_consulta_cliente_horas_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_consulta_cliente_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_consulta_cobros_factura_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_consulta_factura_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_cuadre_tep_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_cuadre_tep_segundo_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_distribucion_gastos_preview_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_empleados_sin_captar_tiempo_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_estadistica_tiempo_cargado_destino_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_estadistica_tiempo_cargado_historico_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_estadistica_tiempo_cargado_proc_periodo_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_estadistica_tiempo_cargado_proc_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_estadistica_tiempo_teams_periodo_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_estadistica_tiempo_teams_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_estado_cuenta_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_facturas_por_generar_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_gestion_cobro_detallado_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_gestion_cobro_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_historial_cargos_acumulados_cliente_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_historial_cargos_acumulados_cliente_resumen_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_historial_cargos_acumulados_empleado_resumen_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_historial_cargos_acumulados_linea_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_historial_cargos_acumulados_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_imprime_factura_Net_New_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_imprime_factura_Net_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_informe_facturacion_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_ingresos_por_linea_servicio_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_integracion_tep_empleado_gasto_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_jobs_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_libro_ventas_salvadoreño_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_libro_ventas_salvadoreño_resumen_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_listado_clientes_sin_movimiento_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_listado_cumpleanios_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_listado_honorarios_cargados_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_Productividad_Control_Rentabilidad_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_relacion_trabajo_proceso_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RPT_REPORTESXEMPLEADO_Diario_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RPT_REPORTESXEMPLEADO_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RPT_REPORTESXTEAM_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_solicitud_factura_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_sumario_facturacion_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_tiempo_cargado_team_acumulado_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_tiempo_cargado_team_periodo_tep_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_tiempo_no_cargado_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_traslado_tiempo_gastos_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_traslado_tiempo_gastos_resumen_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_validacion_anulacion_solicitudes_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_validacion_cobranzas_Distribucion_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_validacion_cobranzas_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_validacion_cobranzas_resumen_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_validacion_cobros_notascredito_anuladas_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_validacion_cobros_notas_credito_anuladas_resumen_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_validacion_creditos_aplicaciones_listado_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_validacion_creditos_aplicaciones_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_validacion_credito_aplicaciones_aplicaciones_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_validacion_credito_aplicaciones_aplicaciones_resumen_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_validacion_facturas_anuladas_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_validacion_facturas_por_generar_cxc_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_validacion_facturas_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_validacion_gastos_administrativos_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_validacion_gastos_administrativos_sumario_documento_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_validacion_gastos_distribuidos_socios_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_validacion_reportes_tiempo_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rpt_validacion_reportes_tiempo_resumen_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_contabiliza_cxc_tep_detalle_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_contabiliza_cxc_tep_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_Get_Data_MagicPOS_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_listado_clientes_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_listado_jobs_depto_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_listado_jobs_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_listado_jobs_todos_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_listado_servicios_depto_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_listado_servicios_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_lista_cliente_x_servicio_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_lista_encargado_x_cliente_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_lista_gerente_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_lista_servicio_x_job_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_lista_socios_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_lista_socios_x_encargado_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_lista_tipo_FElectronicaCR_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_obtiene_facturas_socio_gerente_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_text_felectronica_CR_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_text_felectronica_GT_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tbl_Actividad_Economica_CR.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_anticipo_preliminar.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_anulacion_facturas.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_aplicacion_gts_admon.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_aplicacion_tep.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_autorizacion_documentos.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_aut_empleadojob.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_cancelacion_facturas_nc.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_cargos_otras_oficinas.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_certificacion_documento.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_claves_empleado.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_clientes.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_concepto_no_cargable.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tbl_condicion_cobro.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tbl_contabilizacion_servicios.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_correlativos.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_creditos_aplicaciones.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_creditos_aplicaciones_new.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_cuentacorriente_cierre.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_cuenta_corriente.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_cuenta_corriente_fiscal.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_cuenta_corriente_gestion_cobro.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_cuenta_corriente_por_generar.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_departamento.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_detalle_cargable.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_detalle_cargable_temp.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_detalle_cobros_anulaciones.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_detalle_cobros_anulaciones_historia.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_Detalle_Sol_temp.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_det_Solicitud.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_det_Solicitud_temp.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_distribucion_gastos.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_distribuidos.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_documentos_fiscales.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_documentos_gface.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_empleados.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_empleados_teams.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_empleados_trabajo.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_empleado_entidad_legal.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_entes_clientes.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_entes_solicitud.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_entidad_legal.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_facturas_anuladas_finales.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_factura_oficina.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_frases.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_gastos_administrativos.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_gastos_administrativos_detalle_empresas.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tbl_geografia.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_grupos.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_grupos_conceptos_no_cargables.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_grupo_industria.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tbl_gts_automaticos.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_gts_automaticos_detalle.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_horas_cargadas_al_standard.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_industrias.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_Integracion_tep_Empleado_Gasto.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_lineas.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_Log_Documento_Electronico.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_municipio.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_niveles_acceso.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_niveles_empleado.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_no_cargables.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_no_cargables_temp.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_oficina.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_opciones.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_opciones_empleado.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_opciones_puesto.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_paises.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_parametros.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_permisos.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_permisos_asignados.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_plantilla_niveles.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tbl_provincia_depto.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_provision_cuentas_incobrables.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_puestos.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_reportes_tiempo.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_reportes_tiempo_temp.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_reserva_tep.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_revenues.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_saldosgasto_cierre.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_saldostep_cierre.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_saldo_gastos.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_saldo_tep.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_sector_industria.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_servicios.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_solicitud_facturas.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_solicitud_facturas_distribucion_socios.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_solicitud_facturas_temp.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_solicitud_temp.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_tasas_de_cambio.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_teams.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_tiempo_cargable.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_tiempo_cargable_origen.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_tipo_documento.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_trabajos.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_trabajos_distribucion.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tbl_Trabajos_Oficina.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_traslados.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEPModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TEPModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEPModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TEPModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TEPModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="TP_lst_Clientes_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TP_lst_Jobs_Result.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_claves_historicas.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_detalle_captura_temp_cargable.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_detalle_captura_temp_Nocargable.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_Empleados_Datos.cs">
+      <DependentUpon>TEPModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <EntityDeploy Include="TEPModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TEPModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="packages.config" />
+    <None Include="TEPModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TEPModel.edmx</DependentUpon>
+      <LastGenOutput>TEPModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="TEPModel.edmx.diagram">
+      <DependentUpon>TEPModel.edmx</DependentUpon>
+    </None>
+    <None Include="TEPModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TEPModel.edmx</DependentUpon>
+      <LastGenOutput>TEPModel.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

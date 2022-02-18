@@ -1,0 +1,14 @@
+﻿@using Microsoft.Reporting.WebForms;
+@using MvcReportViewer;
+@using TiempoEnProcesoWeb.Models;
+
+@model ReportModel
+
+@{
+    ViewBag.Title = "Generate";
+}
+
+
+@Html.MvcReportViewerFluent("App_Data/Reports/rpt_balance_antiguedad.rdlc").ProcessingMode(ProcessingMode.Local).LocalDataSource("pwcia", Model.Data).EventsHandlerType(typeof(BalanceAntSubReportHandler)).Attributes(new { style = "position: absolute; width: 75%; height: 75%; border: none;", }).Method(FormMethod.Post)
+
+                

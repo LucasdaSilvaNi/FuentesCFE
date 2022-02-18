@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+       <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
+    <link href="http://blackrockdigital.github.io/startbootstrap-sb-admin-2/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="http://blackrockdigital.github.io/startbootstrap-sb-admin-2/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Timeline CSS -->
+    <link href="http://blackrockdigital.github.io/startbootstrap-sb-admin-2/dist/css/timeline.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="http://blackrockdigital.github.io/startbootstrap-sb-admin-2/dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="http://blackrockdigital.github.io/startbootstrap-sb-admin-2/bower_components/morrisjs/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="http://blackrockdigital.github.io/startbootstrap-sb-admin-2/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <link href="~/Content/css/select2.css" type="text/css" rel="stylesheet" />
+
+    <style>
+        .preloader{
+              background:rgba(255,255,255,0.9);
+              position:fixed;
+              top:0px;
+              left:0px;
+              width:100%;
+              height:100%;
+              z-index:9998;
+              opacity:1;
+              transition: all 0.5s ease-in-out;
+              -moz-transition: all 0.5s ease-in-out;
+              -o-transition: all 0.5s ease-in-out;
+              -webkit-transition: all 0.5s ease-in-out;
+              visibility:visible;
+            }
+            .preloader img{
+              position:fixed;
+              z-index:9999;
+              top:40%;
+              left:45%;
+            }
+            .panel-primary {
+                border-color: #eb8c00;
+            }
+            .panel-heading
+            {
+                background-color:#eb8c00;
+            }
+            .page-header
+            {
+                font-family: Georgia;
+                font:bold;
+            }
+            .btn-success {
+                background-color: #a32020;
+                border-color: #a32020;
+            }
+            .text-primary {
+                color: #eb8c00;
+            }
+            a {
+                color: #6f6a6a;
+            }
+    </style>
+</head>
+<body>
+    <div class="preloader">
+        <div><img src="~/Images/Preloader_1.gif"/></div>
+    </div>
+    <div id="wrapper">
+        @Html.Action("Menu", "Home")
+         <!-- /#page-wrapper -->
+        <div id="page-wrapper">
+        @RenderBody()
+        </div>
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="http://blackrockdigital.github.io/startbootstrap-sb-admin-2/bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="http://blackrockdigital.github.io/startbootstrap-sb-admin-2/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="http://blackrockdigital.github.io/startbootstrap-sb-admin-2/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="http://blackrockdigital.github.io/startbootstrap-sb-admin-2/bower_components/raphael/raphael-min.js"></script>
+    <script src="http://blackrockdigital.github.io/startbootstrap-sb-admin-2/bower_components/morrisjs/morris.min.js"></script>
+
+    <!-- Flot Charts JavaScript -->
+    <script src="http://blackrockdigital.github.io/startbootstrap-sb-admin-2/bower_components/flot/excanvas.min.js"></script>
+    <script src="http://blackrockdigital.github.io/startbootstrap-sb-admin-2/bower_components/flot/jquery.flot.js"></script>
+    <script src="http://blackrockdigital.github.io/startbootstrap-sb-admin-2/bower_components/flot/jquery.flot.pie.js"></script>
+    <script src="http://blackrockdigital.github.io/startbootstrap-sb-admin-2/bower_components/flot/jquery.flot.resize.js"></script>
+    <script src="http://blackrockdigital.github.io/startbootstrap-sb-admin-2/bower_components/flot/jquery.flot.time.js"></script>
+    <script src="http://blackrockdigital.github.io/startbootstrap-sb-admin-2/bower_components/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="http://blackrockdigital.github.io/startbootstrap-sb-admin-2/dist/js/sb-admin-2.js"></script>    
+    
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script> 
+
+    <script src="~/Scripts/select2.js"></script>
+    <script src="~/Scripts/TiempoEnProceso.js" ></script>  
+    
+</body>
+</html>

@@ -1,0 +1,6 @@
+D:\Visual Studio\ATISA\TiempoEnProceso-demo\TiempoEnProcesoEN\bin\Debug\TiempoEnProcesoEN.dll
+D:\Visual Studio\ATISA\TiempoEnProceso-demo\TiempoEnProcesoEN\bin\Debug\TiempoEnProcesoEN.pdb
+D:\Visual Studio\ATISA\TiempoEnProceso-demo\TiempoEnProcesoEN\obj\Debug\TiempoEnProcesoEN.csproj.AssemblyReference.cache
+D:\Visual Studio\ATISA\TiempoEnProceso-demo\TiempoEnProcesoEN\obj\Debug\TiempoEnProcesoEN.csproj.CoreCompileInputs.cache
+D:\Visual Studio\ATISA\TiempoEnProceso-demo\TiempoEnProcesoEN\obj\Debug\TiempoEnProcesoEN.dll
+D:\Visual Studio\ATISA\TiempoEnProceso-demo\TiempoEnProcesoEN\obj\Debug\TiempoEnProcesoEN.pdb

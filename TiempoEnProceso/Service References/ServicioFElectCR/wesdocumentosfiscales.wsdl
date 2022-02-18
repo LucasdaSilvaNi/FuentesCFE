@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="RegistroDocumentoEmision">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="acInformacionCliente" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="acIdentificacionDocumento" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="acTextoDocumento" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="acRespuestaFiscal" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="acMensaje" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistroDocumentoEmisionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegistroDocumentoEmisionResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="acRespuestaFiscal" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="acMensaje" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecepcionRegistroDocumentoEmision">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="acInformacionCliente" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="acIdentificacionDocumento" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="acTextoDocumento" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="acMensaje" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecepcionRegistroDocumentoEmisionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RecepcionRegistroDocumentoEmisionResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="acMensaje" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaDocumentoEmision">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="acInformacionCliente" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="acIdentificacionDocumento" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="acRespuestaFiscal" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="acMensaje" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaDocumentoEmisionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ConsultaDocumentoEmisionResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="acRespuestaFiscal" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="acMensaje" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaRespuestaHaciendaDocumentoEmision">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="acInformacionCliente" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="acClaveDocumento" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="acRespuestaHacienda" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="acMensaje" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaRespuestaHaciendaDocumentoEmisionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ConsultaRespuestaHaciendaDocumentoEmisionResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="acRespuestaHacienda" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="acMensaje" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistroEmisor">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="acInformacionCliente" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="acIdentificacionEmisor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="acTextoEmisor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="acMensaje" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistroEmisorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegistroEmisorResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="acMensaje" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="RegistroDocumentoEmisionSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistroDocumentoEmision" />
+  </wsdl:message>
+  <wsdl:message name="RegistroDocumentoEmisionSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistroDocumentoEmisionResponse" />
+  </wsdl:message>
+  <wsdl:message name="RecepcionRegistroDocumentoEmisionSoapIn">
+    <wsdl:part name="parameters" element="tns:RecepcionRegistroDocumentoEmision" />
+  </wsdl:message>
+  <wsdl:message name="RecepcionRegistroDocumentoEmisionSoapOut">
+    <wsdl:part name="parameters" element="tns:RecepcionRegistroDocumentoEmisionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaDocumentoEmisionSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultaDocumentoEmision" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaDocumentoEmisionSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultaDocumentoEmisionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaRespuestaHaciendaDocumentoEmisionSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultaRespuestaHaciendaDocumentoEmision" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaRespuestaHaciendaDocumentoEmisionSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultaRespuestaHaciendaDocumentoEmisionResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistroEmisorSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistroEmisor" />
+  </wsdl:message>
+  <wsdl:message name="RegistroEmisorSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistroEmisorResponse" />
+  </wsdl:message>
+  <wsdl:portType name="wesDocumentosFiscalesSoap">
+    <wsdl:operation name="RegistroDocumentoEmision">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Registro fiscal de un documento de emisión.</wsdl:documentation>
+      <wsdl:input message="tns:RegistroDocumentoEmisionSoapIn" />
+      <wsdl:output message="tns:RegistroDocumentoEmisionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RecepcionRegistroDocumentoEmision">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Recepción de un documento de emisión para su posterior registro fiscal.</wsdl:documentation>
+      <wsdl:input message="tns:RecepcionRegistroDocumentoEmisionSoapIn" />
+      <wsdl:output message="tns:RecepcionRegistroDocumentoEmisionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaDocumentoEmision">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta del registro fiscal de un documento de emisión.</wsdl:documentation>
+      <wsdl:input message="tns:ConsultaDocumentoEmisionSoapIn" />
+      <wsdl:output message="tns:ConsultaDocumentoEmisionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaRespuestaHaciendaDocumentoEmision">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta de la respuesta de Hacienda para un documento de emisión.</wsdl:documentation>
+      <wsdl:input message="tns:ConsultaRespuestaHaciendaDocumentoEmisionSoapIn" />
+      <wsdl:output message="tns:ConsultaRespuestaHaciendaDocumentoEmisionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistroEmisor">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Registro de emisor.</wsdl:documentation>
+      <wsdl:input message="tns:RegistroEmisorSoapIn" />
+      <wsdl:output message="tns:RegistroEmisorSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="wesDocumentosFiscalesSoap" type="tns:wesDocumentosFiscalesSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RegistroDocumentoEmision">
+      <soap:operation soapAction="http://tempuri.org/RegistroDocumentoEmision" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecepcionRegistroDocumentoEmision">
+      <soap:operation soapAction="http://tempuri.org/RecepcionRegistroDocumentoEmision" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaDocumentoEmision">
+      <soap:operation soapAction="http://tempuri.org/ConsultaDocumentoEmision" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaRespuestaHaciendaDocumentoEmision">
+      <soap:operation soapAction="http://tempuri.org/ConsultaRespuestaHaciendaDocumentoEmision" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistroEmisor">
+      <soap:operation soapAction="http://tempuri.org/RegistroEmisor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="wesDocumentosFiscalesSoap12" type="tns:wesDocumentosFiscalesSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RegistroDocumentoEmision">
+      <soap12:operation soapAction="http://tempuri.org/RegistroDocumentoEmision" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecepcionRegistroDocumentoEmision">
+      <soap12:operation soapAction="http://tempuri.org/RecepcionRegistroDocumentoEmision" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaDocumentoEmision">
+      <soap12:operation soapAction="http://tempuri.org/ConsultaDocumentoEmision" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaRespuestaHaciendaDocumentoEmision">
+      <soap12:operation soapAction="http://tempuri.org/ConsultaRespuestaHaciendaDocumentoEmision" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistroEmisor">
+      <soap12:operation soapAction="http://tempuri.org/RegistroEmisor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="wesDocumentosFiscales">
+    <wsdl:port name="wesDocumentosFiscalesSoap" binding="tns:wesDocumentosFiscalesSoap">
+      <soap:address location="https://sisnetcr.com/serviciowebdocumentosfiscales/wesdocumentosfiscales.asmx" />
+    </wsdl:port>
+    <wsdl:port name="wesDocumentosFiscalesSoap12" binding="tns:wesDocumentosFiscalesSoap12">
+      <soap12:address location="https://sisnetcr.com/serviciowebdocumentosfiscales/wesdocumentosfiscales.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

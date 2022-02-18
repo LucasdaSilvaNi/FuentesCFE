@@ -1,0 +1,1503 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>XploRe.Runtime</name>
+    </assembly>
+    <members>
+        <member name="T:XploRe.Runtime.ArgumentStringEmptyException">
+            <inheritdoc />
+            <summary>
+                Exception thrown if one of the string arguments provided to a method is empty but the method does not accept
+                an empty string argument.
+            </summary>
+        </member>
+        <member name="M:XploRe.Runtime.ArgumentStringEmptyException.#ctor">
+            <inheritdoc />
+            <summary>
+                Initialises a new <see cref="T:XploRe.Runtime.ArgumentStringEmptyException" /> instance with the default error message.
+            </summary>
+        </member>
+        <member name="M:XploRe.Runtime.ArgumentStringEmptyException.#ctor(System.Exception)">
+            <inheritdoc />
+            <summary>
+                Initialises a new <see cref="T:XploRe.Runtime.ArgumentStringEmptyException" /> instance with the default error message
+                and a reference to the inner exception that is the cause of this exception.
+            </summary>
+            <param name="innerException">The exception that is the cause of the current exception.</param>
+        </member>
+        <member name="M:XploRe.Runtime.ArgumentStringEmptyException.#ctor(System.String)">
+            <inheritdoc />
+            <summary>
+                Initialises a new <see cref="T:XploRe.Runtime.ArgumentStringEmptyException" /> instance with the default error message
+                and the name of the parameter that causes this exception.
+            </summary>
+            <param name="paramName">The name of the parameter that caused the current exception.</param>
+        </member>
+        <member name="M:XploRe.Runtime.ArgumentStringEmptyException.#ctor(System.String,System.Exception)">
+            <inheritdoc />
+            <summary>
+                Initialises a new <see cref="T:XploRe.Runtime.ArgumentStringEmptyException" /> instance with the default error message, 
+                the parameter name and a reference to the inner exception that is the cause of this exception.
+            </summary>
+            <param name="paramName">The name of the parameter that caused the current exception.</param>
+            <param name="innerException">The exception that is the cause of the current exception.</param>
+        </member>
+        <member name="M:XploRe.Runtime.ArgumentStringEmptyException.#ctor(System.String,System.String)">
+            <inheritdoc />
+            <summary>
+                Initialises a new <see cref="T:XploRe.Runtime.ArgumentStringEmptyException" /> instance with a specified error message 
+                and the name of the parameter that causes this exception.
+            </summary>
+            <param name="paramName">The name of the parameter that caused the current exception.</param>
+            <param name="message">The error message that explains the reason for the exception.</param>
+        </member>
+        <member name="M:XploRe.Runtime.ArgumentStringEmptyException.#ctor(System.String,System.String,System.Exception)">
+            <inheritdoc />
+            <summary>
+                Initialises a new <see cref="T:XploRe.Runtime.ArgumentStringEmptyException" /> instance with a specified error message, 
+                the parameter name and a reference to the inner exception that is the cause of this exception.
+            </summary>
+            <param name="paramName">The name of the parameter that caused the current exception.</param>
+            <param name="message">The error message that explains the reason for the exception.</param>
+            <param name="innerException">The exception that is the cause of the current exception.</param>
+        </member>
+        <member name="T:XploRe.Runtime.ByteArrayExtensions">
+            <summary>
+                Optimised extension methods for <see cref="T:System.Byte" /> arrays.
+            </summary>
+        </member>
+        <member name="M:XploRe.Runtime.ByteArrayExtensions.ToString(System.Byte[],System.String)">
+            <summary>
+                Returns a string that represents each <see cref="T:System.Byte" /> in the array with the corresponding format.
+                Optimised for use with the formats "x2" and "X2" to yield a hexadecimal representation of the byte
+                array, using lowercase or uppercase hexadecimal characters, respectively.
+            </summary>
+            <param name="bytes">This <see cref="T:System.Byte" /> array to return a string representation for.</param>
+            <param name="format">Format specification for each <see cref="T:System.Byte" />.</param>
+            <returns>
+                A string representation of the <see cref="T:System.Byte" /> array using the specified format for each byte.
+            </returns>
+        </member>
+        <member name="M:XploRe.Runtime.ByteArrayExtensions.ToString(System.Byte[],System.String,System.String)">
+            <summary>
+                Returns a string that represents each <see cref="T:System.Byte" /> in the array with the corresponding format.
+                Optimised for use with the formats "x2" and "X2" to yield a hexadecimal representation of the byte
+                array, using lowercase or uppercase hexadecimal characters, respectively.
+            </summary>
+            <param name="bytes">This <see cref="T:System.Byte" /> array to return a string representation for.</param>
+            <param name="format">Format specification for each <see cref="T:System.Byte" />.</param>
+            <param name="delimiter">
+                The delimiter <see cref="T:System.String" /> inserted between each byte. If <c>null</c>, the delimiter is
+                treated equally to an empty string.
+            </param>
+            <returns>
+                A string representation of the <see cref="T:System.Byte" /> array using the specified format for each byte,
+                delimited by the provided delimiter string.
+            </returns>
+        </member>
+        <member name="F:XploRe.Runtime.ByteArrayExtensions.I32LookupTables">
+            <summary>
+                Concurrent storage of lookup tables for fixed-size 2-char formatted values stored as an unsingned int.
+            </summary>
+        </member>
+        <member name="M:XploRe.Runtime.ByteArrayExtensions.GetLookupTable(System.String)">
+            <summary>
+                Yields a lazily initialised conversion table for bytes to their corresponding lowercase hexadecimal 
+                string values.
+            </summary>
+        </member>
+        <member name="M:XploRe.Runtime.ByteArrayExtensions.ToString(System.Byte[],System.UInt32[])">
+            <summary>
+                Returns a string representation of the provided byte array using the provided lookup table.
+            </summary>
+            <param name="bytes">This non-empty <see cref="T:System.Byte" /> array to format.</param>
+            <param name="lookupTable">The 2-character output lookup table to use to convert bytes.</param>
+            <returns>A continuous string representation of the provided byte array.</returns>
+        </member>
+        <member name="M:XploRe.Runtime.ByteArrayExtensions.ToString(System.Byte[],System.UInt32[],System.String)">
+            <summary>
+                Returns a string representation of the provided byte array using the provided lookup table.
+            </summary>
+            <param name="bytes">This non-empty <see cref="T:System.Byte" /> array to format.</param>
+            <param name="lookupTable">The 2-character output lookup table to use to convert bytes.</param>
+            <param name="delimiter">A non-empty delimiter <see cref="T:System.String" /> inserted between each bytes.</param>
+            <returns>A delimited string representation of the provided byte array.</returns>
+        </member>
+        <member name="T:XploRe.Runtime.ByteOrder">
+            <summary>
+                Byte-order variants.
+            </summary>
+        </member>
+        <member name="F:XploRe.Runtime.ByteOrder.Host">
+            <summary>
+                The byte-order of the host.
+            </summary>
+        </member>
+        <member name="F:XploRe.Runtime.ByteOrder.BigEndian">
+            <summary>
+                Big-endian byte-order.
+            </summary>
+        </member>
+        <member name="F:XploRe.Runtime.ByteOrder.LittleEndian">
+            <summary>
+                Little-endian byte-order.
+            </summary>
+        </member>
+        <member name="T:XploRe.Runtime.ByteOrderConverter">
+            <summary>
+                Byte-order conversion routines.
+            </summary>
+        </member>
+        <member name="M:XploRe.Runtime.ByteOrderConverter.HostTo(XploRe.Runtime.ByteOrder,System.Int16)">
+            <summary>
+                Converts the byte-order of the provided value from host byte-order to the requested byte-order.
+            </summary>
+            <param name="order">Requested byte-order to convert <paramref name="value" /> to.</param>
+            <param name="value">The value to convert in host byte-order.</param>
+            <returns>Value converted to the requested byte-order.</returns>
+        </member>
+        <member name="M:XploRe.Runtime.ByteOrderConverter.HostTo(XploRe.Runtime.ByteOrder,System.UInt16)">
+            <summary>
+                Converts the byte-order of the provided value from host byte-order to the requested byte-order.
+            </summary>
+            <param name="order">Requested byte-order to convert <paramref name="value" /> to.</param>
+            <param name="value">The value to convert in host byte-order.</param>
+            <returns>Value converted to the requested byte-order.</returns>
+        </member>
+        <member name="M:XploRe.Runtime.ByteOrderConverter.HostTo(XploRe.Runtime.ByteOrder,System.Int32)">
+            <summary>
+                Converts the byte-order of the provided value from host byte-order to the requested byte-order.
+            </summary>
+            <param name="order">Requested byte-order to convert <paramref name="value" /> to.</param>
+            <param name="value">The value to convert in host byte-order.</param>
+            <returns>Value converted to the requested byte-order.</returns>
+        </member>
+        <member name="M:XploRe.Runtime.ByteOrderConverter.HostTo(XploRe.Runtime.ByteOrder,System.UInt32)">
+            <summary>
+                Converts the byte-order of the provided value from host byte-order to the requested byte-order.
+            </summary>
+            <param name="order">Requested byte-order to convert <paramref name="value" /> to.</param>
+            <param name="value">The value to convert in host byte-order.</param>
+            <returns>Value converted to the requested byte-order.</returns>
+        </member>
+        <member name="M:XploRe.Runtime.ByteOrderConverter.HostTo(XploRe.Runtime.ByteOrder,System.Int64)">
+            <summary>
+                Converts the byte-order of the provided value from host byte-order to the requested byte-order.
+            </summary>
+            <param name="order">Requested byte-order to convert <paramref name="value" /> to.</param>
+            <param name="value">The value to convert in host byte-order.</param>
+            <returns>Value converted to the requested byte-order.</returns>
+        </member>
+        <member name="M:XploRe.Runtime.ByteOrderConverter.HostTo(XploRe.Runtime.ByteOrder,System.UInt64)">
+            <summary>
+                Converts the byte-order of the provided value from host byte-order to the requested byte-order.
+            </summary>
+            <param name="order">Requested byte-order to convert <paramref name="value" /> to.</param>
+            <param name="value">The value to convert in host byte-order.</param>
+            <returns>Value converted to the requested byte-order.</returns>
+        </member>
+        <member name="M:XploRe.Runtime.ByteOrderConverter.HostToBigEndian(System.Int16)">
+            <summary>
+                Converts the byte-order of the provided value from host byte-order to big-endian byte-order.
+            </summary>
+            <param name="value">The value to convert in host byte-order.</param>
+            <returns>Value converted to big-endian byte-order.</returns>
+        </member>
+        <member name="M:XploRe.Runtime.ByteOrderConverter.HostToBigEndian(System.UInt16)">
+            <summary>
+                Converts the byte-order of the provided value from host byte-order to big-endian byte-order.
+            </summary>
+            <param name="value">The value to convert in host byte-order.</param>
+            <returns>Value converted to big-endian byte-order.</returns>
+        </member>
+        <member name="M:XploRe.Runtime.ByteOrderConverter.HostToBigEndian(System.Int32)">
+            <summary>
+                Converts the byte-order of the provided value from host byte-order to big-endian byte-order.
+            </summary>
+            <param name="value">The value to convert in host byte-order.</param>
+            <returns>Value converted to big-endian byte-order.</returns>
+        </member>
+        <member name="M:XploRe.Runtime.ByteOrderConverter.HostToBigEndian(System.UInt32)">
+            <summary>
+                Converts the byte-order of the provided value from host byte-order to big-endian byte-order.
+            </summary>
+            <param name="value">The value to convert in host byte-order.</param>
+            <returns>Value converted to big-endian byte-order.</returns>
+        </member>
+        <member name="M:XploRe.Runtime.ByteOrderConverter.HostToBigEndian(System.Int64)">
+            <summary>
+                Converts the byte-order of the provided value from host byte-order to big-endian byte-order.
+            </summary>
+            <param name="value">The value to convert in host byte-order.</param>
+            <returns>Value converted to big-endian byte-order.</returns>
+        </member>
+        <member name="M:XploRe.Runtime.ByteOrderConverter.HostToBigEndian(System.UInt64)">
+            <summary>
+                Converts the byte-order of the provided value from host byte-order to big-endian byte-order.
+            </summary>
+            <param name="value">The value to convert in host byte-order.</param>
+            <returns>Value converted to big-endian byte-order.</returns>
+        </member>
+        <member name="M:XploRe.Runtime.ByteOrderConverter.HostToLittleEndian(System.Int16)">
+            <summary>
+                Converts the byte-order of the provided value from host byte-order to little-endian byte-order.
+            </summary>
+            <param name="value">The value to convert in host byte-order.</param>
+            <returns>Value converted to little-endian byte-order.</returns>
+        </member>
+        <member name="M:XploRe.Runtime.ByteOrderConverter.HostToLittleEndian(System.UInt16)">
+            <summary>
+                Converts the byte-order of the provided value from host byte-order to little-endian byte-order.
+            </summary>
+            <param name="value">The value to convert in host byte-order.</param>
+            <returns>Value converted to little-endian byte-order.</returns>
+        </member>
+        <member name="M:XploRe.Runtime.ByteOrderConverter.HostToLittleEndian(System.Int32)">
+            <summary>
+                Converts the byte-order of the provided value from host byte-order to little-endian byte-order.
+            </summary>
+            <param name="value">The value to convert in host byte-order.</param>
+            <returns>Value converted to little-endian byte-order.</returns>
+        </member>
+        <member name="M:XploRe.Runtime.ByteOrderConverter.HostToLittleEndian(System.UInt32)">
+            <summary>
+                Converts the byte-order of the provided value from host byte-order to little-endian byte-order.
+            </summary>
+            <param name="value">The value to convert in host byte-order.</param>
+            <returns>Value converted to little-endian byte-order.</returns>
+        </member>
+        <member name="M:XploRe.Runtime.ByteOrderConverter.HostToLittleEndian(System.Int64)">
+            <summary>
+                Converts the byte-order of the provided value from host byte-order to little-endian byte-order.
+            </summary>
+            <param name="value">The value to convert in host byte-order.</param>
+            <returns>Value converted to little-endian byte-order.</returns>
+        </member>
+        <member name="M:XploRe.Runtime.ByteOrderConverter.HostToLittleEndian(System.UInt64)">
+            <summary>
+                Converts the byte-order of the provided value from host byte-order to little-endian byte-order.
+            </summary>
+            <param name="value">The value to convert in host byte-order.</param>
+            <returns>Value converted to little-endian byte-order.</returns>
+        </member>
+        <member name="M:XploRe.Runtime.ByteOrderConverter.Swap(System.Int16)">
+            <summary>
+                Swaps the byte-order of the provided value.
+            </summary>
+            <param name="value">Value to swap byte-order of.</param>
+            <returns>Value with swapped byte-order.</returns>
+        </member>
+        <member name="M:XploRe.Runtime.ByteOrderConverter.Swap(System.UInt16)">
+            <summary>
+                Swaps the byte-order of the provided value.
+            </summary>
+            <param name="value">Value to swap byte-order of.</param>
+            <returns>Value with swapped byte-order.</returns>
+        </member>
+        <member name="M:XploRe.Runtime.ByteOrderConverter.Swap(System.Int32)">
+            <summary>
+                Swaps the byte-order of the provided value.
+            </summary>
+            <param name="value">Value to swap byte-order of.</param>
+            <returns>Value with swapped byte-order.</returns>
+        </member>
+        <member name="M:XploRe.Runtime.ByteOrderConverter.Swap(System.UInt32)">
+            <summary>
+                Swaps the byte-order of the provided value.
+            </summary>
+            <param name="value">Value to swap byte-order of.</param>
+            <returns>Value with swapped byte-order.</returns>
+        </member>
+        <member name="M:XploRe.Runtime.ByteOrderConverter.Swap(System.Int64)">
+            <summary>
+                Swaps the byte-order of the provided value.
+            </summary>
+            <param name="value">Value to swap byte-order of.</param>
+            <returns>Value with swapped byte-order.</returns>
+        </member>
+        <member name="M:XploRe.Runtime.ByteOrderConverter.Swap(System.UInt64)">
+            <summary>
+                Swaps the byte-order of the provided value.
+            </summary>
+            <param name="value">Value to swap byte-order of.</param>
+            <returns>Value with swapped byte-order.</returns>
+        </member>
+        <member name="M:XploRe.Runtime.ByteOrderConverter.ToHostFrom(XploRe.Runtime.ByteOrder,System.Int16)">
+            <summary>
+                Converts the byte-order of the provided value in the given byte-order to host byte-order.
+            </summary>
+            <param name="order">Byte-order of <paramref name="value" /> to convert from.</param>
+            <param name="value">The value to convert in the given byte-order.</param>
+            <returns>Value converted to host byte-order.</returns>
+        </member>
+        <member name="M:XploRe.Runtime.ByteOrderConverter.ToHostFrom(XploRe.Runtime.ByteOrder,System.UInt16)">
+            <summary>
+                Converts the byte-order of the provided value in the given byte-order to host byte-order.
+            </summary>
+            <param name="order">Byte-order of <paramref name="value" /> to convert from.</param>
+            <param name="value">The value to convert in the given byte-order.</param>
+            <returns>Value converted to host byte-order.</returns>
+        </member>
+        <member name="M:XploRe.Runtime.ByteOrderConverter.ToHostFrom(XploRe.Runtime.ByteOrder,System.Int32)">
+            <summary>
+                Converts the byte-order of the provided value in the given byte-order to host byte-order.
+            </summary>
+            <param name="order">Byte-order of <paramref name="value" /> to convert from.</param>
+            <param name="value">The value to convert in the given byte-order.</param>
+            <returns>Value converted to host byte-order.</returns>
+        </member>
+        <member name="M:XploRe.Runtime.ByteOrderConverter.ToHostFrom(XploRe.Runtime.ByteOrder,System.UInt32)">
+            <summary>
+                Converts the byte-order of the provided value in the given byte-order to host byte-order.
+            </summary>
+            <param name="order">Byte-order of <paramref name="value" /> to convert from.</param>
+            <param name="value">The value to convert in the given byte-order.</param>
+            <returns>Value converted to host byte-order.</returns>
+        </member>
+        <member name="M:XploRe.Runtime.ByteOrderConverter.ToHostFrom(XploRe.Runtime.ByteOrder,System.Int64)">
+            <summary>
+                Converts the byte-order of the provided value in the given byte-order to host byte-order.
+            </summary>
+            <param name="order">Byte-order of <paramref name="value" /> to convert from.</param>
+            <param name="value">The value to convert in the given byte-order.</param>
+            <returns>Value converted to host byte-order.</returns>
+        </member>
+        <member name="M:XploRe.Runtime.ByteOrderConverter.ToHostFrom(XploRe.Runtime.ByteOrder,System.UInt64)">
+            <summary>
+                Converts the byte-order of the provided value in the given byte-order to host byte-order.
+            </summary>
+            <param name="order">Byte-order of <paramref name="value" /> to convert from.</param>
+            <param name="value">The value to convert in the given byte-order.</param>
+            <returns>Value converted to host byte-order.</returns>
+        </member>
+        <member name="T:XploRe.Runtime.ByteOrderExtensions">
+            <summary>
+                Extends <see cref="T:XploRe.Runtime.ByteOrder" /> with support methods.
+            </summary>
+        </member>
+        <member name="M:XploRe.Runtime.ByteOrderExtensions.IsHostOrder(XploRe.Runtime.ByteOrder)">
+            <summary>
+                Determines whether the <see cref="T:XploRe.Runtime.ByteOrder" /> enumeration value reflects the byte-order of the host.
+            </summary>
+            <param name="order">This <see cref="T:XploRe.Runtime.ByteOrder" /> enumeration value to test.</param>
+            <returns>
+                <c>true</c>, if <paramref name="order" /> is equal to the byte-order of the host, otherwise <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:XploRe.Runtime.ByteOrderExtensions.IsNetworkOrder(XploRe.Runtime.ByteOrder)">
+            <summary>
+                Determines whether the <see cref="T:XploRe.Runtime.ByteOrder" /> enumeration value reflects the network byte-order, i.e.
+                <see cref="F:XploRe.Runtime.ByteOrder.BigEndian" />.
+            </summary>
+            <param name="order">This <see cref="T:XploRe.Runtime.ByteOrder" /> enumeration value to test.</param>
+            <returns>
+                <c>true</c>, if <paramref name="order" /> is equal to the network byte-order, i.e. describes
+                <see cref="F:XploRe.Runtime.ByteOrder.BigEndian"/>, otherwise <c>false</c>.
+            </returns>
+        </member>
+        <member name="T:XploRe.Runtime.GenericEnum`2">
+            <summary>
+            <para>
+                Basic enum implementation for a generic class that may provide additional properties, methods and implicit
+                conversion operators as needed.
+            </para>
+            <para>
+                Each enum member must be defined as public, static fields, initialised with an instance of the enum with the
+                value they are supposed to represent. Optionally, the <see cref="T:System.ComponentModel.DescriptionAttribute" /> 
+                attribute may be used to set a description.
+                At runtime, the name of each member is automatically set to the name of the corresponding field and the
+                description field it set to the value of the <see cref="T:System.ComponentModel.DescriptionAttribute" />, if 
+                any.
+            </para>
+            <para>
+                An <see cref="T:System.ArgumentException" /> is thrown during static initialisation if two members use the 
+                same value.
+            </para>
+            </summary>
+            <typeparam name="TValue">
+                Type of enumeration value. Must be a value type that supports comparison and equality.
+            </typeparam>
+            <typeparam name="TDerived">
+                The type of the derived class of the <see cref="T:XploRe.Runtime.GenericEnum`2" />.
+            </typeparam>
+        </member>
+        <member name="P:XploRe.Runtime.GenericEnum`2.Value">
+            <summary>
+                Value of enumeration member.
+            </summary>
+        </member>
+        <member name="P:XploRe.Runtime.GenericEnum`2.Description">
+            <summary>
+                Optional description of enumeration member. Can be set via the <see cref="T:System.ComponentModel.DescriptionAttribute" />
+                attribute.
+            </summary>
+        </member>
+        <member name="P:XploRe.Runtime.GenericEnum`2.Name">
+            <summary>
+                Name of enumeration member.
+            </summary>
+        </member>
+        <member name="M:XploRe.Runtime.GenericEnum`2.#ctor(`0)">
+            <summary>
+                Initialises a new <see cref="T:XploRe.Runtime.GenericEnum`2"/> with a given value.
+            </summary>
+            <param name="value">Value to initialise new enum member with.</param>
+        </member>
+        <member name="P:XploRe.Runtime.GenericEnum`2.Values">
+            <summary>
+                List over all enum member values of the enum type.
+            </summary>
+        </member>
+        <member name="M:XploRe.Runtime.GenericEnum`2.Parse(System.String)">
+            <summary>
+                Yields the first member with a matching name.
+            </summary>
+            <param name="name">Name of member to search for. Member names comparison is case-insensitive.</param>
+            <returns>
+                First matching enumeration member with the given name or <c>null</c>, if no match was found.
+            </returns>
+        </member>
+        <member name="M:XploRe.Runtime.GenericEnum`2.Equals(System.Object)">
+            <inheritdoc cref="M:System.Enum.Equals(System.Object)" />
+        </member>
+        <member name="M:XploRe.Runtime.GenericEnum`2.GetHashCode">
+            <summary>
+                The hash code of an enumeration member equals the hash code of the represented value.
+            </summary>
+            <returns>The hash code of the represented value.</returns>
+        </member>
+        <member name="M:XploRe.Runtime.GenericEnum`2.ToString">
+            <summary>
+                Returns the name of the field represented by the enum member.
+            </summary>
+            <returns>Name of field represented by the enum member.</returns>
+        </member>
+        <member name="M:XploRe.Runtime.GenericEnum`2.op_Implicit(`0)~XploRe.Runtime.GenericEnum{`0,`1}">
+            <summary>
+                Retrieves the enumeration member for a given value.
+            </summary>
+            <param name="value">Value to implicitly get enumeration member for.</param>
+            <returns>Enumeration member instance on success, otherwise <c>null</c>.</returns>
+        </member>
+        <member name="M:XploRe.Runtime.GenericEnum`2.op_Implicit(XploRe.Runtime.GenericEnum{`0,`1})~`0">
+            <summary>
+                Yields the value represented by the enumeration member.
+            </summary>
+            <param name="member">Enumeration member to get value from.</param>
+            <returns>Value of enumeration member.</returns>
+        </member>
+        <member name="M:XploRe.Runtime.GenericEnum`2.TryConvert(`0,`1@)">
+            <summary>
+                Tries to get the enumeration member with the specified value.
+            </summary>
+            <param name="value">Value to search for.</param>
+            <param name="member">
+                Receives the found enumeration member instance on success, or, if not found, the default for the
+                enumeration type.
+            </param>
+            <returns><c>true</c>, if a member with the given member was found, otherwise <c>false</c>.</returns>
+        </member>
+        <member name="M:XploRe.Runtime.GenericEnum`2.CompareTo(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:XploRe.Runtime.GenericEnum`2.CompareTo(`1)">
+            <inheritdoc />
+        </member>
+        <member name="M:XploRe.Runtime.GenericEnum`2.Compare(`1,`1)">
+            <inheritdoc />
+        </member>
+        <member name="M:XploRe.Runtime.GenericEnum`2.Equals(`1)">
+            <inheritdoc />
+            <remarks>Two instances are considered equal if their values are equal.</remarks>
+        </member>
+        <member name="F:XploRe.Runtime.GenericEnum`2.Members">
+            <summary>
+                List of enumeration values with their associated instances. These are automatically collected during the
+                instantiation of enumeration members.
+            </summary>
+            <remarks>
+                Members may not have been initialised yet if a static method such as <see cref="M:XploRe.Runtime.GenericEnum`2.Parse(System.String)" /> is being
+                called. This collection is used for implicit conversion of existing members or for efficiently parsing
+                a value (with fallback to manually checking member mappings if value list is empty).
+            </remarks>
+        </member>
+        <member name="F:XploRe.Runtime.GenericEnum`2._description">
+            <summary>
+                Instance description. Lazily retrieves the description attribute value via reflection on first access.
+            </summary>
+        </member>
+        <member name="F:XploRe.Runtime.GenericEnum`2._name">
+            <summary>
+                Instance name, lazily retrieves the field name via reflection on first access.
+            </summary>
+        </member>
+        <member name="F:XploRe.Runtime.GenericEnum`2.MemberFieldMappings">
+            <summary>
+                Statically initialised mapping of all member fields that are static and public. A mapping is lazily
+                resolved once the corresponding field properties are accessed, which itself will lazily resolve the
+                requested field name or description attribute value.
+            </summary>
+        </member>
+        <member name="T:XploRe.Runtime.GenericEnum`2.MemberFieldInfo">
+            <summary>
+                Wraps a <see cref="T:System.Reflection.FieldInfo" /> instance retrieved during static initialisation and provides an 
+                interface to lazily retrieve the requested enumeration properties via reflection.
+            </summary>
+        </member>
+        <member name="F:XploRe.Runtime.GenericEnum`2.MemberFieldInfo._fieldInfo">
+            <summary>
+                The represented member field.
+            </summary>
+        </member>
+        <member name="F:XploRe.Runtime.GenericEnum`2.MemberFieldInfo._lazyInstance">
+            <summary>
+                The enumeration member instance that is Lazily retrieved on first access.
+            </summary>
+        </member>
+        <member name="P:XploRe.Runtime.GenericEnum`2.MemberFieldInfo.Description">
+            <summary>
+                The description attribute value of the field. Accessed lazily when the corresponding property is
+                accessed.
+            </summary>
+        </member>
+        <member name="P:XploRe.Runtime.GenericEnum`2.MemberFieldInfo.Instance">
+            <summary>
+                The enum member instance.
+            </summary>
+        </member>
+        <member name="P:XploRe.Runtime.GenericEnum`2.MemberFieldInfo.Name">
+            <summary>
+                The name of the field. Accessed lazily when the corresponding property is accessed.
+            </summary>
+        </member>
+        <member name="M:XploRe.Runtime.GenericEnum`2.MemberFieldInfo.#ctor(System.Reflection.FieldInfo)">
+            <summary>
+                Initialises a new member wrapper instance.
+            </summary>
+            <param name="info">The <see cref="T:System.Reflection.FieldInfo" /> instance retrieved during static initialisation.</param>
+        </member>
+        <member name="T:XploRe.Runtime.Internal.ExpressionFormatter`1">
+            <summary>
+                Formats an expression for use within error messages by replacing closure wrappers by their actual local
+                variable name for improved readability.
+            </summary>
+            <typeparam name="T">Lambda expression type.</typeparam>
+        </member>
+        <member name="P:XploRe.Runtime.Internal.ExpressionFormatter`1.Expression">
+            <summary>
+                The <see cref="T:System.Linq.Expressions.Expression`1" /> this formatter was initialised with.
+            </summary>
+        </member>
+        <member name="M:XploRe.Runtime.Internal.ExpressionFormatter`1.#ctor(System.Linq.Expressions.Expression{System.Func{`0}})">
+            <summary>
+                Initialises a new <see cref="T:XploRe.Runtime.Internal.ExpressionFormatter`1" /> instance with a given expression.
+            </summary>
+            <param name="expression">The <see cref="T:System.Linq.Expressions.Expression`1" /> to format.</param>
+        </member>
+        <member name="M:XploRe.Runtime.Internal.ExpressionFormatter`1.ToString">
+            <summary>
+                Returns the formatted expression.
+            </summary>
+            <returns>The formatted expression.</returns>
+        </member>
+        <member name="T:XploRe.Runtime.Internal.ExpressionFormatter`1.ExpressionFormatterVisitor">
+            <inheritdoc />
+            <summary>
+                Pre-processes an expression tree by replacing closure leaf nodes by their respective local variable name.
+            </summary>
+        </member>
+        <member name="M:XploRe.Runtime.Internal.ExpressionFormatter`1.ExpressionFormatterVisitor.Modify(System.Linq.Expressions.Expression)">
+            <summary>
+                Modifies a given expression.
+            </summary>
+            <param name="node">Expression node to modify.</param>
+            <returns>The modified expression.</returns>
+        </member>
+        <member name="M:XploRe.Runtime.Internal.TypeHelper.IsCompilerGenerated(System.Type)">
+            <summary>
+                Determines whether the <see cref="T:System.Runtime.CompilerServices.CompilerGeneratedAttribute" /> is set for a given type.
+            </summary>
+            <param name="type">The <see cref="T:System.Type" /> to check.</param>
+            <returns>
+                <c>true</c>, if the <see cref="T:System.Runtime.CompilerServices.CompilerGeneratedAttribute" /> is set for <paramref name="type" />,
+                otherwise <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:XploRe.Runtime.Internal.TypeHelper.IsCompilerGeneratedDisplayClass(System.Type)">
+            <summary>
+                Determines whether a given type is a compiler-generated closure that should be treated transparently.
+            </summary>
+            <param name="type">The <see cref="T:System.Type" /> to check.</param>
+            <returns>
+                <c>true</c>, if <paramref name="type" /> is a compiler-generated closure that should be treated
+                transparently, otherwise <c>false</c>.
+            </returns>
+        </member>
+        <member name="T:XploRe.Runtime.RuntimeException">
+            <inheritdoc />
+            <summary>
+                The exception that is thrown on runtime library errors.
+            </summary>
+        </member>
+        <member name="M:XploRe.Runtime.RuntimeException.#ctor">
+            <inheritdoc />
+            <summary>
+                Initialises a new <see cref="T:XploRe.Runtime.RuntimeException" /> instance with the default error 
+                message.
+            </summary>
+        </member>
+        <member name="M:XploRe.Runtime.RuntimeException.#ctor(System.String)">
+            <inheritdoc />
+            <summary>
+                Initialises a new <see cref="T:XploRe.Runtime.RuntimeException" /> instance with a specified error 
+                message.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+        </member>
+        <member name="M:XploRe.Runtime.RuntimeException.#ctor(System.String,System.Exception)">
+            <inheritdoc />
+            <summary>
+                Initialises a new <see cref="T:XploRe.Runtime.RuntimeException" /> instance with a specified error 
+                message and a reference to the inner exception that is the cause of this exception.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+            <param name="innerException">
+                The exception that is the cause of the current exception. If the <paramref name="innerException" />
+                parameter is not a <c>null</c> reference, then the current exception was raised in a <c>catch</c> block
+                that handles the inner exception.
+            </param>
+        </member>
+        <member name="T:XploRe.Runtime.RuntimeInconsistencyException">
+            <inheritdoc />
+            <summary>
+                The exception that is thrown when an inconsistency in a runtime library has been detected.
+            </summary>
+        </member>
+        <member name="P:XploRe.Runtime.RuntimeInconsistencyException.Inconsistency">
+            <summary>
+                Technical description of the detected inconsistency.
+            </summary>
+        </member>
+        <member name="P:XploRe.Runtime.RuntimeInconsistencyException.Message">
+            <inheritdoc />
+            <summary>
+                Gets the error message including the technical description on the detected inconsistency, or only the
+                error message if no inconsistency description is set.
+            </summary>
+        </member>
+        <member name="M:XploRe.Runtime.RuntimeInconsistencyException.#ctor">
+            <inheritdoc />
+            <summary>
+                Initialises a new <see cref="T:XploRe.Runtime.RuntimeInconsistencyException" /> instance with the 
+                default error message.
+            </summary>
+        </member>
+        <member name="M:XploRe.Runtime.RuntimeInconsistencyException.#ctor(System.String)">
+            <inheritdoc />
+            <summary>
+                Initialises a new <see cref="T:XploRe.Runtime.RuntimeInconsistencyException" /> instance with a 
+                technical description on the detected runtime library inconsistency.
+            </summary>
+            <param name="inconsistency">The technical description on the detected runtime library inconsistency.</param>
+        </member>
+        <member name="M:XploRe.Runtime.RuntimeInconsistencyException.#ctor(System.String,System.String)">
+            <inheritdoc />
+            <summary>
+                Initialises a new <see cref="T:XploRe.Runtime.RuntimeInconsistencyException" /> instance with a 
+                technical description on the detected runtime library inconsistency and an error message.
+            </summary>
+            <param name="inconsistency">The technical description on the detected runtime library inconsistency.</param>
+            <param name="message">The error message that explains the reason for the exception.</param>
+        </member>
+        <member name="M:XploRe.Runtime.RuntimeInconsistencyException.#ctor(System.String,System.Exception)">
+            <inheritdoc />
+            <summary>
+                Initialises a new <see cref="T:XploRe.Runtime.RuntimeInconsistencyException" /> instance with a 
+                specified error message and a reference to the inner exception that is the cause of this exception.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+            <param name="innerException">
+                The exception that is the cause of the current exception. If the <paramref name="innerException" />
+                parameter is not a <c>null</c> reference, then the current exception was raised in a <c>catch</c> block
+                that handles the inner exception.
+            </param>
+        </member>
+        <member name="M:XploRe.Runtime.RuntimeInconsistencyException.#ctor(System.String,System.String,System.Exception)">
+            <inheritdoc />
+            <summary>
+                Initialises a new <see cref="T:XploRe.Runtime.RuntimeInconsistencyException" /> instance with a 
+                specified error message and a reference to the inner exception that is the cause of this exception.
+            </summary>
+            <param name="inconsistency">The technical description on the detected runtime library inconsistency.</param>
+            <param name="message">The error message that explains the reason for the exception.</param>
+            <param name="innerException">
+                The exception that is the cause of the current exception. If the <paramref name="innerException" />
+                parameter is not a <c>null</c> reference, then the current exception was raised in a <c>catch</c> block
+                that handles the inner exception.
+            </param>
+        </member>
+        <member name="M:XploRe.Runtime.RuntimeInconsistencyException.FromUnexpectedNull``1(System.Linq.Expressions.Expression{System.Func{``0}})">
+            <summary>
+                Creates a new <see cref="T:XploRe.Runtime.RuntimeInconsistencyException" /> instance for an unexpected <c>null</c> value.
+            </summary>
+            <param name="expression">The expression that yielded <c>null</c>.</param>
+            <returns>A new initialised <see cref="T:XploRe.Runtime.RuntimeInconsistencyException" /> instance.</returns>
+        </member>
+        <member name="T:XploRe.Runtime.StringExtensions">
+            <summary>
+                Provides convenience extensions for <see cref="T:System.String" /> instances.
+            </summary>
+        </member>
+        <member name="M:XploRe.Runtime.StringExtensions.EndsWith(System.String,System.String,System.Boolean)">
+            <summary>
+                Determines whether the end of this string instance matches the specified string instance based on a
+                case-sensitive comparison, optionally taking the current culture into account.
+            </summary>
+            <param name="self">This <see cref="T:System.String" /> instance whose end to compare to another.</param>
+            <param name="value">
+                The <see cref="T:System.String" /> instance to compare to the substring at the end of this instance.
+            </param>
+            <param name="useCurrentCulture">
+                If set to <c>true</c>, the current culture will be taken into account, otherwise the strings are
+                compared ordinally.
+            </param>
+            <returns>
+                <c>true</c>, if the <paramref name="value" /> parameter matches the end of this <see cref="T:System.String" />,
+                otherwise <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:XploRe.Runtime.StringExtensions.EndsWithIgnoreCase(System.String,System.String)">
+            <summary>
+                Determines whether the end of this string instance matches the specified string instance based on a
+                case-insensitive comparison, taking the current culture into account.
+            </summary>
+            <param name="self">This <see cref="T:System.String" /> instance whose end to compare to another.</param>
+            <param name="value">
+                The <see cref="T:System.String" /> instance to compare to the substring at the end of this instance.
+            </param>
+            <returns>
+                <c>true</c>, if the <paramref name="value" /> parameter matches the end of this <see cref="T:System.String" />,
+                otherwise <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:XploRe.Runtime.StringExtensions.EndsWithIgnoreCase(System.String,System.String,System.Boolean)">
+            <summary>
+                Determines whether the end of this string instance matches the specified string instance based on a
+                case-insensitive comparison, optionally taking the current culture into account.
+            </summary>
+            <param name="self">This <see cref="T:System.String" /> instance whose end to compare to another.</param>
+            <param name="value">
+                The <see cref="T:System.String" /> instance to compare to the substring at the end of this instance.
+            </param>
+            <param name="useCurrentCulture">
+                If set to <c>true</c>, the current culture will be taken into account, otherwise the strings are
+                compared ordinally.
+            </param>
+            <returns>
+                <c>true</c>, if the <paramref name="value" /> parameter matches the end of this <see cref="T:System.String" />,
+                otherwise <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:XploRe.Runtime.StringExtensions.Equals(System.String,System.String,System.Boolean)">
+            <summary>
+                Determines whether two <see cref="T:System.String" /> instances have the same value based on a case-sensitive
+                comparison, optionally taking the current culture into account.
+            </summary>
+            <param name="self">This <see cref="T:System.String" /> instance to compare with another. Can be <c>null</c>.</param>
+            <param name="other">The <see cref="T:System.String" /> instance to compare with. Can be <c>null</c>.</param>
+            <param name="useCurrentCulture">
+                If set to <c>true</c>, the current culture will be taken into account, otherwise the strings are
+                compared ordinally.
+            </param>
+            <returns><c>true</c>, if both strings are equal w.r.t. the culture flag.</returns>
+        </member>
+        <member name="M:XploRe.Runtime.StringExtensions.EqualsIgnoreCase(System.String,System.String)">
+            <summary>
+                Determines whether two <see cref="T:System.String" /> instances have the same value based on a case-insensitive,
+                ordinal comparison.
+            </summary>
+            <param name="self">The <see cref="T:System.String" /> instance to compare with another. Can be <c>null</c>/</param>
+            <param name="other">The <see cref="T:System.String" /> instance to compare with. Can be <c>null</c>.</param>
+            <returns>
+                <c>true</c>, if both strings are equal ignoring case without taking the current culture into account.
+            </returns>
+        </member>
+        <member name="M:XploRe.Runtime.StringExtensions.EqualsIgnoreCase(System.String,System.String,System.Boolean)">
+            <summary>
+                Determines whether two <see cref="T:System.String" /> instances have the same value based on a case-insensitive
+                comparison, optionally taking the current culture into account.
+            </summary>
+            <param name="self">The <see cref="T:System.String" /> instance to compare with another. Can be <c>null</c>/</param>
+            <param name="other">The <see cref="T:System.String" /> instance to compare with. Can be <c>null</c>.</param>
+            <param name="useCurrentCulture">
+                If set to <c>true</c>, the current culture will be taken into account, otherwise the strings are
+                compared ordinally.
+            </param>
+            <returns><c>true</c>, if both strings are equal ignoring case w.r.t. the culture flag.</returns>
+        </member>
+        <member name="M:XploRe.Runtime.StringExtensions.FormatWith(System.String,System.Object[])">
+            <summary>
+                Replaces all positional format placeholders in the current string with the string representation of
+                their corresponding object in the arguments array.  
+            </summary>
+            <param name="format">This composite format string instance.</param>
+            <param name="args">An object array with all formatting arguments.</param>
+            <returns>
+                A copy of the current <paramref name="format" /> string instance that has all positional format
+                placeholders replaced by the string representations of their corresponding objects in the
+                <paramref name="args" /> parameters array.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+                The <paramref name="format" /> or <paramref name="args" /> parameter is <c>null</c>.
+            </exception>
+            <exception cref="T:System.FormatException">
+                The format of the current string is invalid; or the index of a positional format placeholder is negative
+                or greater than or equal to the length of the <paramref name="args" /> parameter array.
+            </exception>
+        </member>
+        <member name="M:XploRe.Runtime.StringExtensions.StartsWith(System.String,System.String,System.Boolean)">
+            <summary>
+                Determines whether the beginning of this string instance matches the specified string instance based on 
+                a case-sensitive comparison, optionally taking the current culture into account.
+            </summary>
+            <param name="self">This <see cref="T:System.String" /> instance whose beginning to compare to another.</param>
+            <param name="value">
+                The <see cref="T:System.String" /> instance to compare to the substring at the beginning of this instance.
+            </param>
+            <param name="useCurrentCulture">
+                If set to <c>true</c>, the current culture will be taken into account, otherwise the strings are
+                compared ordinally.
+            </param>
+            <returns>
+                <c>true</c>, if the <paramref name="value" /> parameter matches the beginning of this
+                <see cref="T:System.String" />, otherwise <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:XploRe.Runtime.StringExtensions.StartsWithIgnoreCase(System.String,System.String)">
+            <summary>
+                Determines whether the beginning of this string instance matches the specified string instance based on 
+                a case-insensitive comparison, taking the current culture into account.
+            </summary>
+            <param name="self">This <see cref="T:System.String" /> instance whose end to compare to another.</param>
+            <param name="value">
+                The <see cref="T:System.String" /> instance to compare to the substring at the beginning of this instance.
+            </param>
+            <returns>
+                <c>true</c>, if the <paramref name="value" /> parameter matches the beginning of this 
+                <see cref="T:System.String" />, otherwise <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:XploRe.Runtime.StringExtensions.StartsWithIgnoreCase(System.String,System.String,System.Boolean)">
+            <summary>
+                Determines whether the beginning of this string instance matches the specified string instance based on
+                a case-insensitive comparison, optionally taking the current culture into account.
+            </summary>
+            <param name="self">This <see cref="T:System.String" /> instance whose beginning to compare to another.</param>
+            <param name="value">
+                The <see cref="T:System.String" /> instance to compare to the substring at the beginning of this instance.
+            </param>
+            <param name="useCurrentCulture">
+                If set to <c>true</c>, the current culture will be taken into account, otherwise the strings are
+                compared ordinally.
+            </param>
+            <returns>
+                <c>true</c>, if the <paramref name="value" /> parameter matches the beginning of this
+                <see cref="T:System.String" />, otherwise <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:XploRe.Runtime.StringExtensions.ToMemoryStream(System.String,System.Text.Encoding)">
+            <summary>
+                Returns a new <see cref="T:System.IO.MemoryStream" /> from this string using the given encoding. 
+            </summary>
+            <param name="self">This <see cref="T:System.String" /> instance to return a <see cref="T:System.IO.MemoryStream" /> for.</param>
+            <param name="encoding">The <see cref="T:System.Text.Encoding" /> used to convert the string into a byte sequence.</param>
+            <returns>A new <see cref="T:System.IO.MemoryStream" /> instance over the encoded string contents.</returns>
+        </member>
+        <member name="T:JetBrains.Annotations.CanBeNullAttribute">
+            <summary>
+            Indicates that the value of the marked element could be <c>null</c> sometimes,
+            so the check for <c>null</c> is necessary before its usage.
+            </summary>
+            <example><code>
+            [CanBeNull] object Test() => null;
+            
+            void UseTest() {
+              var p = Test();
+              var s = p.ToString(); // Warning: Possible 'System.NullReferenceException'
+            }
+            </code></example>
+        </member>
+        <member name="T:JetBrains.Annotations.NotNullAttribute">
+            <summary>
+            Indicates that the value of the marked element could never be <c>null</c>.
+            </summary>
+            <example><code>
+            [NotNull] object Foo() {
+              return null; // Warning: Possible 'null' assignment
+            }
+            </code></example>
+        </member>
+        <member name="T:JetBrains.Annotations.ItemNotNullAttribute">
+            <summary>
+            Can be appplied to symbols of types derived from IEnumerable as well as to symbols of Task
+            and Lazy classes to indicate that the value of a collection item, of the Task.Result property
+            or of the Lazy.Value property can never be null.
+            </summary>
+        </member>
+        <member name="T:JetBrains.Annotations.ItemCanBeNullAttribute">
+            <summary>
+            Can be appplied to symbols of types derived from IEnumerable as well as to symbols of Task
+            and Lazy classes to indicate that the value of a collection item, of the Task.Result property
+            or of the Lazy.Value property can be null.
+            </summary>
+        </member>
+        <member name="T:JetBrains.Annotations.StringFormatMethodAttribute">
+            <summary>
+            Indicates that the marked method builds string by format pattern and (optional) arguments.
+            Parameter, which contains format string, should be given in constructor. The format string
+            should be in <see cref="M:System.String.Format(System.IFormatProvider,System.String,System.Object[])"/>-like form.
+            </summary>
+            <example><code>
+            [StringFormatMethod("message")]
+            void ShowError(string message, params object[] args) { /* do something */ }
+            
+            void Foo() {
+              ShowError("Failed: {0}"); // Warning: Non-existing argument in format string
+            }
+            </code></example>
+        </member>
+        <member name="M:JetBrains.Annotations.StringFormatMethodAttribute.#ctor(System.String)">
+            <param name="formatParameterName">
+            Specifies which parameter of an annotated method should be treated as format-string
+            </param>
+        </member>
+        <member name="T:JetBrains.Annotations.ValueProviderAttribute">
+            <summary>
+            For a parameter that is expected to be one of the limited set of values.
+            Specify fields of which type should be used as values for this parameter.
+            </summary>
+        </member>
+        <member name="T:JetBrains.Annotations.InvokerParameterNameAttribute">
+            <summary>
+            Indicates that the function argument should be string literal and match one
+            of the parameters of the caller function. For example, ReSharper annotates
+            the parameter of <see cref="T:System.ArgumentNullException"/>.
+            </summary>
+            <example><code>
+            void Foo(string param) {
+              if (param == null)
+                throw new ArgumentNullException("par"); // Warning: Cannot resolve symbol
+            }
+            </code></example>
+        </member>
+        <member name="T:JetBrains.Annotations.NotifyPropertyChangedInvocatorAttribute">
+             <summary>
+             Indicates that the method is contained in a type that implements
+             <c>System.ComponentModel.INotifyPropertyChanged</c> interface and this method
+             is used to notify that some property value changed.
+             </summary>
+             <remarks>
+             The method should be non-static and conform to one of the supported signatures:
+             <list>
+             <item><c>NotifyChanged(string)</c></item>
+             <item><c>NotifyChanged(params string[])</c></item>
+             <item><c>NotifyChanged{T}(Expression{Func{T}})</c></item>
+             <item><c>NotifyChanged{T,U}(Expression{Func{T,U}})</c></item>
+             <item><c>SetProperty{T}(ref T, T, string)</c></item>
+             </list>
+             </remarks>
+             <example><code>
+             public class Foo : INotifyPropertyChanged {
+               public event PropertyChangedEventHandler PropertyChanged;
+             
+               [NotifyPropertyChangedInvocator]
+               protected virtual void NotifyChanged(string propertyName) { ... }
+            
+               string _name;
+             
+               public string Name {
+                 get { return _name; }
+                 set { _name = value; NotifyChanged("LastName"); /* Warning */ }
+               }
+             }
+             </code>
+             Examples of generated notifications:
+             <list>
+             <item><c>NotifyChanged("Property")</c></item>
+             <item><c>NotifyChanged(() =&gt; Property)</c></item>
+             <item><c>NotifyChanged((VM x) =&gt; x.Property)</c></item>
+             <item><c>SetProperty(ref myField, value, "Property")</c></item>
+             </list>
+             </example>
+        </member>
+        <member name="T:JetBrains.Annotations.ContractAnnotationAttribute">
+            <summary>
+            Describes dependency between method input and output.
+            </summary>
+            <syntax>
+            <p>Function Definition Table syntax:</p>
+            <list>
+            <item>FDT      ::= FDTRow [;FDTRow]*</item>
+            <item>FDTRow   ::= Input =&gt; Output | Output &lt;= Input</item>
+            <item>Input    ::= ParameterName: Value [, Input]*</item>
+            <item>Output   ::= [ParameterName: Value]* {halt|stop|void|nothing|Value}</item>
+            <item>Value    ::= true | false | null | notnull | canbenull</item>
+            </list>
+            If method has single input parameter, it's name could be omitted.<br/>
+            Using <c>halt</c> (or <c>void</c>/<c>nothing</c>, which is the same) for method output
+            means that the methos doesn't return normally (throws or terminates the process).<br/>
+            Value <c>canbenull</c> is only applicable for output parameters.<br/>
+            You can use multiple <c>[ContractAnnotation]</c> for each FDT row, or use single attribute
+            with rows separated by semicolon. There is no notion of order rows, all rows are checked
+            for applicability and applied per each program state tracked by R# analysis.<br/>
+            </syntax>
+            <examples><list>
+            <item><code>
+            [ContractAnnotation("=&gt; halt")]
+            public void TerminationMethod()
+            </code></item>
+            <item><code>
+            [ContractAnnotation("halt &lt;= condition: false")]
+            public void Assert(bool condition, string text) // regular assertion method
+            </code></item>
+            <item><code>
+            [ContractAnnotation("s:null =&gt; true")]
+            public bool IsNullOrEmpty(string s) // string.IsNullOrEmpty()
+            </code></item>
+            <item><code>
+            // A method that returns null if the parameter is null,
+            // and not null if the parameter is not null
+            [ContractAnnotation("null =&gt; null; notnull =&gt; notnull")]
+            public object Transform(object data) 
+            </code></item>
+            <item><code>
+            [ContractAnnotation("=&gt; true, result: notnull; =&gt; false, result: null")]
+            public bool TryParse(string s, out Person result)
+            </code></item>
+            </list></examples>
+        </member>
+        <member name="T:JetBrains.Annotations.LocalizationRequiredAttribute">
+            <summary>
+            Indicates that marked element should be localized or not.
+            </summary>
+            <example><code>
+            [LocalizationRequiredAttribute(true)]
+            class Foo {
+              string str = "my string"; // Warning: Localizable string
+            }
+            </code></example>
+        </member>
+        <member name="T:JetBrains.Annotations.CannotApplyEqualityOperatorAttribute">
+            <summary>
+            Indicates that the value of the marked type (or its derivatives)
+            cannot be compared using '==' or '!=' operators and <c>Equals()</c>
+            should be used instead. However, using '==' or '!=' for comparison
+            with <c>null</c> is always permitted.
+            </summary>
+            <example><code>
+            [CannotApplyEqualityOperator]
+            class NoEquality { }
+            
+            class UsesNoEquality {
+              void Test() {
+                var ca1 = new NoEquality();
+                var ca2 = new NoEquality();
+                if (ca1 != null) { // OK
+                  bool condition = ca1 == ca2; // Warning
+                }
+              }
+            }
+            </code></example>
+        </member>
+        <member name="T:JetBrains.Annotations.BaseTypeRequiredAttribute">
+            <summary>
+            When applied to a target attribute, specifies a requirement for any type marked
+            with the target attribute to implement or inherit specific type or types.
+            </summary>
+            <example><code>
+            [BaseTypeRequired(typeof(IComponent)] // Specify requirement
+            class ComponentAttribute : Attribute { }
+            
+            [Component] // ComponentAttribute requires implementing IComponent interface
+            class MyComponent : IComponent { }
+            </code></example>
+        </member>
+        <member name="T:JetBrains.Annotations.UsedImplicitlyAttribute">
+            <summary>
+            Indicates that the marked symbol is used implicitly (e.g. via reflection, in external library),
+            so this symbol will not be marked as unused (as well as by other usage inspections).
+            </summary>
+        </member>
+        <member name="T:JetBrains.Annotations.MeansImplicitUseAttribute">
+            <summary>
+            Should be used on attributes and causes ReSharper to not mark symbols marked with such attributes
+            as unused (as well as by other usage inspections)
+            </summary>
+        </member>
+        <member name="F:JetBrains.Annotations.ImplicitUseKindFlags.Access">
+            <summary>Only entity marked with attribute considered used.</summary>
+        </member>
+        <member name="F:JetBrains.Annotations.ImplicitUseKindFlags.Assign">
+            <summary>Indicates implicit assignment to a member.</summary>
+        </member>
+        <member name="F:JetBrains.Annotations.ImplicitUseKindFlags.InstantiatedWithFixedConstructorSignature">
+            <summary>
+            Indicates implicit instantiation of a type with fixed constructor signature.
+            That means any unused constructor parameters won't be reported as such.
+            </summary>
+        </member>
+        <member name="F:JetBrains.Annotations.ImplicitUseKindFlags.InstantiatedNoFixedConstructorSignature">
+            <summary>Indicates implicit instantiation of a type.</summary>
+        </member>
+        <member name="T:JetBrains.Annotations.ImplicitUseTargetFlags">
+            <summary>
+            Specify what is considered used implicitly when marked
+            with <see cref="T:JetBrains.Annotations.MeansImplicitUseAttribute"/> or <see cref="T:JetBrains.Annotations.UsedImplicitlyAttribute"/>.
+            </summary>
+        </member>
+        <member name="F:JetBrains.Annotations.ImplicitUseTargetFlags.Members">
+            <summary>Members of entity marked with attribute are considered used.</summary>
+        </member>
+        <member name="F:JetBrains.Annotations.ImplicitUseTargetFlags.WithMembers">
+            <summary>Entity marked with attribute and all its members considered used.</summary>
+        </member>
+        <member name="T:JetBrains.Annotations.PublicAPIAttribute">
+            <summary>
+            This attribute is intended to mark publicly available API
+            which should not be removed and so is treated as used.
+            </summary>
+        </member>
+        <member name="T:JetBrains.Annotations.InstantHandleAttribute">
+            <summary>
+            Tells code analysis engine if the parameter is completely handled when the invoked method is on stack.
+            If the parameter is a delegate, indicates that delegate is executed while the method is executed.
+            If the parameter is an enumerable, indicates that it is enumerated while the method is executed.
+            </summary>
+        </member>
+        <member name="T:JetBrains.Annotations.PureAttribute">
+            <summary>
+            Indicates that a method does not make any observable state changes.
+            The same as <c>System.Diagnostics.Contracts.PureAttribute</c>.
+            </summary>
+            <example><code>
+            [Pure] int Multiply(int x, int y) => x * y;
+            
+            void M() {
+              Multiply(123, 42); // Waring: Return value of pure method is not used
+            }
+            </code></example>
+        </member>
+        <member name="T:JetBrains.Annotations.MustUseReturnValueAttribute">
+            <summary>
+            Indicates that the return value of method invocation must be used.
+            </summary>
+        </member>
+        <member name="T:JetBrains.Annotations.ProvidesContextAttribute">
+            <summary>
+            Indicates the type member or parameter of some type, that should be used instead of all other ways
+            to get the value that type. This annotation is useful when you have some "context" value evaluated
+            and stored somewhere, meaning that all other ways to get this value must be consolidated with existing one.
+            </summary>
+            <example><code>
+            class Foo {
+              [ProvidesContext] IBarService _barService = ...;
+            
+              void ProcessNode(INode node) {
+                DoSomething(node, node.GetGlobalServices().Bar);
+                //              ^ Warning: use value of '_barService' field
+              }
+            }
+            </code></example>
+        </member>
+        <member name="T:JetBrains.Annotations.PathReferenceAttribute">
+            <summary>
+            Indicates that a parameter is a path to a file or a folder within a web project.
+            Path can be relative or absolute, starting from web root (~).
+            </summary>
+        </member>
+        <member name="T:JetBrains.Annotations.SourceTemplateAttribute">
+            <summary>
+            An extension method marked with this attribute is processed by ReSharper code completion
+            as a 'Source Template'. When extension method is completed over some expression, it's source code
+            is automatically expanded like a template at call site.
+            </summary>
+            <remarks>
+            Template method body can contain valid source code and/or special comments starting with '$'.
+            Text inside these comments is added as source code when the template is applied. Template parameters
+            can be used either as additional method parameters or as identifiers wrapped in two '$' signs.
+            Use the <see cref="T:JetBrains.Annotations.MacroAttribute"/> attribute to specify macros for parameters.
+            </remarks>
+            <example>
+            In this example, the 'forEach' method is a source template available over all values
+            of enumerable types, producing ordinary C# 'foreach' statement and placing caret inside block:
+            <code>
+            [SourceTemplate]
+            public static void forEach&lt;T&gt;(this IEnumerable&lt;T&gt; xs) {
+              foreach (var x in xs) {
+                 //$ $END$
+              }
+            }
+            </code>
+            </example>
+        </member>
+        <member name="T:JetBrains.Annotations.MacroAttribute">
+            <summary>
+            Allows specifying a macro for a parameter of a <see cref="T:JetBrains.Annotations.SourceTemplateAttribute">source template</see>.
+            </summary>
+            <remarks>
+            You can apply the attribute on the whole method or on any of its additional parameters. The macro expression
+            is defined in the <see cref="P:JetBrains.Annotations.MacroAttribute.Expression"/> property. When applied on a method, the target
+            template parameter is defined in the <see cref="P:JetBrains.Annotations.MacroAttribute.Target"/> property. To apply the macro silently
+            for the parameter, set the <see cref="P:JetBrains.Annotations.MacroAttribute.Editable"/> property value = -1.
+            </remarks>
+            <example>
+            Applying the attribute on a source template method:
+            <code>
+            [SourceTemplate, Macro(Target = "item", Expression = "suggestVariableName()")]
+            public static void forEach&lt;T&gt;(this IEnumerable&lt;T&gt; collection) {
+              foreach (var item in collection) {
+                //$ $END$
+              }
+            }
+            </code>
+            Applying the attribute on a template method parameter:
+            <code>
+            [SourceTemplate]
+            public static void something(this Entity x, [Macro(Expression = "guid()", Editable = -1)] string newguid) {
+              /*$ var $x$Id = "$newguid$" + x.ToString();
+              x.DoSomething($x$Id); */
+            }
+            </code>
+            </example>
+        </member>
+        <member name="P:JetBrains.Annotations.MacroAttribute.Expression">
+            <summary>
+            Allows specifying a macro that will be executed for a <see cref="T:JetBrains.Annotations.SourceTemplateAttribute">source template</see>
+            parameter when the template is expanded.
+            </summary>
+        </member>
+        <member name="P:JetBrains.Annotations.MacroAttribute.Editable">
+            <summary>
+            Allows specifying which occurrence of the target parameter becomes editable when the template is deployed.
+            </summary>
+            <remarks>
+            If the target parameter is used several times in the template, only one occurrence becomes editable;
+            other occurrences are changed synchronously. To specify the zero-based index of the editable occurrence,
+            use values >= 0. To make the parameter non-editable when the template is expanded, use -1.
+            </remarks>>
+        </member>
+        <member name="P:JetBrains.Annotations.MacroAttribute.Target">
+            <summary>
+            Identifies the target parameter of a <see cref="T:JetBrains.Annotations.SourceTemplateAttribute">source template</see> if the
+            <see cref="T:JetBrains.Annotations.MacroAttribute"/> is applied on a template method.
+            </summary>
+        </member>
+        <member name="T:JetBrains.Annotations.AspMvcActionAttribute">
+            <summary>
+            ASP.NET MVC attribute. If applied to a parameter, indicates that the parameter
+            is an MVC action. If applied to a method, the MVC action name is calculated
+            implicitly from the context. Use this attribute for custom wrappers similar to
+            <c>System.Web.Mvc.Html.ChildActionExtensions.RenderAction(HtmlHelper, String)</c>.
+            </summary>
+        </member>
+        <member name="T:JetBrains.Annotations.AspMvcAreaAttribute">
+            <summary>
+            ASP.NET MVC attribute. Indicates that a parameter is an MVC area.
+            Use this attribute for custom wrappers similar to
+            <c>System.Web.Mvc.Html.ChildActionExtensions.RenderAction(HtmlHelper, String)</c>.
+            </summary>
+        </member>
+        <member name="T:JetBrains.Annotations.AspMvcControllerAttribute">
+            <summary>
+            ASP.NET MVC attribute. If applied to a parameter, indicates that the parameter is
+            an MVC controller. If applied to a method, the MVC controller name is calculated
+            implicitly from the context. Use this attribute for custom wrappers similar to
+            <c>System.Web.Mvc.Html.ChildActionExtensions.RenderAction(HtmlHelper, String, String)</c>.
+            </summary>
+        </member>
+        <member name="T:JetBrains.Annotations.AspMvcMasterAttribute">
+            <summary>
+            ASP.NET MVC attribute. Indicates that a parameter is an MVC Master. Use this attribute
+            for custom wrappers similar to <c>System.Web.Mvc.Controller.View(String, String)</c>.
+            </summary>
+        </member>
+        <member name="T:JetBrains.Annotations.AspMvcModelTypeAttribute">
+            <summary>
+            ASP.NET MVC attribute. Indicates that a parameter is an MVC model type. Use this attribute
+            for custom wrappers similar to <c>System.Web.Mvc.Controller.View(String, Object)</c>.
+            </summary>
+        </member>
+        <member name="T:JetBrains.Annotations.AspMvcPartialViewAttribute">
+            <summary>
+            ASP.NET MVC attribute. If applied to a parameter, indicates that the parameter is an MVC
+            partial view. If applied to a method, the MVC partial view name is calculated implicitly
+            from the context. Use this attribute for custom wrappers similar to
+            <c>System.Web.Mvc.Html.RenderPartialExtensions.RenderPartial(HtmlHelper, String)</c>.
+            </summary>
+        </member>
+        <member name="T:JetBrains.Annotations.AspMvcSuppressViewErrorAttribute">
+            <summary>
+            ASP.NET MVC attribute. Allows disabling inspections for MVC views within a class or a method.
+            </summary>
+        </member>
+        <member name="T:JetBrains.Annotations.AspMvcDisplayTemplateAttribute">
+            <summary>
+            ASP.NET MVC attribute. Indicates that a parameter is an MVC display template.
+            Use this attribute for custom wrappers similar to 
+            <c>System.Web.Mvc.Html.DisplayExtensions.DisplayForModel(HtmlHelper, String)</c>.
+            </summary>
+        </member>
+        <member name="T:JetBrains.Annotations.AspMvcEditorTemplateAttribute">
+            <summary>
+            ASP.NET MVC attribute. Indicates that a parameter is an MVC editor template.
+            Use this attribute for custom wrappers similar to
+            <c>System.Web.Mvc.Html.EditorExtensions.EditorForModel(HtmlHelper, String)</c>.
+            </summary>
+        </member>
+        <member name="T:JetBrains.Annotations.AspMvcTemplateAttribute">
+            <summary>
+            ASP.NET MVC attribute. Indicates that a parameter is an MVC template.
+            Use this attribute for custom wrappers similar to
+            <c>System.ComponentModel.DataAnnotations.UIHintAttribute(System.String)</c>.
+            </summary>
+        </member>
+        <member name="T:JetBrains.Annotations.AspMvcViewAttribute">
+            <summary>
+            ASP.NET MVC attribute. If applied to a parameter, indicates that the parameter
+            is an MVC view component. If applied to a method, the MVC view name is calculated implicitly
+            from the context. Use this attribute for custom wrappers similar to
+            <c>System.Web.Mvc.Controller.View(Object)</c>.
+            </summary>
+        </member>
+        <member name="T:JetBrains.Annotations.AspMvcViewComponentAttribute">
+            <summary>
+            ASP.NET MVC attribute. If applied to a parameter, indicates that the parameter
+            is an MVC view component name.
+            </summary>
+        </member>
+        <member name="T:JetBrains.Annotations.AspMvcViewComponentViewAttribute">
+            <summary>
+            ASP.NET MVC attribute. If applied to a parameter, indicates that the parameter
+            is an MVC view component view. If applied to a method, the MVC view component view name is default.
+            </summary>
+        </member>
+        <member name="T:JetBrains.Annotations.AspMvcActionSelectorAttribute">
+            <summary>
+            ASP.NET MVC attribute. When applied to a parameter of an attribute,
+            indicates that this parameter is an MVC action name.
+            </summary>
+            <example><code>
+            [ActionName("Foo")]
+            public ActionResult Login(string returnUrl) {
+              ViewBag.ReturnUrl = Url.Action("Foo"); // OK
+              return RedirectToAction("Bar"); // Error: Cannot resolve action
+            }
+            </code></example>
+        </member>
+        <member name="T:JetBrains.Annotations.RazorSectionAttribute">
+            <summary>
+            Razor attribute. Indicates that a parameter or a method is a Razor section.
+            Use this attribute for custom wrappers similar to 
+            <c>System.Web.WebPages.WebPageBase.RenderSection(String)</c>.
+            </summary>
+        </member>
+        <member name="T:JetBrains.Annotations.CollectionAccessAttribute">
+            <summary>
+            Indicates how method, constructor invocation or property access
+            over collection type affects content of the collection.
+            </summary>
+        </member>
+        <member name="F:JetBrains.Annotations.CollectionAccessType.None">
+            <summary>Method does not use or modify content of the collection.</summary>
+        </member>
+        <member name="F:JetBrains.Annotations.CollectionAccessType.Read">
+            <summary>Method only reads content of the collection but does not modify it.</summary>
+        </member>
+        <member name="F:JetBrains.Annotations.CollectionAccessType.ModifyExistingContent">
+            <summary>Method can change content of the collection but does not add new elements.</summary>
+        </member>
+        <member name="F:JetBrains.Annotations.CollectionAccessType.UpdatedContent">
+            <summary>Method can add new elements to the collection.</summary>
+        </member>
+        <member name="T:JetBrains.Annotations.AssertionMethodAttribute">
+            <summary>
+            Indicates that the marked method is assertion method, i.e. it halts control flow if
+            one of the conditions is satisfied. To set the condition, mark one of the parameters with 
+            <see cref="T:JetBrains.Annotations.AssertionConditionAttribute"/> attribute.
+            </summary>
+        </member>
+        <member name="T:JetBrains.Annotations.AssertionConditionAttribute">
+            <summary>
+            Indicates the condition parameter of the assertion method. The method itself should be
+            marked by <see cref="T:JetBrains.Annotations.AssertionMethodAttribute"/> attribute. The mandatory argument of
+            the attribute is the assertion type.
+            </summary>
+        </member>
+        <member name="T:JetBrains.Annotations.AssertionConditionType">
+            <summary>
+            Specifies assertion type. If the assertion method argument satisfies the condition,
+            then the execution continues. Otherwise, execution is assumed to be halted.
+            </summary>
+        </member>
+        <member name="F:JetBrains.Annotations.AssertionConditionType.IS_TRUE">
+            <summary>Marked parameter should be evaluated to true.</summary>
+        </member>
+        <member name="F:JetBrains.Annotations.AssertionConditionType.IS_FALSE">
+            <summary>Marked parameter should be evaluated to false.</summary>
+        </member>
+        <member name="F:JetBrains.Annotations.AssertionConditionType.IS_NULL">
+            <summary>Marked parameter should be evaluated to null value.</summary>
+        </member>
+        <member name="F:JetBrains.Annotations.AssertionConditionType.IS_NOT_NULL">
+            <summary>Marked parameter should be evaluated to not null value.</summary>
+        </member>
+        <member name="T:JetBrains.Annotations.TerminatesProgramAttribute">
+            <summary>
+            Indicates that the marked method unconditionally terminates control flow execution.
+            For example, it could unconditionally throw exception.
+            </summary>
+        </member>
+        <member name="T:JetBrains.Annotations.LinqTunnelAttribute">
+            <summary>
+            Indicates that method is pure LINQ method, with postponed enumeration (like Enumerable.Select,
+            .Where). This annotation allows inference of [InstantHandle] annotation for parameters
+            of delegate type by analyzing LINQ method chains.
+            </summary>
+        </member>
+        <member name="T:JetBrains.Annotations.NoEnumerationAttribute">
+            <summary>
+            Indicates that IEnumerable, passed as parameter, is not enumerated.
+            </summary>
+        </member>
+        <member name="T:JetBrains.Annotations.RegexPatternAttribute">
+            <summary>
+            Indicates that parameter is regular expression pattern.
+            </summary>
+        </member>
+        <member name="T:JetBrains.Annotations.NoReorderAttribute">
+            <summary>
+            Prevents the Member Reordering feature from tossing members of the marked class.
+            </summary>
+            <remarks>
+            The attribute must be mentioned in your member reordering patterns
+            </remarks>
+        </member>
+        <member name="T:JetBrains.Annotations.XamlItemsControlAttribute">
+            <summary>
+            XAML attribute. Indicates the type that has <c>ItemsSource</c> property and should be treated
+            as <c>ItemsControl</c>-derived type, to enable inner items <c>DataContext</c> type resolve.
+            </summary>
+        </member>
+        <member name="T:JetBrains.Annotations.XamlItemBindingOfItemsControlAttribute">
+            <summary>
+            XAML attribute. Indicates the property of some <c>BindingBase</c>-derived type, that
+            is used to bind some item of <c>ItemsControl</c>-derived type. This annotation will
+            enable the <c>DataContext</c> type resolve for XAML bindings for such properties.
+            </summary>
+            <remarks>
+            Property should have the tree ancestor of the <c>ItemsControl</c> type or
+            marked with the <see cref="T:JetBrains.Annotations.XamlItemsControlAttribute"/> attribute.
+            </remarks>
+        </member>
+    </members>
+</doc>

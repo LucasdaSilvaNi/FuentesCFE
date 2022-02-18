@@ -1,0 +1,21 @@
+﻿@using GridMvc.Html
+
+@model IEnumerable<TiempoEnProcesoUIWeb.Models.RegistroCargableModel>
+
+@Html.Grid(Model).Named("ClientesGrid").SetLanguage("es").Columns(
+                        columns =>
+                        {
+                            columns.Add(model => model.linea).Encoded(false).Sanitized(false).RenderValueAs(model => Ajax.ActionLink("Eliminar", "EliminaCargable", new { id = model.linea }, new AjaxOptions { UpdateTargetId = "divCargableGrid", InsertionMode = InsertionMode.Replace, HttpMethod = "GET", Confirm = "Esta seguro de eliminar la Linea?", OnSuccess="OnEliminarAct" }));
+                            columns.Add(model => model.id_oficina).Titled("Cod.").Css("col-lg-1 col-md-1 col-sm-1");
+                            columns.Add(model => model.oficina).Titled("Oficina").Css("col-lg-2 col-md-2 col-sm-2");
+                            columns.Add(model => model.id_cliente).Titled("Cod.").Css("col-lg-1 col-md-1 col-sm-1");
+                            columns.Add(model => model.cliente).Titled("Cliente").Css("col-lg-2 col-md-2 col-sm-2");
+                            columns.Add(model => model.id_job).Titled("Cod.").Css("col-lg-1 col-md-1 col-sm-1");
+                            columns.Add(model => model.job).Titled("Proyecto").Css("col-lg-2 col-md-2 col-sm-2");
+                            columns.Add(model => model.horas).Titled("Horas").Css("col-lg-1 col-md-1 col-sm-1");
+                            columns.Add(model => model.gastos).Titled("Gastos").Css("col-lg-1 col-md-1 col-sm-1");
+                            columns.Add(model => model.descripcion_cargo).Titled("Descripcion").Css("col-lg-2 col-md-2 col-sm-2");
+                        }
+                       ).EmptyText("No hay registros que mostrar")
+
+<!--http://www.itorian.com/2013/02/ajaxactionlink-and-htmlactionlink-in-mvc.html-->

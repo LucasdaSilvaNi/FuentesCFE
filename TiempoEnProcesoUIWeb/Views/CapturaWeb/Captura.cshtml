@@ -1,0 +1,287 @@
+﻿@model TiempoEnProcesoUIWeb.Models.CapturaWebModel
+
+@{
+    ViewBag.Title = "Captura Web";
+}
+            <div class="container">
+            @using (Ajax.BeginForm("Grabar", "CapturaWeb", new AjaxOptions { OnBegin = "OnBeginSave", OnFailure = "OnFailureSave", OnSuccess = "OnSuccessSave" }, new { role = "form", @class = "form-horizontal" }))
+            {
+                
+                        
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12col-md-12 col-sm-12">
+                                <h4 class="page-header"><strong>Captura WEB</strong></h4>
+                            </div>
+                            <!-- /.col-lg-12 col-md-12 col-sm-12-->
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model=> model.OficinaEmpleado, new {@Class="col-lg-1 col-lg-1 col-md-1 col-sm-1 col-sm-1 control-label"})
+                            <div >
+                               <p class="form-control-static col-lg-1 col-md-1 col-sm-1 text-primary">@Model.OficinaEmpleado.ToString()</p> 
+                            </div>
+               
+                            @Html.LabelFor(model=> model.Empleado, new {@Class="col-lg-1 col-md-1 col-sm-1 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 control-label"})
+                            <div >
+                               <p class="form-control-static col-lg-5 col-md-5 col-sm-5 text-primary">@Model.Empleado.ToString()</p> 
+                            </div>
+
+                            @Html.LabelFor(model=> model.PeriodoProceso, new {@Class="col-lg-2 col-md-2 col-sm-2 control-label "})
+                            <div >
+                               <p class="form-control-static col-lg-1 col-md-1 col-sm-1 text-primary">@Model.PeriodoProceso.ToString()</p> 
+                            </div>
+                        </div>
+                        <div>
+                            <span class="label"></span>
+                        </div>
+                        <br />
+                        <div class="form-group ">
+                             @Html.LabelFor(model=> model.PeriodoTEP, new {@Class="col-lg-1 col-md-1 col-sm-1 control-label"})
+                            <div class="col-lg-2 col-md-2 col-sm-2">
+                                @Html.DropDownListFor(model => model.PeriodoTEP, new SelectList((List<TiempoEnProcesoEN.PeriodoEN>)ViewData[TiempoEnProcesoHelper.Constantes.S_MES], "id_periodo", "descripcion", Model.PeriodoTEP), new { @Class="form-control"})
+                            </div>
+                             @Html.LabelFor(model=> model.DiaDel, new {@Class="col-lg-1 col-md-1 col-sm-1 control-label"})
+                            <div class="col-lg-1 col-md-1 col-sm-1">
+                                @Html.TextBoxFor(model => model.DiaDel, new { @Class="form-control" })
+                            </div>
+                            <!--@Html.LabelFor(model=> model.DiaAl, new {@Class="col-lg-1 col-md-1 col-sm-1 control-label"})-->
+                        <div class="col-lg-1 col-md-1 col-sm-1">
+                            <!--@Html.TextBoxFor(model => model.DiaAl, new { @Class="form-control" })-->
+                        </div>
+                            <div class="col-lg-1 col-md-1 col-sm-1"> 
+                                <!--<button class="btn btn-primary" data-target="#myModal" data-toggle="modal" type="button">Cambiar <i class="fa fa-refresh"></i></button>-->
+                            </div>
+                        </div>
+                    
+                        <hr />
+                <div class="row">
+                    <div class="col-lg-8 col-md-8 col-sm-6">
+                        <div class="form-group ">
+                            <div class="col-lg-3 col-md-3 col-sm-3">
+                                <label class="radio-inline">
+                                    @Html.RadioButtonFor(model => model.TipoCapturaWeb, 1, new { id = "TipoNoCargable", autofocus = "autofocus" }) NO Cargable
+                                </label>
+                            </div>
+                            <div class="col-lg-1 col-md-1 col-sm-1">
+                                <label class="radio-inline">
+                                    @Html.RadioButtonFor(model => model.TipoCapturaWeb, 2, new { id = "TipoCargable" }) Cargable
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group" id="divOficinaCaptura">
+                            @Html.LabelFor(model => model.id_oficina0, new { @Class = "col-lg-2 col-md-1 col-sm-2 control-label" })
+                            <div class="col-lg-8 col-md-8 col-sm-8">
+                                @Html.DropDownListFor(model => model.id_oficina0, new SelectList((List<TiempoEnProcesoEN.OficinaEN>)ViewData[TiempoEnProcesoHelper.Constantes.S_OFCEMP], "id_oficina", "Nombre", Model.id_oficina), new { @Class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group" id="divConceptoCaptura">
+                            @Html.LabelFor(model => model.Concepto, new { @Class = "col-lg-2 col-md-1 col-sm-2 control-label" })
+                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                @Html.DropDownListFor(model => model.Concepto, new SelectList((List<TiempoEnProcesoEN.ConceptoEN>)ViewData[TiempoEnProcesoHelper.Constantes.S_CONCEPTO], "id_concepto", "descripcion"), new { @Class = "form-control" })
+                            </div>
+                        </div>
+
+                        <div class="form-group" id="divClienteCaptura">
+                            @Html.LabelFor(model => model.ClienteC, new { @Class = "col-lg-2 col-md-2 col-sm-2 control-label" })
+                            <div class="col-lg-2 col-md-2 col-sm-2">
+                                @Html.TextBoxFor(model => model.ClienteC, new { @Class = "form-control", autocomplete = "off" })
+                            </div>
+                            <div class="col-lg-1 col-md-1 col-sm-1">
+                                <button type="button" class="btn btn-primary" id="btnBusquedaClIda"><i class="fa fa-search"></i></button>
+                            </div>
+                            <div>
+                                <p class="form-control-static col-md-6 text-primary" id="NombreCliente">@Model.NombreClienteC.ToString()</p>
+                            </div>
+                        </div>
+                        <div class="form-group" id="divEntidadCliente">
+                            @Html.LabelFor(model => model.Id_EntidadCaptura, new { @Class = "col-lg-2 col-md-1 col-sm-2 control-label" })
+                            <div class="col-lg-8 col-md-8 col-sm-8">
+                                @Html.DropDownListFor(model => model.Id_EntidadCaptura, new SelectList((List<TiempoEnProcesoEN.EntidadEN>)ViewData[TiempoEnProcesoHelper.Constantes.S_ENTIDAD_CLIENTE], "id", "descripcion"), new { @Class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group" id="divServicioCaptura">
+                            @Html.LabelFor(model => model.ServicioCaptura, new { @Class = "col-lg-2 col-md-2 col-sm-2 control-label" })
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                @Html.DropDownListFor(model => model.ServicioCaptura, new SelectList((List<TiempoEnProcesoEN.ServicioEN>)ViewData[TiempoEnProcesoHelper.Constantes.S_SERVICIO], "id_servicio", "Nombre_largo"), new { @Class = "form-control" })
+                            </div>
+                            <div class="col-lg-1 col-md-1 col-sm-1">
+                                <button type="button" class="btn btn-primary" id="btnBusquedaServIda"><i class="fa fa-archive"></i> Cargar a otra LOS</button>
+                            </div>
+                        </div>
+                        <div class="form-group" id="divJobCaptura">
+                            @Html.LabelFor(model => model.JobCaptura, new { @Class = "col-lg-2 col-md-2 col-sm-2 control-label" })
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                @Html.DropDownListFor(model => model.JobCaptura, new SelectList((List<TiempoEnProcesoEN.JobsEN>)ViewData[TiempoEnProcesoHelper.Constantes.S_JOBS], "id_job", "descripcion"), new { @Class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Horas, new { @Class = "col-lg-2 col-md-2 col-sm-2 control-label" })
+                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                @Html.TextBoxFor(model => model.Horas, new { @Class = "form-control inputDecimal", autocomplete = "off" })
+                            </div>
+                        </div>
+                        <div class="form-group" id="divGastosCaptura">
+                            @Html.LabelFor(model => model.Gastos, new { @Class = "col-lg-2 col-md-2 col-sm-2 control-label" })
+                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                @if (@Model.id_oficina != "91")
+                                {
+                                    @Html.TextBoxFor(model => model.Gastos, new { @Class = "form-control inputDecimal", autocomplete = "off", disabled = "disabled" })
+                                }
+                                else
+                                {
+                                    @Html.TextBoxFor(model => model.Gastos, new { @Class = "form-control inputDecimal", autocomplete = "off" })
+                                }
+                            </div>
+                        </div>
+
+                        <div class="form-group" id="divTrabajo">
+                            @Html.LabelFor(model => model.Trabajo, new { @Class = "col-lg-2 col-md-2 col-sm-2 control-label" })
+                            <div class="col-lg-8 col-md-8 col-sm-8">
+                                @Html.TextBoxFor(model => model.Trabajo, new { @Class = "form-control", autocomplete = "off", maxlength = "30" })
+                            </div>
+                        </div>
+
+                        <div class="form-group" id="divTrabajoNoCargable">
+                            @Html.LabelFor(model => model.NoCargableTrabajo, new { @Class = "col-lg-2 col-md-2 col-sm-2 control-label" })
+                            <div class="col-lg-8 col-md-8 col-sm-8">
+                                @Html.TextBoxFor(model => model.NoCargableTrabajo, new { @Class = "form-control", autocomplete = "off", maxlength = "60" })
+                            </div>
+                        </div>
+
+                        @Html.HiddenFor(model => model.EsSocio)
+                        @Html.HiddenFor(model => model.EsGerente)
+                        @Html.HiddenFor(model => model.EsAdmin)
+                        @Html.HiddenFor(model => model.ValEncargado)
+                        @Html.HiddenFor(model => model.ValSocio)
+                        @Html.HiddenFor(model => model.PeriodoProceso)
+                        @Html.HiddenFor(model => model.id_empleado)
+                        @Html.HiddenFor(model => model.id_oficina)
+                        @Html.HiddenFor(model => model.Oficina_Busqueda)
+                        @Html.HiddenFor(model => model.id_pais)
+                        @Html.HiddenFor(model => model.periodo_tep_proceso)
+                        <div class="row">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button class="btn btn-success" type="submit">Agregar <i class="fa fa-plus-circle"></i></button>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4">
+                        <div class="row">
+                            
+                        </div>
+                        <div class="row">
+                            
+                    </div>
+                        <div class="panel panel-primary">
+                            <div class="panel-heading" style="text-align:center;">
+                                <strong>Totales</strong>
+                            </div>
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    @Html.LabelFor(model=> model.TotalCargable, new {@Class="col-lg-4 col-md-4 col-sm-4 col-lg-offset-2 col-md-offset-2 col-sm-offset-2control-label"})
+                                    <div >
+                                        <p class="form-control-static col-md-3 text-primary" style="text-align:right" id="TotalCargable">@Model.TotalCargable.ToString("###,###,##0.00")</p> 
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model=> model.TotalNoCargable , new {@Class="col-lg-4 col-md-4 col-sm-4 col-lg-offset-2 col-md-offset-2 col-sm-offset-2control-label"})
+                                    <div >
+                                        <p class="form-control-static col-md-3 text-primary" style="text-align:right" id="TotalNoCargable">@Model.TotalNoCargable.ToString("###,###,##0.00")</p> 
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model=> model.TotalHoras, new {@Class="col-lg-4 col-md-4 col-sm-4 col-lg-offset-2 col-md-offset-2 col-sm-offset-2control-label"})
+                                    <div >
+                                        <p class="form-control-static col-md-3 text-primary" style="text-align:right" id="TotalHoras">@Model.TotalHoras.ToString("###,###,##0.00")</p> 
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model=> model.TotalGastos, new {@Class="col-lg-4 col-md-4 col-sm-4 col-lg-offset-2 col-md-offset-2 col-sm-offset-2control-label"})
+                                    <div >
+                                        <p class="form-control-static col-md-3 text-primary" style="text-align:right" id="TotalGastos">@Model.TotalGastos.ToString("###,###,##0.00")</p> 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-footer">
+                                <div class="toolbar" >
+                                    <button type="button" class="btn btn-success" id="btnGuardarDatosAll"  >Guardar Datos <i class="fa fa-save"></i></button> 
+                                </div>
+                            </div>
+                        </div>
+                            
+                    </div>
+                    
+                </div>
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header modal-header-primary" >
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">Cambiar Periodo TEP</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group ">
+                                     @Html.LabelFor(model=> model.PeriodoTEPInput, new {@Class="col-lg-2 col-md-2 col-sm-2 control-label"})
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        @Html.DropDownListFor(model => model.PeriodoTEPInput, new SelectList((List<TiempoEnProcesoEN.PeriodoEN>)ViewData[TiempoEnProcesoHelper.Constantes.S_MES], "id_periodo", "descripcion"), new { @Class="form-control"})
+                                    </div>
+                                </div>
+                                <div class="form-group ">
+                                     @Html.LabelFor(model=> model.DiaDelInput, new {@Class="col-lg-2 col-md-2 col-sm-2 control-label"})
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        @Html.TextBoxFor(model => model.DiaDelInput, new { @Class="form-control inputInteger", min="1", autocomplete="off"})
+                                    </div>
+                                </div>
+                                <div class="form-group ">
+                                    @Html.LabelFor(model=> model.DiaAlInput, new {@Class="col-lg-2 col-md-2 col-sm-2 control-label"})
+                                    <div class="col-lg-4 col-md-4 col-sm-4">
+                                        @Html.TextBoxFor(model => model.DiaAlInput, new { @Class="form-control inputInteger", autocomplete="off"})
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar <i class="fa fa-times-circle "></i></button>
+                                <button type="button" class="btn btn-info" id="bntCambiarCaptura">Cambiar <i class="fa fa-check-circle"></i></button>
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
+                
+               @Html.HiddenFor(model=> model.VerificaPendientes)
+                @Html.HiddenFor(model=> model.VerificaPendientesCliente)
+            }
+           
+            <div id="dialog" title="Buscar Cliente" hidden="hidden">
+                @Html.Partial("_Clientes", Model.clientes)
+            </div>
+            <br />
+            <div id="divCargableGridPanel" class="panel panel-danger" hidden>
+                <!-- Default panel contents -->
+                <div class="panel-heading">Cargables</div>
+                <div id="divCargableGrid" class="panel-body" >                
+                </div>
+            </div>
+            <div id="divNoCargableGridPanel" class="panel panel-danger" hidden>
+                <!-- Default panel contents -->
+                <div class="panel-heading">No Cargables</div>
+                <div id="divNoCargableGrid" class="panel-body">
+                </div>
+            </div>
+            
+            <div class="modal fade" id="myModalVerifica" tabindex="-1" role="dialog" aria-labelledby="myModalVerificaLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header modal-header-primary">
+                                    <h4 class="modal-title" id="myModalVerificaLabel">Informacion</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p class="lead" >Existen capturas previas. ¿Que desea hacer con ellas?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" data-dismiss="modal" id="bntContinuarCapturaPrevia">Continuar <i class="fa fa-chevron-circle-right"></i></button>
+                                <button type="button" class="btn btn-info" id="bntEliminarCapturaPrevia">Eliminar <i class="fa fa-trash-o"></i></button>
+                                <button type="button" class="btn btn-info" id="bntGrabarCapturaPrevia">Guardar Datos <i class="fa fa-floppy-o"></i></button>
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
+
+           </div>

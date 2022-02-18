@@ -1,0 +1,59 @@
+﻿@model TiempoEnProcesoWeb.Models.TiempoCargadoPorTeamModel
+
+            @using (Html.BeginForm("Generate", "TiempoCargadoPorTeam", FormMethod.Post, new { role = "form", id = "formData" }))
+            {
+                <div class="row">
+                    <div class="col-lg-10 col-lg-offset-2">
+                        <p class="form-control-static text-primary" style="text-align:right">@Session[TiempoEnProcesoHelper.Constantes.S_NOMBREEMP]</p> 
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <div class="row">
+                    <div class="col-lg-10 col-lg-offset-1">
+                        <h1 class="page-header">Tiempo Cargado por Team</h1>
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <div class="row">
+                    <div class="col-lg-10 col-lg-offset-1">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading" >
+                                Parámetros
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-6">                                    
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Periodo)
+                                            @Html.TextBoxFor(model => model.Periodo, new { @Class="form-control",  @readonly = "readonly" })
+                                        </div>
+                                    </div> 
+                                
+                                    <div class="col-md-6">                                    
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Oficina)
+                                            @Html.TextBoxFor(model => model.Oficina, new { @Class="form-control",  @readonly = "readonly" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">                                    
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Team)
+                                            @Html.DropDownListFor(model => model.Team, new SelectList((List<TiempoEnProcesoEN.TeamEN>)ViewData[TiempoEnProcesoHelper.Constantes.S_TEAM], "id_team", "nombre"), new { @Class="form-control" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="row">
+                        <div class="col-lg-1 col-lg-offset-1">
+                            <input type="submit" class="btn btn-success" value="Generar"/>
+                        </div>
+                    </div>
+                </div>
+            }

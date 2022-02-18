@@ -1,0 +1,210 @@
+﻿@model TiempoEnProcesoUIWeb.Models.SolicitudFacturaModel
+
+@{
+    ViewBag.Title = "Solicitud Factura Web";
+}
+@using (Ajax.BeginForm("Cambiar", "CambioClave", new AjaxOptions { OnBegin = "OnBeginSave", OnFailure = "OnFailureSave", OnSuccess = "OnSuccessSave" }, new { role = "form", @class = "form-horizontal", id = "frmCab" }))
+{
+                    @Html.HiddenFor(model=> model.id_solicitud_captura)
+    <div class="row">
+        <div class="col-lg-12">
+            <h4 class="page-header"><strong>Solicitud Factura</strong></h4>
+            <h4></h4>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                @Html.LabelFor(model => model.Cliente)
+                @Html.DropDownListFor(model => model.Cliente, new SelectList((List<TiempoEnProcesoEN.ClienteEN>)ViewData[TiempoEnProcesoHelper.Constantes.S_CLIENTE], "id_cliente", "razon_social"), new { @Class="form-control" })
+                @Html.HiddenFor(model => model.id_cliente)
+                                            
+                @Html.LabelFor(model => model.Job)
+                @Html.DropDownListFor(model => model.Job, new SelectList((List<TiempoEnProcesoEN.JobsEN>)ViewData[TiempoEnProcesoHelper.Constantes.S_JOBS], "id_job", "descripcion"), new { @Class="form-control" })
+
+            </div>
+            <div class="col-md-6" >
+                @Html.LabelFor(model => model.Servicio)
+                @Html.DropDownListFor(model => model.Servicio, new SelectList((List<TiempoEnProcesoEN.ServicioEN>)ViewData[TiempoEnProcesoHelper.Constantes.S_SERVICIO], "id_servicio", "Nombre_largo"), new { @Class="form-control" })
+                
+
+                @Html.LabelFor(model => model.id_entidad)
+                @Html.DropDownListFor(model => model.id_entidad, new SelectList((List<TiempoEnProcesoEN.EntidadLegalEN>)ViewData[TiempoEnProcesoHelper.Constantes.S_ENTIDAD_LEGAL], "id_entidad", "Razon_social"), new { @Class="form-control" })
+                @Html.HiddenFor(model => model.id_entidad, new { id = "id_entidad_D" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                @Html.LabelFor(model => model.tipo_entrega)
+                @Html.DropDownListFor(model => model.tipo_entrega, new SelectList((List<TiempoEnProcesoEN.EntidadEN>)ViewData[TiempoEnProcesoHelper.Constantes.S_TIPO_SOL], "id", "descripcion"), new { @Class="form-control" })
+            </div>
+            <div class="col-md-4 col-md-offset-4">
+                @Html.LabelFor(model => model.total_solicitud)
+                @Html.TextBoxFor(model=> model.total_solicitud,  new { @Class="form-control inputDecimal", autocomplete="off"})
+            </div>
+        </div>
+        <div class ="row">
+            <div class="col-md-4">
+                @Html.LabelFor(model=> model.Imprime_Moneda_Tep)
+                @Html.DropDownListFor(model => model.Imprime_Moneda_Tep, new SelectList((List<TiempoEnProcesoEN.EntidadEN>)ViewData[TiempoEnProcesoHelper.Constantes.S_MONEDA_TEP], "id", "descripcion"), new { @Class="form-control" })
+                @Html.LabelFor(model=> model.facturar_en_perido)
+                @Html.DropDownListFor(model => model.facturar_en_perido, new SelectList((List<TiempoEnProcesoEN.PeriodoEN>)ViewData[TiempoEnProcesoHelper.Constantes.S_PERIODO], "id_periodo", "descripcion"), new { @Class="form-control" })
+                @Html.LabelFor(model=> model.fecha_tentativa_cobro)
+                @Html.TextBoxFor(model=> model.fecha_tentativa_cobro,"{0:dd/MM/yyyy}", new { @class = "form-control",  @readonly="readonly" })
+            </div>
+            <div class="col-md-2 col-md-offset-1">
+                @Html.LabelFor(model => model.tasa_cambio)
+                @Html.TextBoxFor(model=> model.tasa_cambio,  new { @Class="form-control inputDecimal5", autocomplete="off"})
+                @Html.HiddenFor(model=> model.tasa_cambio_D)
+                @if (Model.id_oficina == "60") 
+                {
+                    @Html.LabelFor(model => model.codigo_moneda_impresion)
+                    @Html.TextBoxFor(model=> model.codigo_moneda_impresion,  new { @Class="form-control", autocomplete="off"})
+                    @Html.LabelFor(model => model.Lenguaje_impresion_spanish)
+                    @Html.DropDownListFor(model => model.Lenguaje_impresion_spanish, new SelectList((List<TiempoEnProcesoEN.EntidadEN>)ViewData[TiempoEnProcesoHelper.Constantes.S_IDIOMA_IMP], "id", "descripcion"), new { @Class="form-control" })
+                }
+                else {
+                    @Html.HiddenFor(model=> model.codigo_moneda_impresion)
+                    @Html.HiddenFor(model=> model.Lenguaje_impresion_spanish)
+                }
+            </div>
+            <div class="col-md-4 col-md-offset-1">
+                @Html.LabelFor(model=> model.total_solicitud_moneda_local)
+                @Html.TextBoxFor(model=> model.total_solicitud_moneda_local,  new { @Class="form-control inputDecimal", autocomplete="off"})
+                @Html.LabelFor(model=> model.fecha_a_emitir)
+                @Html.TextBoxFor(model=> model.fecha_a_emitir,"{0:dd/MM/yyyy}", new { @class = "form-control",  @readonly="readonly" })
+                @Html.LabelFor(model=> model.fecha_solicitud)
+                @Html.TextBoxFor(model=> model.fecha_solicitud,"{0:dd/MM/yyyy}", new { @class = "form-control",  @readonly="readonly" })
+            </div>
+        </div>
+        <div class ="row">
+            <div class="col-md-12">
+                @Html.LabelFor(model=> model.instrucciones)
+                @Html.TextAreaFor(model=> model.instrucciones,new { @Class ="form-control"})
+            </div>
+        </div>
+        @if (Model.id_oficina == "60") 
+        {
+        <div class ="row" >
+            <div class="col-md-3">
+                @Html.LabelFor(model=> model.Tasa_cambio_fiscal)
+                @Html.TextBoxFor(model=> model.Tasa_cambio_fiscal,  new { @Class="form-control inputDecimal5", autocomplete="off"})
+            </div>
+        </div>
+        }
+        else {
+            @Html.HiddenFor(model=> model.Tasa_cambio_fiscal)
+        }
+        <p ></p>
+        <div class="row">
+            <div class="col-md-6">
+                <input type="button" id="NewDetSolFac" value ="Agregar Detalle" class="btn btn-success"/>
+                <input type="button" id="GrabaSolFac" value ="Grabar Solicitud" class="btn btn-success"/>
+                <input type="button" id="CierreSolFac" value ="Cerrar Solicitud" class="btn btn-success"/>
+            </div>
+        </div>
+    @Html.HiddenFor(model=> model.id_empleado)
+    @Html.HiddenFor(model=> model.id_oficina)
+    </div>    
+    <br />           
+    <div id="divSolFacDet" class="panel panel-danger" hidden>
+        <!-- Default panel contents -->
+        <div class="panel-heading">Detalle</div>
+        <div id="divSolFacDetLst" class="panel-body" >                
+        </div>
+    </div>
+    <div class="modal fade" id="myModalVerifica" tabindex="-1" role="dialog" aria-labelledby="myModalVerificaLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header modal-header-primary">
+                        <h4 class="modal-title" id="myModalVerificaLabel">Informacion</h4>
+                </div>
+                <div class="modal-body">
+                    <p class="lead" >Existen capturas previas. ¿Que desea hacer con ellas?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal" id="bntContinuarSolPrevia">Continuar <i class="fa fa-chevron-circle-right"></i></button>
+                    <button type="button" class="btn btn-info" id="bntEliminarSolPrevia">Eliminar Solicitud <i class="fa fa-trash-o"></i></button>
+                    <button type="button" class="btn btn-info" id="bntGrabarSolPrevia">Finalizar Solicitud <i class="fa fa-floppy-o"></i></button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+}
+
+    <div class="modal fade" id="myModalNewItem" tabindex="-1" role="dialog" aria-labelledby="myModalNewItemLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header modal-header-primary">
+                    <h4 class="modal-title" id="myModalNewItemLabel">Nuevo Detalle</h4>
+                </div>
+                <div class="modal-body">
+                    <form role = "form" class="form-horizontal" id = "frmDetalle">
+                    
+                        @Html.HiddenFor(model=> model.Detalle.id_solicitud)
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                @Html.LabelFor(model=>model.Detalle.linea)
+                                @Html.DropDownListFor(model=> model.Detalle.linea,new SelectList((List<TiempoEnProcesoEN.EntidadEN>)ViewData[TiempoEnProcesoHelper.Constantes.S_CLIENTE_ENTIDAD], "id_numerico", "descripcion"), new { @Class="form-control", data_val_required = "", data_val = "true" })
+                            </div>
+                            <div class ="col-md-6">
+                                @Html.LabelFor(model=> model.Detalle.Atencion_a)
+                                @Html.TextBoxFor(model => model.Detalle.Atencion_a, new { @Class="form-control", autocomplete="off"})
+
+                            </div>
+                            <div class ="col-md-6">
+                                @Html.LabelFor(model=> model.Detalle.NationalID)
+                                @Html.TextBoxFor(model => model.Detalle.NationalID, new { @Class="form-control", autocomplete="off"})
+                            </div>
+                             @if (Model.id_oficina == "60") 
+                            {
+                            <div class="col-md-12">
+                                @Html.LabelFor(model=>model.Detalle.conceptoS)
+                                @Html.DropDownListFor(model=> model.Detalle.conceptoS,new SelectList((List<TiempoEnProcesoEN.EntidadEN>)ViewData[TiempoEnProcesoHelper.Constantes.S_CONCEPTO], "id", "descripcion"), new { @Class="form-control" })
+                            </div>
+                           
+                            <div class="col-md-12" >
+                                @Html.LabelFor(model=>model.Detalle.descripcion_comercial)
+                                @Html.TextAreaFor(model=> model.Detalle.descripcion_comercial, new { @Class="form-control", autocomplete="off"})
+                            </div>
+                            }
+                            else
+                            {
+                                @Html.HiddenFor(model=> model.Detalle.descripcion_comercial)
+                                 <div class="col-md-12" >
+                                 @Html.LabelFor(model=>model.Detalle.descripcion)
+                                @Html.TextAreaFor(model=> model.Detalle.descripcion, new { @Class="form-control", autocomplete="off"})
+                                     </div>
+                            }
+                            <input type="hidden" id="valor_impuesto_entidad" />
+                            <div class="col-md-6">
+                                @Html.LabelFor(model=> model.Detalle.valor)
+                                @Html.TextBoxFor(model=> model.Detalle.valor,  new { @Class="form-control inputDecimal", autocomplete="off"})
+                                @Html.LabelFor(model=> model.Detalle.Descuento_linea)
+                                @Html.TextBoxFor(model=> model.Detalle.Descuento_linea,  new { @Class="form-control inputDecimal", autocomplete="off"})
+                            </div>
+                             <div class="col-md-6">
+                                @Html.LabelFor(model=> model.Detalle.Impuesto)
+                                @Html.TextBoxFor(model=> model.Detalle.Impuesto,  new { @Class="form-control inputDecimal", autocomplete="off"})
+                                @Html.HiddenFor(model=> model.Detalle.Valor_local)
+                            </div>
+                        </div>
+                        
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    
+                    <button type="button" class="btn btn-info" data-dismiss="modal" id="bntCancelNuevoDet">Cancelar <i class="fa fa-times-circle"></i></button>
+                    <button type="button" class="btn btn-success" id="bntNuevoSolDet">Grabar <i class="fa fa-floppy-o"></i></button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+
+           
+            
+
+           

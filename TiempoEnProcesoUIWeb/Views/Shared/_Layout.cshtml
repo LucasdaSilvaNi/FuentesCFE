@@ -1,0 +1,290 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="~/Content/css/jquery-ui.css">
+
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="~/Content/css/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Timeline CSS -->
+    <link href="~/Content/css/timeline.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="~/Content/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="~/Content/css/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="~/Content/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <link href="@Url.Content("~/Content/Gridmvc.css")" rel="stylesheet" type="text/css" />
+
+    <style>
+        .preloader{
+              background:rgba(255,255,255,0.9);
+              position:fixed;
+              top:0px;
+              left:0px;
+              width:100%;
+              height:100%;
+              z-index:9998;
+              opacity:1;
+              transition: all 0.5s ease-in-out;
+              -moz-transition: all 0.5s ease-in-out;
+              -o-transition: all 0.5s ease-in-out;
+              -webkit-transition: all 0.5s ease-in-out;
+              visibility:visible;
+            }
+            .preloader img{
+              position:fixed;
+              z-index:9999;
+              top:40%;
+              left:45%;
+            }
+   
+            .inputInteger{
+                padding: 3px;
+            }
+
+            .inputDecimal{
+                padding: 3px;
+            }
+
+            .modal-header-success {
+                color:#fff;
+                padding:9px 15px;
+                border-bottom:1px solid #eee;
+                background-color: #5cb85c;
+                -webkit-border-top-left-radius: 5px;
+                -webkit-border-top-right-radius: 5px;
+                -moz-border-radius-topleft: 5px;
+                -moz-border-radius-topright: 5px;
+                 border-top-left-radius: 5px;
+                 border-top-right-radius: 5px;
+            }
+            .modal-header-warning {
+	            color:#fff;
+                padding:9px 15px;
+                border-bottom:1px solid #eee;
+                background-color: #f0ad4e;
+                -webkit-border-top-left-radius: 5px;
+                -webkit-border-top-right-radius: 5px;
+                -moz-border-radius-topleft: 5px;
+                -moz-border-radius-topright: 5px;
+                 border-top-left-radius: 5px;
+                 border-top-right-radius: 5px;
+            }
+            .modal-header-danger {
+	            color:#fff;
+                padding:9px 15px;
+                border-bottom:1px solid #eee;
+                background-color: #d9534f;
+                -webkit-border-top-left-radius: 5px;
+                -webkit-border-top-right-radius: 5px;
+                -moz-border-radius-topleft: 5px;
+                -moz-border-radius-topright: 5px;
+                 border-top-left-radius: 5px;
+                 border-top-right-radius: 5px;
+            }
+            .modal-header-info {
+                color:#fff;
+                padding:9px 15px;
+                border-bottom:1px solid #eee;
+                background-color: #5bc0de;
+                -webkit-border-top-left-radius: 5px;
+                -webkit-border-top-right-radius: 5px;
+                -moz-border-radius-topleft: 5px;
+                -moz-border-radius-topright: 5px;
+                 border-top-left-radius: 5px;
+                 border-top-right-radius: 5px;
+            }
+            .modal-header-primary {
+	            color:#fff;
+                padding:9px 15px;
+                border-bottom:1px solid #eee;
+                /*background-color: #428bca;*/
+                background-color:#5cb85c;
+                -webkit-border-top-left-radius: 5px;
+                -webkit-border-top-right-radius: 5px;
+                -moz-border-radius-topleft: 5px;
+                -moz-border-radius-topright: 5px;
+                 border-top-left-radius: 5px;
+                 border-top-right-radius: 5px;
+            }
+        .btn-success {
+            background-color: #2062a3;
+            border-color: #2062a3;
+        }
+            .text-primary {
+                color: #602320;
+                font:bold;
+            }
+            a {
+                color: #6f6a6a;
+            }
+        .btn-primary {
+            background-color: #2062a3;
+            border-color: #2062a3;
+        }
+            .btn-primary:active {
+                background-color: #2062a3;
+                border-color: #2062a3;
+            }
+        .btn-info {
+            background-color: #91cf91;
+            border-color: #91cf91;
+        }
+            .panel-primary {
+                border-color: #5cb85c;
+            }
+            .panel-heading
+            {
+                background-color:#5cb85c;
+            }
+            .btn-success {
+                color: #fff;
+                background-color: #5cb85c;
+                border-color: #5cb85c;
+            }
+            .btn-primary:hover {
+                background-color: #5cb85c;
+                border-color: #5cb85c;
+            }
+        .btn-success:hover {
+            background-color: #91cf91;
+            border-color: #91cf91;
+        }
+        .btn-info:hover {
+            background-color: #2062a3;
+            border-color: #2062a3;
+        }
+            .page-header
+            {
+                font-family:Georgia;
+                font-style:italic;
+                font-weight:bold;
+            }
+            .formatoLetra
+            {
+                font-family:Georgia;
+                font-style:italic;
+                font-weight:bold;
+            }
+            .modal-header-success
+            {
+                background-color:#5cb85c;
+            }
+            .btn-primary:focus 
+            {
+                background-color: #5cb85c;
+                border-color: #5cb85c;
+            }    
+    </style>
+</head>
+<body>
+    <div class="preloader">
+        <div><img src="~/Images/Preloader_1.gif"/></div>
+    </div>
+    <div id="wrapper">
+        @Html.Action("Menu", "Home")
+        <div class="modal fade" id="myModalWarning" tabindex="-1" role="dialog" aria-labelledby="myModalLabelWarning" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header modal-header-warning">
+                        <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+                            <h4 class="modal-title" id="myModalLabelWarning">Advertencia</h4>
+                    </div>
+                    <div class="modal-body">
+                        <label id="lblAlertWarningModal"></label>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-info" data-dismiss="modal">Cerrar <i class="fa fa-times-circle "></i></button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+        <div class="modal fade" id="myModalDanger" tabindex="-1" role="dialog" aria-labelledby="myModalLabelDanger" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header modal-header-danger">
+                        <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+                            <h4 class="modal-title" id="myModalLabelDanger">Error</h4>
+                    </div>
+                    <div class="modal-body">
+                        <label id="lblAlertDangerModal"></label>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-info" data-dismiss="modal">Cerrar <i class="fa fa-times-circle "></i></button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+        <div class="modal fade" id="myModalSuccess" tabindex="-1" role="dialog" aria-labelledby="myModalLabelSuccess" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header modal-header-success">
+                        <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+                            <h4 class="modal-title" id="myModalLabelSuccess">Aviso</h4>
+                    </div>
+                    <div class="modal-body">
+                        <label id="lblAlertSuccessModal"></label>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-info" data-dismiss="modal">Cerrar <i class="fa fa-times-circle "></i></button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+         <!-- /#page-wrapper -->
+        
+        <div id="page-wrapper">
+            @RenderBody()
+        </div>
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="~/Scripts/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="~/Scripts/metisMenu.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="~/Scripts/raphael-min.js"></script>
+    <script src="~/Scripts/morris.min.js"></script>
+
+    <!-- Flot Charts JavaScript -->
+    <script src="~/Scripts/excanvas.min.js"></script>
+    <script src="~/Scripts/jquery.flot.js"></script>
+    <script src="~/Scripts/jquery.flot.pie.js"></script>
+    <script src="~/Scripts/jquery.flot.resize.js"></script>
+    <script src="~/Scripts/jquery.flot.time.js"></script>
+    <script src="~/Scripts/jquery.flot.tooltip.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="~/Scripts/sb-admin-2.js"></script>    
+    
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/jquery-ui.js"></script> 
+
+        <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    
+    <script src="~/Scripts/TiempoEnProceso.js" ></script>  
+    <script src="@Url.Content("~/Scripts/gridmvc.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/gridmvc.lang.es.js")"></script>
+</body>
+</html>
+<!--http://mvcgrid.net/-->

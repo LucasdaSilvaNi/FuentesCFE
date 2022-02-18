@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d873dc2117ac4eceae8a2571f20823f8" Name="Diagram1" ZoomLevel="76">
+        <EntityTypeShape EntityType="TEPModel.CAES_Solicitados" Width="1.5" PointX="10.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_anticipo_preliminar" Width="1.5" PointX="12.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_anulacion_facturas" Width="1.5" PointX="1" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_aplicacion_gts_admon" Width="1.5" PointX="12.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_aplicacion_tep" Width="1.5" PointX="2.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_aut_empleadojob" Width="1.5" PointX="14.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_autorizacion_documentos" Width="1.5" PointX="15.25" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_cargos_otras_oficinas" Width="1.5" PointX="16.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_certificacion_documento" Width="1.5" PointX="3" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_concepto_no_cargable" Width="1.5" PointX="14.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_correlativos" Width="1.5" PointX="16.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_creditos_aplicaciones" Width="1.5" PointX="17.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_cuenta_corriente_fiscal" Width="1.75" PointX="4.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_cuenta_corriente_gestion_cobro" Width="1.5" PointX="3" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_cuenta_corriente_por_generar" Width="2.375" PointX="7.875" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_cuentacorriente_cierre" Width="1.5" PointX="6.25" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_departamento" Width="1.5" PointX="5.625" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_det_Solicitud_temp" Width="1.5" PointX="15" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_detalle_cargable" Width="1.5" PointX="10.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_detalle_cargable_temp" Width="1.5" PointX="5.125" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_detalle_cobros_anulaciones" Width="1.5" PointX="12.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_detalle_cobros_anulaciones_historia" Width="1.5" PointX="18.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_distribucion_gastos" Width="1.5" PointX="18.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_distribuidos" Width="1.5" PointX="18.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_documentos_fiscales" Width="1.5" PointX="0.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_documentos_gface" Width="1.5" PointX="20.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_empleados" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_empleados_teams" Width="1.5" PointX="19.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_empleados_trabajo" Width="1.5" PointX="20.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_entes_solicitud" Width="1.5" PointX="20.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_entidad_legal" Width="1.5" PointX="10.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_factura_oficina" Width="1.5" PointX="21.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_gastos_administrativos" Width="1.5" PointX="22.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.Tbl_geografia" Width="1.5" PointX="22.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_grupo_industria" Width="1.5" PointX="22.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_grupos" Width="1.5" PointX="12.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_grupos_conceptos_no_cargables" Width="1.5" PointX="22.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.Tbl_gts_automaticos" Width="1.5" PointX="22.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_gts_automaticos_detalle" Width="1.5" PointX="22.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_industrias" Width="1.5" PointX="2.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_Integracion_tep_Empleado_Gasto" Width="1.5" PointX="14.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_municipio" Width="1.5" PointX="16.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_niveles_acceso" Width="1.5" PointX="18.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_niveles_empleado" Width="1.5" PointX="20.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_no_cargables" Width="1.5" PointX="22.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_no_cargables_temp" Width="1.5" PointX="7.5" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_opciones" Width="1.5" PointX="6.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_opciones_empleado" Width="1.5" PointX="8.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_opciones_puesto" Width="1.5" PointX="24.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_paises" Width="1.5" PointX="8" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_parametros" Width="1.5" PointX="24.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_permisos" Width="1.5" PointX="24.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_permisos_asignados" Width="1.5" PointX="24.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_plantilla_niveles" Width="1.5" PointX="24.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.Tbl_provincia_depto" Width="1.5" PointX="24.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_puestos" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_reportes_tiempo" Width="1.5" PointX="25.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_reportes_tiempo_temp" Width="1.5" PointX="5.25" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_saldo_gastos" Width="1.5" PointX="10.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_saldo_tep" Width="1.5" PointX="26.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_saldosgasto_cierre" Width="1.5" PointX="26.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_saldostep_cierre" Width="1.5" PointX="26.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_sector_industria" Width="1.5" PointX="26.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_servicios" Width="1.5" PointX="8" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_solicitud_facturas_temp" Width="1.75" PointX="12.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_tasas_de_cambio" Width="1.5" PointX="26.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_tiempo_cargable" Width="1.5" PointX="26.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_tiempo_cargable_origen" Width="1.5" PointX="27.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_tipo_documento" Width="1.5" PointX="13" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_traslados" Width="1.5" PointX="6.75" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_cancelacion_facturas_nc" Width="1.5" PointX="20.75" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.Tbl_contabilizacion_servicios" Width="1.5" PointX="28.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_creditos_aplicaciones_new" Width="1.5" PointX="2.75" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_facturas_anuladas_finales" Width="1.5" PointX="28.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_horas_cargadas_al_standard" Width="1.5" PointX="8.75" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_provision_cuentas_incobrables" Width="1.5" PointX="10.75" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_reserva_tep" Width="1.5" PointX="28.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TEPModel.tbl_revenues" Width="1.5" PointX="12.75" PointY="28.75" IsExpanded="true" />
+        <AssociationConnector Association="TEPModel.FK_tbl_autorizacion_documentos_tbl_tipo_documento" ManuallyRouted="false" />
+        <AssociationConnector Association="TEPModel.FK_tbl_servicios_tbl_departamento" ManuallyRouted="false" />
+        <AssociationConnector Association="TEPModel.FK_tbl_det_Solicitud_temp_tbl_solicitud_facturas_temp" ManuallyRouted="false" />
+        <AssociationConnector Association="TEPModel.FK_tbl_detalle_cargable_temp_tbl_reportes_tiempo_temp" ManuallyRouted="false" />
+        <AssociationConnector Association="TEPModel.FK_tbl_empleados_tbl_puestos" ManuallyRouted="false" />
+        <AssociationConnector Association="TEPModel.FK_tbl_tipo_documento_tbl_entidad_legal" ManuallyRouted="false" />
+        <AssociationConnector Association="TEPModel.tbl_puestos_conversion_web" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="TEPModel.vw_detalle_captura_temp_cargable" Width="1.5" PointX="25.375" PointY="28.75" />
+        <EntityTypeShape EntityType="TEPModel.vw_detalle_captura_temp_Nocargable" Width="1.5" PointX="27.375" PointY="29.75" />
+        <EntityTypeShape EntityType="TEPModel.tbl_oficina" Width="1.5" PointX="29.375" PointY="21.75" />
+        <EntityTypeShape EntityType="TEPModel.tbl_trabajos" Width="1.5" PointX="10.25" PointY="0.75" />
+        <AssociationConnector Association="TEPModel.FK_tbl_trabajos_tbl_paises" />
+        <AssociationConnector Association="TEPModel.FK_tbl_trabajos_tbl_servicios" />
+        <EntityTypeShape EntityType="TEPModel.tbl_Detalle_Sol_temp" Width="1.5" PointX="31.625" PointY="28" />
+        <EntityTypeShape EntityType="TEPModel.tbl_solicitud_temp" Width="1.5" PointX="29.375" PointY="27.125" />
+        <AssociationConnector Association="TEPModel.FK__tbl_Detal__id_so__70F5FFCD" />
+        <EntityTypeShape EntityType="TEPModel.tbl_Log_Documento_Electronico" Width="1.5" PointX="30.375" PointY="3.75" />
+        <EntityTypeShape EntityType="TEPModel.tbl_claves_empleado" Width="1.5" PointX="31.375" PointY="8.75" />
+        <EntityTypeShape EntityType="TEPModel.vw_Empleados_Datos" Width="1.5" PointX="31.375" PointY="12.75" />
+        <EntityTypeShape EntityType="TEPModel.vw_claves_historicas" Width="1.5" PointX="31.375" PointY="0.75" />
+        <EntityTypeShape EntityType="TEPModel.Tbl_Actividad_Economica_CR" Width="1.5" PointX="13.375" PointY="31.75" />
+        <EntityTypeShape EntityType="TEPModel.tbl_cuenta_corriente" Width="1.5" PointX="0.75" PointY="6.5" />
+        <AssociationConnector Association="TEPModel.FK_tbl_certificacion_documento_tbl_cuenta_corriente" />
+        <AssociationConnector Association="TEPModel.FK_tbl_cuenta_corriente_gestion_cobro_tbl_cuenta_corriente_gestion_cobro" />
+        <EntityTypeShape EntityType="TEPModel.tbl_entes_clientes" Width="1.5" PointX="31.375" PointY="19.75" />
+        <EntityTypeShape EntityType="TEPModel.tbl_solicitud_facturas" Width="1.5" PointX="0.75" PointY="32.75" />
+        <EntityTypeShape EntityType="TEPModel.tbl_det_Solicitud" Width="1.5" PointX="15.375" PointY="17.75" />
+        <EntityTypeShape EntityType="TEPModel.Tbl_condicion_cobro" Width="1.5" PointX="32.375" PointY="3.75" />
+        <EntityTypeShape EntityType="TEPModel.tbl_teams" Width="1.5" PointX="3.375" PointY="32.75" />
+        <EntityTypeShape EntityType="TEPModel.tbl_clientes" Width="1.5" PointX="17.375" PointY="26.75" />
+        <EntityTypeShape EntityType="TEPModel.tbl_empleado_entidad_legal" Width="1.5" PointX="5.375" PointY="32.75" />
+        <EntityTypeShape EntityType="TEPModel.tbl_frases" Width="1.5" PointX="7.375" PointY="32.75" />
+        <AssociationConnector Association="TEPModel.FK__tbl_frases__7D7BD243" />
+        <AssociationConnector Association="TEPModel.FK_tbl_no_cargables_temp_tbl_reportes_tiempo_temp" />
+        <EntityTypeShape EntityType="TEPModel.tbl_gastos_administrativos_detalle_empresas" Width="1.5" PointX="25" PointY="33.125" />
+        <AssociationConnector Association="TEPModel.FK_tbl_gastos_administrativos_detalle_empresas_tbl_gastos_administrativos" />
+        <EntityTypeShape EntityType="TEPModel.Tbl_Trabajos_Oficina" Width="1.5" PointX="12.5" PointY="34" />
+        <AssociationConnector Association="TEPModel.FK_Tbl_Trabajos_Oficina_tbl_trabajos" />
+        <EntityTypeShape EntityType="TEPModel.tbl_trabajos_distribucion" Width="1.5" PointX="8" PointY="0.5" />
+        <AssociationConnector Association="TEPModel.FK_tbl_trabajos_distribucion_tbl_empleados" />
+        <AssociationConnector Association="TEPModel.FK_tbl_trabajos_distribucion_tbl_trabajos" />
+        <EntityTypeShape EntityType="TEPModel.tbl_solicitud_facturas_distribucion_socios" Width="1.5" PointX="5.25" PointY="7.375" />
+        <AssociationConnector Association="TEPModel.FK_tbl_solicitud_facturas_distribucion_socios_tbl_empleados" />
+        <AssociationConnector Association="TEPModel.FK_tbl_solicitud_facturas_distribucion_socios_tbl_solicitud" />
+        <EntityTypeShape EntityType="TEPModel.tbl_lineas" Width="1.5" PointX="9.375" PointY="32.75" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

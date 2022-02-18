@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <configSections>
+
+    <section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
+    <!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 -->
+  </configSections>
+  <connectionStrings>
+    <!--<add name="db_contabilidad_ongsEntities" connectionString="metadata=res://*/ContabilidadONGModel.csdl|res://*/ContabilidadONGModel.ssdl|res://*/ContabilidadONGModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=SERVIDOR;initial catalog=BASEDATOS;persist security info=True;user id=USUARIO;password=CLAVE;Connection Timeout=TIEMPOESPERA;multipleactiveresultsets=True;App=EntityFramework&quot;" providerName="System.Data.EntityClient"/>-->
+    <add name="TEPEntities" connectionString="metadata=res://*/TEPModel.csdl|res://*/TEPModel.ssdl|res://*/TEPModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=SERVIDOR.database.windows.net;initial catalog=BASEDATOS;integrated security=False;User ID=USUARIO@SERVIDOR;Password=CLAVE;Connection Timeout=TIEMPOESPERA;MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=False&quot;" providerName="System.Data.EntityClient" />
+  </connectionStrings>
+  <startup useLegacyV2RuntimeActivationPolicy="true">
+    <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
+  </startup>
+  <appSettings>
+    <!--TEST-->
+    <!--<add key="NombreServidor" value="pKAbPJLnjBslFJHfQ/jjtA=="/>-->
+
+    <!--PPAU-->
+    <!--<add key="NombreServidor" value="X78oUcHiSqs6veV8f5rX6ck2fBWfbwzq"/>-->
+	<add key="NombreServidor" value="COSYgnYv9FxmfkL8gpoTvaOBuv4jFJtp"/>
+    <add key="UsuarioDB" value="aOlGeoEfX94AtS8HCfSEzw=="/>
+    <add key="ClaveDB" value="Mow6bPj7DOw7hhKtsPREzie0jQ8cwNZP"/>
+    <!--<add key="NombreDB" value="zRb5qkhhITs=" />-->
+    <add key="NombreDB" value="zRb5qkhhITs=" />
+    <add key="TiempoEspera" value="YDCKmcdznzA=" />
+
+  
+
+    <!--<add key="NombreServidor" value=".\MSSQLSERVER17" />
+    <add key="UsuarioDB" value="sa" />
+    <add key="ClaveDB" value="sasa" />
+    <add key="NombreDB" value="pwctest" />
+    <add key="TiempoEspera" value="1000" />
+    -->
+
+http://10.28.128.196:81/
+
+    <add key="Conectado" value="True" />
+    <add key="SQLMode" value="0" />
+    <add key="Style" value="Nautilus" />
+    <add key="ManejoRecurso" value="1"/>
+
+	<add key="FEL_GT" value="https://dev.api.ifacere-fel.com/fel-dte-services/api/"/>
+    <add key="GetToken" value="solicitarToken"/>
+    <add key="VerificarDocto" value="verificarDocumento"/>
+    <add key="registrarDocto" value="registrarDocumentoXML"/>
+    <add key="anularDocto" value="anularDocumentoXML"/>
+    <add key="retornarXML" value="retornarXML"/>
+    <add key="retornarPDF" value="retornarPDF"/>
+	<add key="FEL_U" value="DpTszMZCjqA="/>
+    <add key="FEL_A" value="kIEFJbNV0I4Cmt8uCpQkwEWXVYzFNer/"/>
+	<add key="FEL_C" value="6WMabYf1bl2POHnxxaQyXQ=="/>
+	<add key="FEL_F" value="418447-684dff64559eb3ec.pfx"/>
+	
+  </appSettings>
+
+
+
+  <entityFramework>
+    <defaultConnectionFactory type="System.Data.Entity.Infrastructure.SqlConnectionFactory, EntityFramework" />
+    <providers>
+      <provider invariantName="System.Data.SqlClient" type="System.Data.Entity.SqlServer.SqlProviderServices, EntityFramework.SqlServer" />
+    </providers>
+  </entityFramework>
+  <system.serviceModel>
+    <bindings>
+      <basicHttpBinding>
+        <binding name="wesDocumentosFiscalesSoap"  closeTimeout="00:01:00" openTimeout="00:10:00"
+          receiveTimeout="00:10:00" sendTimeout="00:10:00" allowCookies="false"
+          bypassProxyOnLocal="false" hostNameComparisonMode="StrongWildcard"
+          maxBufferPoolSize="2147483647" maxBufferSize="2147483647" maxReceivedMessageSize="2147483647"
+          textEncoding="utf-8" transferMode="Buffered" useDefaultWebProxy="true"
+          messageEncoding="Text">
+          <readerQuotas maxDepth="2147483647" maxStringContentLength="2147483647"
+            maxArrayLength="2147483647" maxBytesPerRead="2147483647" maxNameTableCharCount="2147483647" />
+          <security mode="Transport" />
+        </binding>
+
+      </basicHttpBinding>
+    </bindings>
+    <client>
+      <endpoint address="https://sisnetcr.com/serviciowebdocumentosfiscales/wesdocumentosfiscales.asmx"
+        binding="basicHttpBinding" bindingConfiguration="wesDocumentosFiscalesSoap"
+        contract="ServicioFElectCR.wesDocumentosFiscalesSoap" name="wesDocumentosFiscalesSoap" />
+    </client>
+  </system.serviceModel>
+</configuration>

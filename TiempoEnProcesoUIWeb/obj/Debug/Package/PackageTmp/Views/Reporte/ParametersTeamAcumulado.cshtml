@@ -1,0 +1,45 @@
+﻿@model TiempoEnProcesoUIWeb.Models.TeamAcumuladoModel
+
+            @using (Html.BeginForm("PorTeamAcumulado", "Reporte", FormMethod.Post, new { role = "form", id = "formData" }))
+            {
+                <div class="row">
+                    <div class="col-lg-10 col-lg-offset-2">
+                        <p class="form-control-static text-primary" style="text-align:right">@Session[TiempoEnProcesoHelper.Constantes.S_NOMBREEMP]</p> 
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <div class="row">
+                    <div class="col-lg-10 col-lg-offset-1">
+                        <h1 class="page-header">Acumulado Por Team</h1>
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <div class="row">
+                    <div class="col-lg-10 col-lg-offset-1">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading" style="background-color:#eb8c00">
+                                Parámetros
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-8">                                    
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.id_team)
+                                            @Html.DropDownListFor(model => model.id_team, new SelectList((List<TiempoEnProcesoEN.TeamEN>)ViewData[TiempoEnProcesoHelper.Constantes.S_TEAM], "id_team", "nombre"), new { @Class="form-control"})
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="row">
+                        <div class="col-lg-1 col-lg-offset-1">
+                            <input type="submit" class="btn btn-success" value="Generar"/>
+                        </div>
+                    </div>
+                </div>
+            }

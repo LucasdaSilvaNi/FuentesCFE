@@ -1,0 +1,18 @@
+﻿@using GridMvc.Html
+
+@model IEnumerable<TiempoEnProcesoUIWeb.Models.SolicitudFacturaDetModel>
+
+@Html.Grid(Model).Named("DetSolFac").SetLanguage("es").Columns(
+                        columns =>
+                        {
+                            columns.Add().Encoded(false).Sanitized(false).RenderValueAs(model => Ajax.ActionLink("Eliminar", "EliminaDetalle", new { id = model.line_detalle }, new AjaxOptions { UpdateTargetId = "divSolFacDetLst", InsertionMode = InsertionMode.Replace, HttpMethod = "GET", Confirm = "Esta seguro de eliminar la Linea?", OnSuccess = "OnEliminarAct" })).Css("col-lg-1 col-md-1 col-sm-1");
+                            columns.Add(model => model.linea).Titled("Facturar A").Css("col-lg-3 col-md-3 col-sm-3");
+                            columns.Add(model => model.concepto).Titled("Concepto").Css("col-lg-4 col-md-4 col-sm-4");
+                            columns.Add(model => model.valor).Titled("Valor (S/Imp)").Css("col-lg-1 col-md-1 col-sm-1");
+                            columns.Add(model => model.Impuesto).Titled("Impuesto").Css("col-lg-1 col-md-1 col-sm-1");
+                            columns.Add(model => model.Total).Titled("Total").Css("col-lg-1 col-md-1 col-sm-1");
+                            columns.Add(model => model.Valor_local).Titled("Local").Css("col-lg-1 col-md-1 col-sm-1");
+                        }
+                       ).EmptyText("No hay registros que mostrar")
+
+<!--http://www.itorian.com/2013/02/ajaxactionlink-and-htmlactionlink-in-mvc.html-->

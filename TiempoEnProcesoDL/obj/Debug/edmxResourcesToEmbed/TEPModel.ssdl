@@ -1,0 +1,2973 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TEPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CAES_Solicitados">
+    <Key>
+      <PropertyRef Name="EMPRESA" />
+      <PropertyRef Name="TIPO_DOCUMENTO" />
+      <PropertyRef Name="SERIE" />
+      <PropertyRef Name="NUMERO" />
+      <PropertyRef Name="Ambiente" />
+    </Key>
+    <Property Name="EMPRESA" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="TIPO_DOCUMENTO" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="SERIE" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="NUMERO" Type="varchar" MaxLength="14" Nullable="false" />
+    <Property Name="Ambiente" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="Es_Anulado" Type="bit" Nullable="false" />
+    <Property Name="Descuento" Type="numeric" Precision="14" Scale="2" Nullable="false" />
+    <Property Name="Sub_Total" Type="numeric" Precision="14" Scale="2" Nullable="false" />
+    <Property Name="Iva" Type="numeric" Precision="14" Scale="2" Nullable="false" />
+    <Property Name="Total" Type="numeric" Precision="14" Scale="2" Nullable="false" />
+    <Property Name="fecha_emision" Type="datetime" Nullable="false" />
+    <Property Name="fecha_solicitud" Type="datetime" Nullable="false" />
+    <Property Name="firma_electronica" Type="varchar" MaxLength="255" />
+    <Property Name="fecha_recepcion" Type="datetime" />
+    <Property Name="tipo_cambio" Type="decimal" Precision="14" Scale="4" Nullable="false" />
+    <Property Name="concepto" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Tbl_Actividad_Economica_CR">
+    <Key>
+      <PropertyRef Name="Id_Actividad_Economica_CR" />
+    </Key>
+    <Property Name="Id_Actividad_Economica_CR" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="Descripcion_Actividad_Economica_CR" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="tbl_anticipo_preliminar">
+    <Key>
+      <PropertyRef Name="id_transaccion" />
+      <PropertyRef Name="id_oficina" />
+      <PropertyRef Name="id_entidad" />
+      <PropertyRef Name="tipo_documento" />
+      <PropertyRef Name="numero_documento" />
+      <PropertyRef Name="linea" />
+    </Key>
+    <Property Name="id_transaccion" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="id_oficina" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="id_entidad" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="tipo_documento" Type="char" MaxLength="15" Nullable="false" />
+    <Property Name="numero_documento" Type="numeric" Precision="15" Scale="0" Nullable="false" />
+    <Property Name="anticipo" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="preliminar" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="linea" Type="numeric" Precision="15" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="anticipo_docto" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="preliminar_docto" Type="numeric" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="tbl_anulacion_facturas">
+    <Key>
+      <PropertyRef Name="id_oficina" />
+      <PropertyRef Name="id_entidad" />
+      <PropertyRef Name="tipo_documento" />
+      <PropertyRef Name="numero_documento" />
+    </Key>
+    <Property Name="id_oficina" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="id_entidad" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="tipo_documento" Type="char" MaxLength="15" Nullable="false" />
+    <Property Name="numero_documento" Type="numeric" Precision="15" Scale="0" Nullable="false" />
+    <Property Name="fecha_anulacion" Type="datetime" />
+    <Property Name="fecha_transaccion" Type="datetime" />
+    <Property Name="autorizo_anulacion" Type="char" MaxLength="200" />
+    <Property Name="motivo_anulacion" Type="char" MaxLength="80" />
+    <Property Name="usuario" Type="char" MaxLength="10" />
+    <Property Name="id_pais" Type="char" MaxLength="2" />
+    <Property Name="id_cliente" Type="char" MaxLength="10" />
+    <Property Name="preliminar" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="definitiva" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="saldo" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="saldo_impuesto" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="id_job" Type="char" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="tbl_aplicacion_gts_admon">
+    <Key>
+      <PropertyRef Name="id_transaccion" />
+      <PropertyRef Name="id_gasto" />
+    </Key>
+    <Property Name="id_transaccion" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="id_gasto" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="valor" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="valor_docto" Type="numeric" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="tbl_aplicacion_tep">
+    <Key>
+      <PropertyRef Name="id_transaccion" />
+      <PropertyRef Name="id_oficina" />
+      <PropertyRef Name="id_empleado" />
+      <PropertyRef Name="id_oficina0" />
+    </Key>
+    <Property Name="id_transaccion" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="id_oficina" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="id_empleado" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="horas" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="honorarios" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="gastos" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="horas_reporte" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="honorarios_reporte" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="gastos_reporte" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="id_oficina0" Type="char" MaxLength="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_aut_empleadojob">
+    <Key>
+      <PropertyRef Name="id_oficina" />
+      <PropertyRef Name="id_empleado" />
+      <PropertyRef Name="id_cliente" />
+      <PropertyRef Name="id_job" />
+      <PropertyRef Name="periodo_tep_proceso" />
+    </Key>
+    <Property Name="id_oficina" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="id_empleado" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="id_cliente" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="id_job" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="periodo_tep_proceso" Type="char" MaxLength="7" Nullable="false" />
+    <Property Name="tiempo_cargado" Type="numeric" Precision="10" Scale="0" />
+    <Property Name="tiempo_autorizado_team" Type="numeric" Precision="10" Scale="0" />
+    <Property Name="tiempo_autorizado_job" Type="char" MaxLength="10" />
+    <Property Name="autorizar_tiempo" Type="numeric" Precision="1" Scale="0" />
+    <Property Name="autorizado_carga_tiempo" Type="char" MaxLength="2" />
+    <Property Name="id_team" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="id_pais" Type="char" MaxLength="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_autorizacion_documentos">
+    <Key>
+      <PropertyRef Name="id_oficina" />
+      <PropertyRef Name="id_entidad" />
+      <PropertyRef Name="id_tipo_documento" />
+      <PropertyRef Name="numero_autorizacion" />
+    </Key>
+    <Property Name="id_oficina" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="id_entidad" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="id_tipo_documento" Type="char" MaxLength="15" Nullable="false" />
+    <Property Name="numero_autorizacion" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="fecha_autorizacion" Type="datetime" Nullable="false" />
+    <Property Name="serie" Type="nchar" MaxLength="10" />
+    <Property Name="numero_inicial" Type="int" Nullable="false" />
+    <Property Name="numero_final" Type="int" Nullable="false" />
+    <Property Name="tipo_docface" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="numero_dispositivo" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'tmp2.dbo.tbl_cancelacion_facturas_nc' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tbl_cancelacion_facturas_nc">
+    <Key>
+      <PropertyRef Name="id_entidad" />
+      <PropertyRef Name="tipo_documento" />
+      <PropertyRef Name="numero_documento" />
+      <PropertyRef Name="tipo_documento_aplicado" />
+      <PropertyRef Name="numero_documento_aplicado" />
+    </Key>
+    <Property Name="linea" Type="char" MaxLength="100" />
+    <Property Name="producto" Type="char" MaxLength="100" />
+    <Property Name="servicio" Type="char" MaxLength="100" />
+    <Property Name="periodo_tep" Type="char" MaxLength="7" />
+    <Property Name="id_entidad" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="tipo_documento" Type="char" MaxLength="15" Nullable="false" />
+    <Property Name="numero_documento" Type="numeric" Precision="15" Scale="0" Nullable="false" />
+    <Property Name="id_cliente" Type="char" MaxLength="10" />
+    <Property Name="tipo_documento_aplicado" Type="char" MaxLength="15" Nullable="false" />
+    <Property Name="numero_documento_aplicado" Type="numeric" Precision="15" Scale="0" Nullable="false" />
+    <Property Name="aplicado_definitivo" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="cliente" Type="varchar" MaxLength="36" />
+    <Property Name="documento_aplicado" Type="varchar" MaxLength="46" />
+  </EntityType>
+  <EntityType Name="tbl_cargos_otras_oficinas">
+    <Key>
+      <PropertyRef Name="id_reporte" />
+      <PropertyRef Name="linea" />
+    </Key>
+    <Property Name="id_reporte" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="linea" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="id_pais" Type="char" MaxLength="2" />
+    <Property Name="id_cliente" Type="char" MaxLength="10" />
+    <Property Name="id_servicio" Type="char" MaxLength="4" />
+    <Property Name="horas" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="honorarios" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="gastos" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="cuota_facturacion" Type="numeric" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="tbl_certificacion_documento">
+    <Key>
+      <PropertyRef Name="id_oficina" />
+      <PropertyRef Name="id_entidad" />
+      <PropertyRef Name="tipo_documento" />
+      <PropertyRef Name="numero_documento" />
+    </Key>
+    <Property Name="id_oficina" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="id_entidad" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="tipo_documento" Type="char" MaxLength="15" Nullable="false" />
+    <Property Name="numero_documento" Type="numeric" Precision="15" Scale="0" Nullable="false" />
+    <Property Name="fecha_envio" Type="datetime" Nullable="false" />
+    <Property Name="firma_electronica" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="fecha_firma" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_claves_empleado">
+    <Key>
+      <PropertyRef Name="tbl_claves_empleado_id" />
+    </Key>
+    <Property Name="tbl_claves_empleado_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_empleado" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="clave" Type="varchar(max)" />
+    <Property Name="fecha_clave" Type="datetime" />
+    <Property Name="activo" Type="bit" />
+    <Property Name="fecha_expiracion" Type="datetime" />
+    <Property Name="cambia_clave" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_clientes">
+    <Key>
+      <PropertyRef Name="id_pais" />
+      <PropertyRef Name="id_cliente" />
+    </Key>
+    <Property Name="id_pais" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="id_cliente" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="id_grupo" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="Razon_Social" Type="char" MaxLength="100" />
+    <Property Name="direccion1" Type="char" MaxLength="150" />
+    <Property Name="direccion2" Type="char" MaxLength="150" />
+    <Property Name="direccion3" Type="char" MaxLength="150" />
+    <Property Name="exento_impuesto" Type="char" MaxLength="1" />
+    <Property Name="telefonos" Type="char" MaxLength="20" />
+    <Property Name="email" Type="char" MaxLength="50" />
+    <Property Name="id_industria" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="contacto" Type="char" MaxLength="60" />
+    <Property Name="auditor_anterior" Type="char" MaxLength="30" />
+    <Property Name="estado" Type="numeric" Precision="1" Scale="0" Nullable="false" />
+    <Property Name="nacional_id" Type="char" MaxLength="16" Nullable="false" />
+    <Property Name="ciudad" Type="char" MaxLength="30" Nullable="false" />
+    <Property Name="provincia" Type="char" MaxLength="30" Nullable="false" />
+    <Property Name="codigo_postal" Type="char" MaxLength="9" Nullable="false" />
+    <Property Name="crp" Type="char" MaxLength="50" Nullable="false" />
+    <Property Name="entity_duns" Type="char" MaxLength="9" Nullable="false" />
+    <Property Name="hq_parent_duns" Type="char" MaxLength="9" Nullable="false" />
+    <Property Name="ultimate_parent_duns" Type="char" MaxLength="9" Nullable="false" />
+    <Property Name="channel" Type="char" MaxLength="50" />
+    <Property Name="id_pais_cliente" Type="char" MaxLength="3" />
+    <Property Name="Entity_CES_id" Type="char" MaxLength="9" />
+    <Property Name="Party_Ref_Id" Type="char" MaxLength="9" />
+    <Property Name="Inmediate_Parent_Duns" Type="char" MaxLength="9" />
+    <Property Name="Auditor_ext" Type="char" MaxLength="50" />
+    <Property Name="webadress" Type="char" MaxLength="50" />
+    <Property Name="rnc" Type="char" MaxLength="15" />
+    <Property Name="fax" Type="char" MaxLength="15" />
+    <Property Name="cliente_referido" Type="char" MaxLength="15" />
+    <Property Name="parent" Type="char" MaxLength="9" />
+    <Property Name="global_ultimate" Type="char" MaxLength="9" />
+    <Property Name="namecontacto" Type="char" MaxLength="60" />
+    <Property Name="posicion_contac" Type="char" MaxLength="60" />
+    <Property Name="email_contac" Type="char" MaxLength="60" />
+    <Property Name="movil_contac" Type="char" MaxLength="20" />
+    <Property Name="cierre_anio_financiero" Type="char" MaxLength="20" />
+    <Property Name="Periodo_ultimo_mov" Type="char" MaxLength="7" />
+  </EntityType>
+  <EntityType Name="tbl_concepto_no_cargable">
+    <Key>
+      <PropertyRef Name="id_concepto" />
+    </Key>
+    <Property Name="id_concepto" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="descripcion" Type="char" MaxLength="100" />
+    <Property Name="solicita_descripcion" Type="numeric" Precision="1" Scale="0" />
+    <Property Name="inactivar" Type="numeric" Precision="1" Scale="0" Nullable="false" />
+    <Property Name="Distribucion_Proporcional_socios" Type="bit" />
+  </EntityType>
+  <EntityType Name="Tbl_condicion_cobro">
+    <Key>
+      <PropertyRef Name="Id_Tbl_condicion_cobro" />
+    </Key>
+    <Property Name="Id_Tbl_condicion_cobro" Type="int" Nullable="false" />
+    <Property Name="Dias_credito" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'tmp2.dbo.Tbl_contabilizacion_servicios' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Tbl_contabilizacion_servicios">
+    <Key>
+      <PropertyRef Name="ID_PAIS" />
+      <PropertyRef Name="ID_OFICINA" />
+      <PropertyRef Name="ID_SERVICIO" />
+    </Key>
+    <Property Name="ID_PAIS" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="ID_OFICINA" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="ID_SERVICIO" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="ID_CUENTA" Type="char" MaxLength="15" />
+    <Property Name="ID_AUXILIAR" Type="char" MaxLength="4" />
+    <Property Name="ID_DEPARTAMENTO" Type="char" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="tbl_correlativos">
+    <Key>
+      <PropertyRef Name="tabla" />
+      <PropertyRef Name="campo" />
+    </Key>
+    <Property Name="tabla" Type="char" MaxLength="30" Nullable="false" />
+    <Property Name="campo" Type="char" MaxLength="30" Nullable="false" />
+    <Property Name="correlativo" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="tbl_creditos_aplicaciones">
+    <Key>
+      <PropertyRef Name="id_transaccion" />
+    </Key>
+    <Property Name="id_transaccion" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="periodo_tep" Type="char" MaxLength="7" />
+    <Property Name="id_oficina" Type="char" MaxLength="2" />
+    <Property Name="id_job" Type="char" MaxLength="10" />
+    <Property Name="id_cliente" Type="char" MaxLength="10" />
+    <Property Name="realizacion_gastos" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="realizacion_honorarios" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="realizado_por" Type="char" MaxLength="60" />
+    <Property Name="fecha" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'tmp2.dbo.tbl_creditos_aplicaciones_new' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tbl_creditos_aplicaciones_new">
+    <Key>
+      <PropertyRef Name="id_transaccion" />
+    </Key>
+    <Property Name="id_transaccion" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="periodo_tep" Type="char" MaxLength="7" />
+    <Property Name="id_oficina" Type="char" MaxLength="2" />
+    <Property Name="id_job" Type="char" MaxLength="10" />
+    <Property Name="id_cliente" Type="char" MaxLength="10" />
+    <Property Name="realizacion_gastos" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="realizacion_honorarios" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="realizado_por" Type="char" MaxLength="60" />
+    <Property Name="fecha" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_cuenta_corriente">
+    <Key>
+      <PropertyRef Name="id_oficina" />
+      <PropertyRef Name="id_entidad" />
+      <PropertyRef Name="tipo_documento" />
+      <PropertyRef Name="numero_documento" />
+    </Key>
+    <Property Name="id_oficina" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="id_entidad" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="tipo_documento" Type="char" MaxLength="15" Nullable="false" />
+    <Property Name="numero_documento" Type="numeric" Precision="15" Scale="0" Nullable="false" />
+    <Property Name="periodo_tep" Type="char" MaxLength="7" />
+    <Property Name="fecha" Type="datetime" />
+    <Property Name="valor_total" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="impuesto_porcentaje" Type="numeric" Precision="10" Scale="0" />
+    <Property Name="impuesto_incluido" Type="char" MaxLength="1" />
+    <Property Name="valor_impuesto" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="saldo" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="saldo_impuesto" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="factura_preliminar" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="anticipo_aplicar" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="factura_definitiva" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="concepto" Type="text" />
+    <Property Name="id_solicitud" Type="numeric" Precision="10" Scale="0" />
+    <Property Name="id_job" Type="char" MaxLength="10" />
+    <Property Name="id_cliente" Type="char" MaxLength="10" />
+    <Property Name="tasa_cambio" Type="numeric" Precision="18" Scale="4" />
+    <Property Name="flag_impreso" Type="numeric" Precision="1" Scale="0" />
+    <Property Name="estado" Type="numeric" Precision="1" Scale="0" Nullable="false" />
+    <Property Name="linea" Type="numeric" Precision="10" Scale="0" />
+    <Property Name="numero_documento_fiscal_electronico" Type="varchar(max)" />
+    <Property Name="clave_electronica" Type="varchar" MaxLength="50" />
+    <Property Name="Numero_documento_sustituye" Type="char" MaxLength="15" />
+    <Property Name="Lenguaje_Impresion_spanish1" Type="bit" />
+    <Property Name="valor_total_moneda_local" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="fecha_timbrado" Type="date" />
+    <Property Name="numero_documento_fiscal_electronico_cobro" Type="varchar" MaxLength="20" />
+    <Property Name="clave_electronica_cobro" Type="varchar" MaxLength="50" />
+    <Property Name="tipo_documento_fiscal" Type="char" MaxLength="4" />
+  </EntityType>
+  <EntityType Name="tbl_cuenta_corriente_fiscal">
+    <Key>
+      <PropertyRef Name="id_oficina" />
+      <PropertyRef Name="id_entidad" />
+      <PropertyRef Name="tipo_documento" />
+      <PropertyRef Name="numero_documento" />
+    </Key>
+    <Property Name="id_oficina" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="id_entidad" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="tipo_documento" Type="char" MaxLength="15" Nullable="false" />
+    <Property Name="numero_documento" Type="numeric" Precision="15" Scale="0" Nullable="false" />
+    <Property Name="periodo_tep" Type="char" MaxLength="7" />
+    <Property Name="fecha" Type="datetime" />
+    <Property Name="valor_total" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="impuesto_porcentaje" Type="numeric" Precision="10" Scale="0" />
+    <Property Name="impuesto_incluido" Type="char" MaxLength="1" />
+    <Property Name="valor_impuesto" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="saldo" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="saldo_impuesto" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="factura_preliminar" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="anticipo_aplicar" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="factura_definitiva" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="concepto" Type="text" />
+    <Property Name="id_solicitud" Type="numeric" Precision="10" Scale="0" />
+    <Property Name="id_job" Type="char" MaxLength="10" />
+    <Property Name="id_cliente" Type="char" MaxLength="10" />
+    <Property Name="tasa_cambio" Type="numeric" Precision="18" Scale="4" />
+    <Property Name="flag_impreso" Type="numeric" Precision="1" Scale="0" />
+    <Property Name="estado" Type="numeric" Precision="1" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_cuenta_corriente_gestion_cobro">
+    <Key>
+      <PropertyRef Name="Id_oficina" />
+      <PropertyRef Name="Id_entidad" />
+      <PropertyRef Name="tipo_documento" />
+      <PropertyRef Name="numero_documento" />
+      <PropertyRef Name="Linea" />
+    </Key>
+    <Property Name="Id_oficina" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="Id_entidad" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="tipo_documento" Type="char" MaxLength="15" Nullable="false" />
+    <Property Name="numero_documento" Type="numeric" Precision="15" Scale="0" Nullable="false" />
+    <Property Name="Linea" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Fecha" Type="datetime" />
+    <Property Name="Observaciones" Type="text" />
+    <Property Name="Id_usuario" Type="char" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="tbl_cuenta_corriente_por_generar">
+    <Key>
+      <PropertyRef Name="id_oficina" />
+      <PropertyRef Name="id_entidad" />
+      <PropertyRef Name="tipo_documento" />
+      <PropertyRef Name="numero_documento" />
+    </Key>
+    <Property Name="id_oficina" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="id_entidad" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="tipo_documento" Type="char" MaxLength="15" Nullable="false" />
+    <Property Name="numero_documento" Type="numeric" Precision="15" Scale="0" Nullable="false" />
+    <Property Name="periodo_tep" Type="char" MaxLength="7" />
+    <Property Name="fecha" Type="datetime" />
+    <Property Name="valor_total" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="impuesto_porcentaje" Type="numeric" Precision="10" Scale="0" />
+    <Property Name="impuesto_incluido" Type="char" MaxLength="1" />
+    <Property Name="valor_impuesto" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="saldo" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="saldo_impuesto" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="factura_preliminar" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="anticipo_aplicar" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="factura_definitiva" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="concepto" Type="text" />
+    <Property Name="id_solicitud" Type="numeric" Precision="10" Scale="0" />
+    <Property Name="id_job" Type="char" MaxLength="10" />
+    <Property Name="id_cliente" Type="char" MaxLength="10" />
+    <Property Name="tasa_cambio" Type="numeric" Precision="18" Scale="4" />
+    <Property Name="flag_impreso" Type="numeric" Precision="1" Scale="0" />
+    <Property Name="estado" Type="numeric" Precision="1" Scale="0" Nullable="false" />
+    <Property Name="linea" Type="numeric" Precision="10" Scale="0" />
+  </EntityType>
+  <EntityType Name="tbl_cuentacorriente_cierre">
+    <Key>
+      <PropertyRef Name="id_oficina" />
+      <PropertyRef Name="id_entidad" />
+      <PropertyRef Name="tipo_documento" />
+      <PropertyRef Name="numero_documento" />
+      <PropertyRef Name="periodo_tep_corresponde" />
+    </Key>
+    <Property Name="id_oficina" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="id_entidad" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="tipo_documento" Type="char" MaxLength="15" Nullable="false" />
+    <Property Name="numero_documento" Type="numeric" Precision="15" Scale="0" Nullable="false" />
+    <Property Name="periodo_tep_corresponde" Type="char" MaxLength="7" Nullable="false" />
+    <Property Name="periodo_tep" Type="char" MaxLength="7" Nullable="false" />
+    <Property Name="fecha" Type="datetime" />
+    <Property Name="valor_total" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="impuesto_porcentaje" Type="numeric" Precision="10" Scale="0" />
+    <Property Name="impuesto_incluido" Type="char" MaxLength="1" />
+    <Property Name="valor_impuesto" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="saldo" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="saldo_impuesto" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="factura_preliminar" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="anticipo_aplicar" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="factura_definitiva" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="concepto" Type="text" />
+    <Property Name="id_solicitud" Type="numeric" Precision="10" Scale="0" />
+    <Property Name="id_job" Type="char" MaxLength="10" />
+    <Property Name="id_cliente" Type="char" MaxLength="10" />
+    <Property Name="tasa_cambio" Type="numeric" Precision="18" Scale="4" />
+    <Property Name="flag_impreso" Type="numeric" Precision="1" Scale="0" />
+    <Property Name="estado" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="linea" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="tbl_departamento">
+    <Key>
+      <PropertyRef Name="id_departamento" />
+    </Key>
+    <Property Name="id_departamento" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="Nombre_largo" Type="char" MaxLength="100" />
+    <Property Name="Nombre_reportes" Type="char" MaxLength="15" />
+    <Property Name="id_grupos" Type="char" MaxLength="10" />
+    <Property Name="id_oficina" Type="char" MaxLength="2" />
+    <Property Name="Socio" Type="char" MaxLength="10" />
+    <Property Name="Id_linea_pwcglobal" Type="char" MaxLength="15" />
+    <Property Name="code_center_code" Type="char" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="tbl_det_Solicitud">
+    <Key>
+      <PropertyRef Name="id_solicitud" />
+      <PropertyRef Name="linea" />
+      <PropertyRef Name="line_detalle" />
+    </Key>
+    <Property Name="id_solicitud" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="linea" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="line_detalle" Type="numeric" Precision="15" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="concepto" Type="char" MaxLength="1000" />
+    <Property Name="valor" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="Impuesto" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="Impuesto_por" Type="numeric" Precision="10" Scale="0" />
+    <Property Name="Total" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="Atencion_a" Type="char" MaxLength="50" />
+    <Property Name="Es_linea_fiscal" Type="bit" />
+    <Property Name="descripcion_comercial" Type="varchar" MaxLength="1000" />
+    <Property Name="Descuento_linea" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="Valor_local" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="valor_local_impuesto" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="Es_Gasto" Type="bit" />
+    <Property Name="Descuento" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="Descuento_local" Type="numeric" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="tbl_det_Solicitud_temp">
+    <Key>
+      <PropertyRef Name="linea" />
+      <PropertyRef Name="line_detalle" />
+      <PropertyRef Name="id_empleado" />
+    </Key>
+    <Property Name="linea" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="line_detalle" Type="numeric" Precision="15" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="concepto" Type="char" MaxLength="500" />
+    <Property Name="valor" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="Impuesto" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="Impuesto_por" Type="numeric" Precision="10" Scale="0" />
+    <Property Name="Total" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="atencion_a" Type="char" MaxLength="30" />
+    <Property Name="id_empleado" Type="char" MaxLength="6" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_detalle_cargable">
+    <Key>
+      <PropertyRef Name="id_reporte" />
+      <PropertyRef Name="linea" />
+      <PropertyRef Name="id_oficina0" />
+      <PropertyRef Name="id_empleado" />
+    </Key>
+    <Property Name="id_reporte" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="linea" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="horas" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="honorarios" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="gastos" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="cuota_facturacion" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="id_job" Type="char" MaxLength="10" />
+    <Property Name="descripcion_cargo" Type="char" MaxLength="30" />
+    <Property Name="autorizado" Type="numeric" Precision="1" Scale="0" />
+    <Property Name="id_oficina0" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="id_empleado" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="id_cliente" Type="char" MaxLength="10" />
+    <Property Name="horasxautencargado" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="horasxautorizar" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="autorizotl" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="autorizoenc" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="horasrechazadas" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="horasrechazadas_enc" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="horascaptadasweb" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="honorarioscaptadosweb" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="gastoscaptadosweb" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Id_departamento" Type="char" MaxLength="4" />
+    <Property Name="Id_team" Type="char" MaxLength="5" />
+    <Property Name="fecha_hora_captura" Type="datetime" />
+    <Property Name="id_tbl_entes_clientes" Type="numeric" Precision="10" Scale="0" />
+  </EntityType>
+  <EntityType Name="tbl_detalle_cargable_temp">
+    <Key>
+      <PropertyRef Name="id_oficina" />
+      <PropertyRef Name="linea" />
+      <PropertyRef Name="id_empleado" />
+    </Key>
+    <Property Name="id_oficina" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="linea" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="horas" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="honorarios" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="gastos" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="cuota_facturacion" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="id_job" Type="char" MaxLength="10" />
+    <Property Name="descripcion_cargo" Type="char" MaxLength="30" />
+    <Property Name="id_oficina0" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="id_empleado" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="id_cliente" Type="char" MaxLength="10" />
+    <Property Name="fecha_hora_captura" Type="datetime" />
+    <Property Name="id_tbl_entes_clientes" Type="numeric" Precision="10" Scale="0" />
+  </EntityType>
+  <EntityType Name="tbl_detalle_cobros_anulaciones">
+    <Key>
+      <PropertyRef Name="id_oficina" />
+      <PropertyRef Name="id_entidad" />
+      <PropertyRef Name="tipo_documento" />
+      <PropertyRef Name="tipo_documento_aplicado" />
+      <PropertyRef Name="numero_documento" />
+      <PropertyRef Name="numero_documento_aplicado" />
+    </Key>
+    <Property Name="id_oficina" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="id_entidad" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="tipo_documento" Type="char" MaxLength="15" Nullable="false" />
+    <Property Name="tipo_documento_aplicado" Type="char" MaxLength="15" Nullable="false" />
+    <Property Name="numero_documento" Type="numeric" Precision="15" Scale="0" Nullable="false" />
+    <Property Name="numero_documento_aplicado" Type="numeric" Precision="15" Scale="0" Nullable="false" />
+    <Property Name="valor_aplicado" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="aplicado_impuestos" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="aplicado_anticipos" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="tipo_factura" Type="char" MaxLength="1" />
+    <Property Name="aplicado_preliminar" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="aplicado_definitivo" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="aplicado_impuesto" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_detalle_cobros_anulaciones_historia">
+    <Key>
+      <PropertyRef Name="id_oficina" />
+      <PropertyRef Name="id_entidad" />
+      <PropertyRef Name="tipo_documento" />
+      <PropertyRef Name="tipo_documento_aplicado" />
+      <PropertyRef Name="numero_documento" />
+      <PropertyRef Name="numero_documento_aplicado" />
+    </Key>
+    <Property Name="id_oficina" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="id_entidad" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="tipo_documento" Type="char" MaxLength="15" Nullable="false" />
+    <Property Name="tipo_documento_aplicado" Type="char" MaxLength="15" Nullable="false" />
+    <Property Name="numero_documento" Type="numeric" Precision="15" Scale="0" Nullable="false" />
+    <Property Name="numero_documento_aplicado" Type="numeric" Precision="15" Scale="0" Nullable="false" />
+    <Property Name="valor_aplicado" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="aplicado_impuestos" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="aplicado_anticipos" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="tipo_factura" Type="char" MaxLength="1" />
+    <Property Name="aplicado_preliminar" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="aplicado_definitivo" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="aplicado_impuesto" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="id_cliente" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="id_job" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="razon_social" Type="char" MaxLength="100" Nullable="false" />
+    <Property Name="descripcion_job" Type="char" MaxLength="100" Nullable="false" />
+    <Property Name="id_servicio" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="fecha" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Detalle_Sol_temp">
+    <Key>
+      <PropertyRef Name="line_detalle" />
+    </Key>
+    <Property Name="line_detalle" Type="numeric" Precision="15" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_solicitud" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="linea" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="concepto" Type="char" MaxLength="1000" />
+    <Property Name="valor" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="Impuesto" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="Impuesto_por" Type="numeric" Precision="10" Scale="0" />
+    <Property Name="Total" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="Atencion_a" Type="char" MaxLength="30" />
+    <Property Name="es_linea_fiscal" Type="bit" />
+    <Property Name="Descuento_linea" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="Descripcion_comercial" Type="varchar" MaxLength="1000" />
+    <Property Name="Valor_local" Type="numeric" Precision="12" Scale="2" />
+  </EntityType>
+  <EntityType Name="tbl_distribucion_gastos">
+    <Key>
+      <PropertyRef Name="id_transaccion" />
+    </Key>
+    <Property Name="id_transaccion" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Documento_referencia" Type="char" MaxLength="20" />
+    <Property Name="descripcion" Type="char" MaxLength="100" />
+    <Property Name="valor_total" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="forma_distribucion" Type="char" MaxLength="1" />
+    <Property Name="periodo_tep_proceso" Type="char" MaxLength="7" />
+    <Property Name="id_oficina" Type="char" MaxLength="2" />
+    <Property Name="fecha" Type="datetime" />
+    <Property Name="id_entidad" Type="char" MaxLength="2" />
+  </EntityType>
+  <EntityType Name="tbl_distribuidos">
+    <Key>
+      <PropertyRef Name="id_transaccion" />
+      <PropertyRef Name="id_gasto" />
+      <PropertyRef Name="id_pais" />
+      <PropertyRef Name="id_cliente" />
+      <PropertyRef Name="id_servicio" />
+      <PropertyRef Name="id_job" />
+      <PropertyRef Name="id_oficina" />
+      <PropertyRef Name="id_linea" />
+    </Key>
+    <Property Name="id_transaccion" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="valor" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="id_gasto" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="id_pais" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="id_cliente" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="id_servicio" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="id_job" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="id_oficina" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="id_linea" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_tbl_entes_clientes" Type="numeric" Precision="10" Scale="0" />
+  </EntityType>
+  <EntityType Name="tbl_documentos_fiscales">
+    <Key>
+      <PropertyRef Name="id_oficina" />
+      <PropertyRef Name="tipo_documento" />
+      <PropertyRef Name="serie" />
+      <PropertyRef Name="numero_documento" />
+    </Key>
+    <Property Name="id_oficina" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="tipo_documento" Type="char" MaxLength="15" Nullable="false" />
+    <Property Name="serie" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="numero_documento" Type="numeric" Precision="15" Scale="0" Nullable="false" />
+    <Property Name="fecha" Type="datetime" />
+    <Property Name="bienes" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="servicios" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="exportacion" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="exento" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="valor_impuesto" Type="numeric" Precision="10" Scale="2" />
+    <Property Name="concepto" Type="text" />
+    <Property Name="id_cliente" Type="char" MaxLength="10" />
+    <Property Name="estado_anulado" Type="bit" Nullable="false" />
+    <Property Name="id_entidad" Type="char" MaxLength="2" />
+    <Property Name="tipo_documento_aplicado" Type="char" MaxLength="15" />
+    <Property Name="numero_documento_aplicado" Type="numeric" Precision="15" Scale="0" />
+    <Property Name="Id_pais_cliente" Type="char" MaxLength="2" />
+    <Property Name="Nombre_ente_cliente" Type="varchar" MaxLength="200" />
+    <Property Name="Direccion_cliente" Type="varchar" MaxLength="200" />
+    <Property Name="Tasa_cambio" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="Porcentaje_iva" Type="numeric" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="tbl_documentos_gface">
+    <Key>
+      <PropertyRef Name="Oficina" />
+      <PropertyRef Name="Entidad" />
+      <PropertyRef Name="Tipo" />
+      <PropertyRef Name="Serie" />
+      <PropertyRef Name="Numero" />
+    </Key>
+    <Property Name="Oficina" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="Entidad" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="Tipo" Type="char" MaxLength="15" Nullable="false" />
+    <Property Name="Serie" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Numero" Type="int" Nullable="false" />
+    <Property Name="Fecha" Type="datetime" />
+    <Property Name="Tipo de Cambio" Type="numeric" Precision="14" Scale="4" />
+    <Property Name="Referencia Interna" Type="varchar" MaxLength="50" />
+    <Property Name="Comprador NIT" Type="varchar" MaxLength="20" />
+    <Property Name="Comprador Nombre" Type="varchar" MaxLength="255" />
+    <Property Name="Comprador Direccion" Type="varchar" MaxLength="255" />
+    <Property Name="Comprador Municipio" Type="varchar" MaxLength="2" />
+    <Property Name="Comprador Departamento" Type="varchar" MaxLength="2" />
+    <Property Name="Comprador Pais" Type="varchar" MaxLength="2" />
+    <Property Name="Comprador Postal" Type="varchar" MaxLength="5" />
+    <Property Name="Comprador Telefono" Type="varchar" MaxLength="20" />
+    <Property Name="Porcentaje Iva" Type="numeric" Precision="14" Scale="2" />
+    <Property Name="Exportacion" Type="numeric" Precision="14" Scale="2" />
+    <Property Name="Porcentaje Descuento" Type="numeric" Precision="14" Scale="2" />
+    <Property Name="Comprador Direccion2" Type="varchar" MaxLength="255" />
+    <Property Name="Estado" Type="char" MaxLength="1" />
+    <Property Name="Observaciones" Type="varchar" MaxLength="500" />
+    <Property Name="Total Documento" Type="numeric" Precision="14" Scale="2" />
+  </EntityType>
+  <EntityType Name="tbl_empleado_entidad_legal">
+    <Key>
+      <PropertyRef Name="Id_Tbl_Empleado_Entidad_Legal" />
+    </Key>
+    <Property Name="Id_Tbl_Empleado_Entidad_Legal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id_Oficina" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="Id_Entidad" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="Id_Empleado" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="Fecha_Hora_Expira_Token" Type="datetime" />
+    <Property Name="FE_Token" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="tbl_empleados">
+    <Key>
+      <PropertyRef Name="id_empleado" />
+    </Key>
+    <Property Name="id_oficina" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="id_empleado" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="iniciales" Type="char" MaxLength="6" />
+    <Property Name="id_puesto" Type="char" MaxLength="4" />
+    <Property Name="id_departamento" Type="char" MaxLength="4" />
+    <Property Name="Nombres" Type="char" MaxLength="60" />
+    <Property Name="apellidos" Type="char" MaxLength="60" />
+    <Property Name="cuota_facturacion_local" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="cuota_facturacion_interamerica" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="situacion_actual" Type="char" MaxLength="1" />
+    <Property Name="ultimo_reporte_entregado" Type="char" MaxLength="7" />
+    <Property Name="clave" Type="char" MaxLength="15" />
+    <Property Name="presupuesto_horas" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="fecha_ingreso" Type="datetime" />
+    <Property Name="fecha_nacimiento" Type="datetime" />
+    <Property Name="usuario_administrativo" Type="numeric" Precision="1" Scale="0" Nullable="false" />
+    <Property Name="id_team" Type="char" MaxLength="5" />
+    <Property Name="cem_costo" Type="varchar" MaxLength="25" />
+    <Property Name="ultima_fecha_pass" Type="datetime" />
+    <Property Name="logged" Type="bit" Nullable="false" />
+    <Property Name="fecha_baja" Type="datetime" />
+    <Property Name="id_workday" Type="char" MaxLength="10" />
+    <Property Name="empoyee_ppi" Type="char" MaxLength="10" />
+    <Property Name="FE_Token" Type="varchar(max)" />
+    <Property Name="Fecha_Hora_Expira_Token" Type="datetime" />
+    <Property Name="partyId" Type="varchar" MaxLength="50" />
+    <Property Name="No_Trabaja_sabado" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_empleados_teams">
+    <Key>
+      <PropertyRef Name="id_team" />
+      <PropertyRef Name="id_pais" />
+      <PropertyRef Name="id_oficina" />
+      <PropertyRef Name="id_empleado" />
+    </Key>
+    <Property Name="id_team" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="id_pais" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="id_oficina" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="id_empleado" Type="char" MaxLength="6" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_empleados_trabajo">
+    <Key>
+      <PropertyRef Name="id_cliente" />
+      <PropertyRef Name="id_job" />
+      <PropertyRef Name="id_team" />
+      <PropertyRef Name="id_pais" />
+      <PropertyRef Name="id_oficina" />
+      <PropertyRef Name="id_empleado" />
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id_cliente" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="id_job" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="id_team" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="id_pais" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="id_oficina" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="id_empleado" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="id" Type="numeric" Precision="15" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fecha_alta_job" Type="datetime" />
+    <Property Name="fecha_baja_job" Type="char" MaxLength="10" />
+    <Property Name="status" Type="numeric" Precision="1" Scale="0" />
+  </EntityType>
+  <EntityType Name="tbl_entes_clientes">
+    <Key>
+      <PropertyRef Name="id_pais" />
+      <PropertyRef Name="linea" />
+    </Key>
+    <Property Name="id_pais" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="id_cliente" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="linea" Type="numeric" Precision="10" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nit" Type="char" MaxLength="30" />
+    <Property Name="nombre" Type="char" MaxLength="100" />
+    <Property Name="direccion1" Type="char" MaxLength="100" />
+    <Property Name="direccion2" Type="char" MaxLength="180" />
+    <Property Name="direccion3" Type="char" MaxLength="50" />
+    <Property Name="atencion_a" Type="char" MaxLength="50" />
+    <Property Name="adicional1" Type="char" MaxLength="150" Nullable="false" />
+    <Property Name="adicional2" Type="char" MaxLength="150" Nullable="false" />
+    <Property Name="codigo_municipio" Type="char" MaxLength="4" />
+    <Property Name="codigo_postal" Type="char" MaxLength="10" />
+    <Property Name="Codigo_pais_iso" Type="char" MaxLength="2" />
+    <Property Name="codigo_provincia" Type="char" MaxLength="3" />
+    <Property Name="estado" Type="int" />
+    <Property Name="correo_electronico" Type="varchar" MaxLength="50" />
+    <Property Name="ente_cliente_ubicacion" Type="char" MaxLength="7" />
+    <Property Name="Cliente_Exonerado" Type="bit" />
+    <Property Name="Tipo_Exoneracion" Type="char" MaxLength="2" />
+    <Property Name="numero_exoneracion" Type="char" MaxLength="17" />
+    <Property Name="Nombre_institucion_Exoneracion" Type="char" MaxLength="100" />
+    <Property Name="Fecha_EExoneracion" Type="datetime" />
+    <Property Name="Monto_Exoneracion" Type="numeric" Precision="18" Scale="5" />
+    <Property Name="Porcentaje_CExoneracion" Type="numeric" Precision="3" Scale="0" />
+    <Property Name="id_industria" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="Local_Extranjero" Type="bit" />
+    <Property Name="Id_Tbl_condicion_cobro" Type="int" />
+    <Property Name="RUC" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="tbl_entes_solicitud">
+    <Key>
+      <PropertyRef Name="id_solicitud" />
+      <PropertyRef Name="linea" />
+    </Key>
+    <Property Name="id_solicitud" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="linea" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="saldo" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="Fecha_autorizacion" Type="datetime" />
+    <Property Name="Estado" Type="numeric" Precision="1" Scale="0" />
+  </EntityType>
+  <EntityType Name="tbl_entidad_legal">
+    <Key>
+      <PropertyRef Name="id_oficina" />
+      <PropertyRef Name="id_entidad" />
+    </Key>
+    <Property Name="id_oficina" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="id_entidad" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="Razon_social" Type="char" MaxLength="60" />
+    <Property Name="Direccion" Type="char" MaxLength="60" />
+    <Property Name="NIT" Type="char" MaxLength="60" />
+    <Property Name="correlativo_facturas" Type="char" MaxLength="15" />
+    <Property Name="correlativo_cobranzas" Type="char" MaxLength="15" />
+    <Property Name="correlativo_notas" Type="char" MaxLength="15" />
+    <Property Name="correlativo_anulaciones" Type="char" MaxLength="15" />
+    <Property Name="impuesto" Type="numeric" Precision="2" Scale="0" />
+    <Property Name="incluido" Type="numeric" Precision="1" Scale="0" />
+    <Property Name="formato_facturas" Type="char" MaxLength="100" />
+    <Property Name="financiera" Type="bit" Nullable="false" />
+    <Property Name="ubicacion_factura" Type="varchar" MaxLength="200" />
+    <Property Name="Estado" Type="bit" />
+    <Property Name="origen_datos_factura" Type="varchar" MaxLength="200" />
+    <Property Name="control_fel" Type="bit" />
+    <Property Name="Clave_Acceso" Type="varchar(max)" />
+    <Property Name="Clave_Api" Type="varchar(max)" />
+    <Property Name="Clave_Cliente" Type="varchar(max)" />
+    <Property Name="Certificado" Type="varchar(max)" />
+    <Property Name="Formato_FEL" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="tbl_factura_oficina">
+    <Key>
+      <PropertyRef Name="id_oficina" />
+      <PropertyRef Name="Reporte" />
+      <PropertyRef Name="Descripcion" />
+    </Key>
+    <Property Name="id_oficina" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="Reporte" Type="nchar" MaxLength="25" Nullable="false" />
+    <Property Name="Descripcion" Type="char" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'tmp2.dbo.tbl_facturas_anuladas_finales' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tbl_facturas_anuladas_finales">
+    <Key>
+      <PropertyRef Name="id_oficina" />
+      <PropertyRef Name="id_entidad" />
+      <PropertyRef Name="tipo_documento" />
+      <PropertyRef Name="numero_documento" />
+    </Key>
+    <Property Name="linea" Type="char" MaxLength="100" />
+    <Property Name="producto" Type="char" MaxLength="100" />
+    <Property Name="servicio" Type="char" MaxLength="100" />
+    <Property Name="id_oficina" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="id_entidad" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="tipo_documento" Type="char" MaxLength="15" Nullable="false" />
+    <Property Name="numero_documento" Type="numeric" Precision="15" Scale="0" Nullable="false" />
+    <Property Name="fecha_anulacion" Type="datetime" />
+    <Property Name="id_cliente" Type="char" MaxLength="10" />
+    <Property Name="definitiva" Type="numeric" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="tbl_frases">
+    <Key>
+      <PropertyRef Name="Id_tbl_frase" />
+    </Key>
+    <Property Name="Id_tbl_frase" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Codigo_Escenario" Type="int" Nullable="false" />
+    <Property Name="Tipo_Frase" Type="int" Nullable="false" />
+    <Property Name="Id_oficina" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="Id_entidad" Type="char" MaxLength="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_gastos_administrativos">
+    <Key>
+      <PropertyRef Name="id_gasto" />
+    </Key>
+    <Property Name="id_gasto" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="Descripcion" Type="char" MaxLength="100" />
+    <Property Name="Distribucion_Proporcional_socios" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_gastos_administrativos_detalle_empresas">
+    <Key>
+      <PropertyRef Name="Id_Gasto" />
+      <PropertyRef Name="Id_oficina" />
+    </Key>
+    <Property Name="Id_Gasto" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="Id_oficina" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="Activo" Type="bit" />
+  </EntityType>
+  <EntityType Name="Tbl_geografia">
+    <Key>
+      <PropertyRef Name="Codigo_geografia" />
+    </Key>
+    <Property Name="Codigo_geografia" Type="int" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="80" />
+    <Property Name="Nivel_jerarquico" Type="int" />
+    <Property Name="Cadena_jerarquica" Type="varchar" MaxLength="30" />
+    <Property Name="Codigo_geografia_padre" Type="int" />
+    <Property Name="Codigo_iso_alpha" Type="varchar" MaxLength="2" />
+  </EntityType>
+  <EntityType Name="tbl_grupo_industria">
+    <Key>
+      <PropertyRef Name="id_grupo" />
+    </Key>
+    <Property Name="id_grupo" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="descripcion" Type="char" MaxLength="75" />
+  </EntityType>
+  <EntityType Name="tbl_grupos">
+    <Key>
+      <PropertyRef Name="id_grupo" />
+    </Key>
+    <Property Name="id_grupo" Type="numeric" Precision="5" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="char" MaxLength="60" />
+    <Property Name="id_pais_origen" Type="char" MaxLength="2" />
+  </EntityType>
+  <EntityType Name="tbl_grupos_conceptos_no_cargables">
+    <Key>
+      <PropertyRef Name="id_grupo_concepto" />
+    </Key>
+    <Property Name="id_grupo_concepto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="150" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tbl_gts_automaticos">
+    <Key>
+      <PropertyRef Name="Id_transaccion" />
+    </Key>
+    <Property Name="Id_transaccion" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Fecha" Type="datetime" />
+    <Property Name="Descripcion" Type="char" MaxLength="200" />
+    <Property Name="Tipo_distribucion" Type="numeric" Precision="1" Scale="0" />
+    <Property Name="Valor" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="Periodo_tep_proceso" Type="char" MaxLength="7" />
+    <Property Name="usuario" Type="char" MaxLength="10" />
+    <Property Name="id_gasto" Type="char" MaxLength="5" />
+    <Property Name="id_oficina" Type="char" MaxLength="2" />
+    <Property Name="estado" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_gts_automaticos_detalle">
+    <Key>
+      <PropertyRef Name="Id_transaccion" />
+      <PropertyRef Name="Linea" />
+    </Key>
+    <Property Name="Id_transaccion" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Linea" Type="numeric" Precision="10" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_servicio" Type="char" MaxLength="4" />
+    <Property Name="estado" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'tmp2.dbo.tbl_horas_cargadas_al_standard' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tbl_horas_cargadas_al_standard">
+    <Key>
+      <PropertyRef Name="billing_variances" />
+    </Key>
+    <Property Name="ID_PAIS" Type="char" MaxLength="2" />
+    <Property Name="periodo_tep_proceso" Type="char" MaxLength="7" />
+    <Property Name="id_cliente" Type="char" MaxLength="10" />
+    <Property Name="chrg_cd_hrs" Type="numeric" Precision="38" Scale="0" />
+    <Property Name="gross_rev_local" Type="numeric" Precision="38" Scale="4" />
+    <Property Name="gross_rev" Type="numeric" Precision="38" Scale="6" />
+    <Property Name="billing_variances" Type="int" Nullable="false" />
+    <Property Name="linea" Type="char" MaxLength="100" />
+    <Property Name="producto" Type="char" MaxLength="100" />
+    <Property Name="servicio" Type="char" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_industrias">
+    <Key>
+      <PropertyRef Name="id_industria" />
+    </Key>
+    <Property Name="id_industria" Type="numeric" Precision="5" Scale="0" Nullable="false" />
+    <Property Name="nombre" Type="char" MaxLength="100" />
+    <Property Name="id_sector" Type="char" MaxLength="5" />
+    <Property Name="id_industria_pwcglobal" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_Integracion_tep_Empleado_Gasto">
+    <Key>
+      <PropertyRef Name="Transaction_Register" />
+    </Key>
+    <Property Name="Transaction_Register" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="anio" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="Periodo" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="Cliente" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="id_Servicio" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="Tipo" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="Documento" Type="char" MaxLength="15" Nullable="false" />
+    <Property Name="Codigo" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="Descripcion" Type="char" MaxLength="100" Nullable="false" />
+    <Property Name="Horas" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="Honorarios" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Gastos" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Fecha" Type="datetime" />
+    <Property Name="Explicacion" Type="char" MaxLength="100" Nullable="false" />
+    <Property Name="id_job" Type="char" MaxLength="10" />
+    <Property Name="id_oficina" Type="char" MaxLength="2" />
+  </EntityType>
+  <EntityType Name="tbl_lineas">
+    <Key>
+      <PropertyRef Name="id_grupos" />
+    </Key>
+    <Property Name="id_grupos" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="descripcion" Type="char" MaxLength="100" />
+    <Property Name="id_oficina" Type="char" MaxLength="2" />
+    <Property Name="Socio_encargado" Type="char" MaxLength="10" />
+    <Property Name="id_linea_pwcglobal" Type="char" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="tbl_Log_Documento_Electronico">
+    <Key>
+      <PropertyRef Name="tbl_Log_Documento_Electronico_id" />
+    </Key>
+    <Property Name="tbl_Log_Documento_Electronico_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Fecha_Hora_Envio" Type="datetime" />
+    <Property Name="tipo_documento" Type="varchar" MaxLength="50" />
+    <Property Name="numero_documento" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="id_oficina" Type="varchar" MaxLength="50" />
+    <Property Name="id_entidad" Type="char" MaxLength="2" />
+    <Property Name="fecha_hora_timbrado" Type="datetime" />
+    <Property Name="informacion_cliente" Type="varchar(max)" />
+    <Property Name="docto_electronico" Type="varchar(max)" />
+    <Property Name="detalle_envio" Type="varchar(max)" />
+    <Property Name="respuesta_fiscal" Type="varchar(max)" />
+    <Property Name="resultado_envio" Type="varchar(max)" />
+    <Property Name="Aprobado" Type="bit" />
+    <Property Name="Numero_Serie_Electronica" Type="varchar" MaxLength="50" />
+    <Property Name="Numero_Documento_Electronico" Type="varchar" MaxLength="50" />
+    <Property Name="Anulado" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_municipio">
+    <Key>
+      <PropertyRef Name="Codigo_iso_alpha" />
+      <PropertyRef Name="codigo_provincia" />
+      <PropertyRef Name="Codigo_municipio" />
+    </Key>
+    <Property Name="Codigo_iso_alpha" Type="varchar" MaxLength="2" Nullable="false" />
+    <Property Name="codigo_provincia" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="provincia_depto" Type="varchar" MaxLength="80" />
+    <Property Name="Codigo_municipio" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="Municipio" Type="varchar" MaxLength="80" />
+  </EntityType>
+  <EntityType Name="tbl_niveles_acceso">
+    <Key>
+      <PropertyRef Name="codigo" />
+    </Key>
+    <Property Name="codigo" Type="numeric" Precision="2" Scale="0" Nullable="false" />
+    <Property Name="descripcion" Type="char" MaxLength="30" />
+    <Property Name="nivel" Type="numeric" Precision="2" Scale="0" />
+  </EntityType>
+  <EntityType Name="tbl_niveles_empleado">
+    <Key>
+      <PropertyRef Name="id_oficina" />
+      <PropertyRef Name="id_empleado" />
+      <PropertyRef Name="id_oficina_control" />
+      <PropertyRef Name="empleado_control" />
+    </Key>
+    <Property Name="id_oficina" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="id_empleado" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="id_oficina_control" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="empleado_control" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="del_nivel" Type="numeric" Precision="2" Scale="0" />
+    <Property Name="al_nivel" Type="numeric" Precision="2" Scale="0" />
+    <Property Name="acceso_procesos" Type="numeric" Precision="1" Scale="0" />
+    <Property Name="acceso_reportes" Type="numeric" Precision="1" Scale="0" />
+  </EntityType>
+  <EntityType Name="tbl_no_cargables">
+    <Key>
+      <PropertyRef Name="id_reporte" />
+      <PropertyRef Name="linea" />
+    </Key>
+    <Property Name="id_reporte" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="linea" Type="numeric" Precision="10" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_concepto" Type="char" MaxLength="4" />
+    <Property Name="horas" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="descripcion" Type="char" MaxLength="60" />
+    <Property Name="horasporautorizar" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="horasrechazadas" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="horascaptadasweb" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="id_departamento" Type="char" MaxLength="4" />
+    <Property Name="id_team" Type="char" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="tbl_no_cargables_temp">
+    <Key>
+      <PropertyRef Name="id_oficina" />
+      <PropertyRef Name="id_empleado" />
+      <PropertyRef Name="linea" />
+    </Key>
+    <Property Name="id_oficina" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="id_empleado" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="linea" Type="numeric" Precision="10" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_concepto" Type="char" MaxLength="4" />
+    <Property Name="horas" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="descripcion" Type="char" MaxLength="60" />
+    <Property Name="horasporautorizar" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="horasrechazadas" Type="numeric" Precision="12" Scale="2" />
+  </EntityType>
+  <EntityType Name="tbl_oficina">
+    <Key>
+      <PropertyRef Name="id_oficina" />
+    </Key>
+    <Property Name="id_oficina" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="Nombre" Type="char" MaxLength="30" />
+    <Property Name="direccion" Type="char" MaxLength="100" />
+    <Property Name="periodo_proceso" Type="char" MaxLength="7" />
+    <Property Name="id_pais" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="parametro_reportes" Type="numeric" Precision="1" Scale="0" Nullable="false" />
+    <Property Name="Status" Type="int" Nullable="false" />
+    <Property Name="permite_facturar_en_periodo" Type="int" />
+    <Property Name="Numero_Telefono" Type="numeric" Precision="8" Scale="0" />
+    <Property Name="Numero_Fax" Type="numeric" Precision="8" Scale="0" />
+    <Property Name="correo_electronico" Type="char" MaxLength="60" />
+    <Property Name="codigo_fiscal" Type="char" MaxLength="12" />
+  </EntityType>
+  <EntityType Name="tbl_opciones">
+    <Key>
+      <PropertyRef Name="menu" />
+      <PropertyRef Name="opcion" />
+    </Key>
+    <Property Name="menu" Type="char" MaxLength="30" Nullable="false" />
+    <Property Name="opcion" Type="char" MaxLength="50" Nullable="false" />
+    <Property Name="pantalla" Type="char" MaxLength="30" Nullable="false" />
+    <Property Name="orden_menu" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_opciones_empleado">
+    <Key>
+      <PropertyRef Name="menu" />
+      <PropertyRef Name="opcion" />
+      <PropertyRef Name="id_oficina" />
+      <PropertyRef Name="id_empleado" />
+    </Key>
+    <Property Name="menu" Type="char" MaxLength="30" Nullable="false" />
+    <Property Name="opcion" Type="char" MaxLength="50" Nullable="false" />
+    <Property Name="id_oficina" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="id_empleado" Type="char" MaxLength="6" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_opciones_puesto">
+    <Key>
+      <PropertyRef Name="menu" />
+      <PropertyRef Name="opcion" />
+      <PropertyRef Name="id_puesto" />
+    </Key>
+    <Property Name="menu" Type="char" MaxLength="30" Nullable="false" />
+    <Property Name="opcion" Type="char" MaxLength="50" Nullable="false" />
+    <Property Name="id_puesto" Type="char" MaxLength="4" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_paises">
+    <Key>
+      <PropertyRef Name="id_pais" />
+    </Key>
+    <Property Name="id_pais" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="Nombre" Type="char" MaxLength="30" />
+    <Property Name="Tasa_Cambio" Type="numeric" Precision="18" Scale="4" />
+    <Property Name="Moneda" Type="char" MaxLength="15" />
+    <Property Name="Periodo_Proceso" Type="char" MaxLength="7" />
+    <Property Name="Situacion" Type="char" MaxLength="1" />
+    <Property Name="inicia_periodo" Type="numeric" Precision="2" Scale="0" />
+    <Property Name="finaliza_periodo" Type="numeric" Precision="2" Scale="0" />
+    <Property Name="id_territory" Type="char" MaxLength="3" />
+    <Property Name="iso_char2" Type="char" MaxLength="2" />
+    <Property Name="codigo_pais" Type="char" MaxLength="3" />
+    <Property Name="paisSynId" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="tbl_parametros">
+    <Key>
+      <PropertyRef Name="id_parametro" />
+    </Key>
+    <Property Name="id_parametro" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="valor_numerico" Type="numeric" Precision="18" Scale="4" Nullable="false" />
+    <Property Name="valor_alfanumerico" Type="varchar" MaxLength="255" />
+    <Property Name="valor_fecha" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_permisos">
+    <Key>
+      <PropertyRef Name="id_permiso" />
+    </Key>
+    <Property Name="id_permiso" Type="int" Nullable="false" />
+    <Property Name="descripcion" Type="char" MaxLength="20" />
+    <Property Name="rol" Type="char" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="tbl_permisos_asignados">
+    <Key>
+      <PropertyRef Name="id_permiso" />
+      <PropertyRef Name="id_oficina" />
+      <PropertyRef Name="id_empleado" />
+    </Key>
+    <Property Name="id_permiso" Type="int" Nullable="false" />
+    <Property Name="id_oficina" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="id_empleado" Type="char" MaxLength="6" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_plantilla_niveles">
+    <Key>
+      <PropertyRef Name="id_puesto" />
+    </Key>
+    <Property Name="id_puesto" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="del_nivel" Type="numeric" Precision="2" Scale="0" />
+    <Property Name="al_nivel" Type="numeric" Precision="2" Scale="0" />
+    <Property Name="acceso_proceso" Type="numeric" Precision="1" Scale="0" />
+    <Property Name="acceso_reportes" Type="numeric" Precision="1" Scale="0" />
+  </EntityType>
+  <EntityType Name="Tbl_provincia_depto">
+    <Key>
+      <PropertyRef Name="Codigo_iso_alpha" />
+      <PropertyRef Name="Codigo_provincia" />
+    </Key>
+    <Property Name="Codigo_iso_alpha" Type="varchar" MaxLength="2" Nullable="false" />
+    <Property Name="Codigo_provincia" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="80" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'tmp2.dbo.tbl_provision_cuentas_incobrables' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tbl_provision_cuentas_incobrables">
+    <Key>
+      <PropertyRef Name="id_oficina" />
+      <PropertyRef Name="tipo_documento" />
+      <PropertyRef Name="numero_documento" />
+    </Key>
+    <Property Name="id_pais" Type="nchar" MaxLength="10" />
+    <Property Name="id_oficina" Type="nchar" MaxLength="2" Nullable="false" />
+    <Property Name="linea" Type="char" MaxLength="100" />
+    <Property Name="producto" Type="char" MaxLength="100" />
+    <Property Name="servicio" Type="char" MaxLength="100" />
+    <Property Name="tipo_documento" Type="nchar" MaxLength="15" Nullable="false" />
+    <Property Name="numero_documento" Type="numeric" Precision="15" Scale="0" Nullable="false" />
+    <Property Name="provision" Type="numeric" Precision="38" Scale="4" />
+  </EntityType>
+  <EntityType Name="tbl_puestos">
+    <Key>
+      <PropertyRef Name="id_puesto" />
+    </Key>
+    <Property Name="id_puesto" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="descripcion" Type="char" MaxLength="25" />
+    <Property Name="id_nivel" Type="numeric" Precision="2" Scale="0" />
+  </EntityType>
+  <EntityType Name="tbl_puestos_conversion_web">
+    <Key>
+      <PropertyRef Name="id_puesto" />
+      <PropertyRef Name="id_puesto_convertido" />
+    </Key>
+    <Property Name="id_puesto" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="id_puesto_convertido" Type="char" MaxLength="4" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_reportes_tiempo">
+    <Key>
+      <PropertyRef Name="id_reporte" />
+    </Key>
+    <Property Name="id_reporte" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="id_oficina" Type="char" MaxLength="2" />
+    <Property Name="id_empleado" Type="char" MaxLength="10" />
+    <Property Name="periodo_tep_proceso" Type="char" MaxLength="7" />
+    <Property Name="periodo_tep_corresponde" Type="char" MaxLength="7" />
+    <Property Name="tasa_cambio" Type="numeric" Precision="18" Scale="4" />
+    <Property Name="de_dia" Type="numeric" Precision="2" Scale="0" />
+    <Property Name="a_dia" Type="numeric" Precision="2" Scale="0" />
+    <Property Name="captado_por" Type="char" MaxLength="60" />
+  </EntityType>
+  <EntityType Name="tbl_reportes_tiempo_temp">
+    <Key>
+      <PropertyRef Name="id_oficina" />
+      <PropertyRef Name="id_empleado" />
+    </Key>
+    <Property Name="id_oficina" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="id_empleado" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="periodo_tep_proceso" Type="char" MaxLength="7" />
+    <Property Name="periodo_tep_corresponde" Type="char" MaxLength="7" />
+    <Property Name="tasa_cambio" Type="numeric" Precision="18" Scale="4" />
+    <Property Name="de_dia" Type="numeric" Precision="2" Scale="0" />
+    <Property Name="a_dia" Type="numeric" Precision="2" Scale="0" />
+    <Property Name="captado_por" Type="char" MaxLength="60" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'tmp2.dbo.tbl_reserva_tep' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tbl_reserva_tep">
+    <Key>
+      <PropertyRef Name="ID_CLIENTE" />
+    </Key>
+    <Property Name="PAIS" Type="nvarchar" MaxLength="10" />
+    <Property Name="LINEA" Type="char" MaxLength="100" />
+    <Property Name="PRODUCTO" Type="char" MaxLength="100" />
+    <Property Name="SERVICIO" Type="char" MaxLength="100" />
+    <Property Name="ID_CLIENTE" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="ID_JOB" Type="char" MaxLength="10" />
+    <Property Name="RESERVATEP" Type="numeric" Precision="38" Scale="2" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'tmp2.dbo.tbl_revenues' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tbl_revenues">
+    <Key>
+      <PropertyRef Name="ORDEN" />
+      <PropertyRef Name="DESCRIPCION" />
+    </Key>
+    <Property Name="pais" Type="varchar" MaxLength="50" />
+    <Property Name="ORDEN" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="periodo" Type="char" MaxLength="7" />
+    <Property Name="LINEA" Type="char" MaxLength="100" />
+    <Property Name="DESCRIPCION" Type="varchar" MaxLength="31" Nullable="false" />
+    <Property Name="VALOR" Type="numeric" Precision="38" Scale="2" />
+  </EntityType>
+  <EntityType Name="tbl_saldo_gastos">
+    <Key>
+      <PropertyRef Name="id_oficina" />
+      <PropertyRef Name="id_cliente" />
+      <PropertyRef Name="id_job" />
+      <PropertyRef Name="id_gasto" />
+    </Key>
+    <Property Name="id_oficina" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="id_cliente" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="id_job" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="valor" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="id_gasto" Type="char" MaxLength="5" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_saldo_tep">
+    <Key>
+      <PropertyRef Name="id_pais" />
+      <PropertyRef Name="id_cliente" />
+      <PropertyRef Name="id_oficina" />
+      <PropertyRef Name="id_empleado" />
+      <PropertyRef Name="id_servicio" />
+      <PropertyRef Name="id_job" />
+      <PropertyRef Name="id_oficina0" />
+    </Key>
+    <Property Name="id_pais" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="id_cliente" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="id_oficina" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="id_empleado" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="horas" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="honorarios" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="gastos" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="id_servicio" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="id_job" Type="char" MaxLength="18" Nullable="false" />
+    <Property Name="id_oficina0" Type="char" MaxLength="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_saldosgasto_cierre">
+    <Key>
+      <PropertyRef Name="id_oficina" />
+      <PropertyRef Name="id_cliente" />
+      <PropertyRef Name="id_job" />
+      <PropertyRef Name="id_gasto" />
+      <PropertyRef Name="periodo_tep" />
+    </Key>
+    <Property Name="id_oficina" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="id_cliente" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="id_job" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="id_gasto" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="periodo_tep" Type="char" MaxLength="7" Nullable="false" />
+    <Property Name="valor" Type="char" MaxLength="12" />
+  </EntityType>
+  <EntityType Name="tbl_saldostep_cierre">
+    <Key>
+      <PropertyRef Name="periodo_tep" />
+      <PropertyRef Name="id_pais" />
+      <PropertyRef Name="id_cliente" />
+      <PropertyRef Name="id_oficina" />
+      <PropertyRef Name="id_empleado" />
+      <PropertyRef Name="id_job" />
+      <PropertyRef Name="id_oficina0" />
+    </Key>
+    <Property Name="periodo_tep" Type="char" MaxLength="7" Nullable="false" />
+    <Property Name="id_pais" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="id_cliente" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="id_oficina" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="id_empleado" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="Horas" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="Honorarios" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="Gastos" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="id_servicio" Type="char" MaxLength="4" />
+    <Property Name="id_job" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="id_oficina0" Type="char" MaxLength="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_sector_industria">
+    <Key>
+      <PropertyRef Name="id_sector" />
+    </Key>
+    <Property Name="id_sector" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="descripcion" Type="char" MaxLength="75" />
+    <Property Name="id_grupo" Type="char" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="tbl_servicios">
+    <Key>
+      <PropertyRef Name="id_servicio" />
+    </Key>
+    <Property Name="id_servicio" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="Nombre_largo" Type="char" MaxLength="100" />
+    <Property Name="Nombre_corto" Type="char" MaxLength="15" />
+    <Property Name="id_departamento" Type="char" MaxLength="4" />
+    <Property Name="id_producto_pwcglobal" Type="char" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="tbl_solicitud_facturas">
+    <Key>
+      <PropertyRef Name="id_solicitud" />
+    </Key>
+    <Property Name="id_solicitud" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="fecha" Type="datetime" />
+    <Property Name="situacion" Type="char" MaxLength="1" />
+    <Property Name="id_oficina" Type="char" MaxLength="2" />
+    <Property Name="id_empleado" Type="char" MaxLength="10" />
+    <Property Name="id_job" Type="char" MaxLength="10" />
+    <Property Name="id_cliente" Type="char" MaxLength="10" />
+    <Property Name="fecha_a_emitir" Type="datetime" />
+    <Property Name="instrucciones" Type="varchar" MaxLength="100" />
+    <Property Name="id_entidad" Type="char" MaxLength="2" />
+    <Property Name="facturar_en_perido" Type="char" MaxLength="7" />
+    <Property Name="estado" Type="int" />
+    <Property Name="tipo_entrega" Type="char" MaxLength="1" />
+    <Property Name="total_solicitud" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="fecha_tentativa_cobro" Type="datetime" />
+    <Property Name="elaborado" Type="char" MaxLength="80" Nullable="false" />
+    <Property Name="tasa_cambio" Type="numeric" Precision="18" Scale="5" />
+    <Property Name="total_solicitud_moneda_local" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="Imprime_moneda_Tep" Type="int" />
+    <Property Name="codigo_moneda_impresion" Type="char" MaxLength="3" />
+    <Property Name="Lenguaje_Impresion_spanish" Type="bit" />
+    <Property Name="Tasa_cambio_Fiscal" Type="numeric" Precision="18" Scale="5" />
+    <Property Name="Condicion_Venta" Type="char" MaxLength="2" />
+    <Property Name="Id_Actividad_Economica_CR" Type="char" MaxLength="10" />
+    <Property Name="es_exportacion" Type="bit" />
+    <Property Name="monto_exoneracion" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="numero_documento_referencia" Type="varchar(max)" />
+    <Property Name="fecha_documento_referencia" Type="datetime" />
+    <Property Name="tasa_impuesto" Type="int" />
+    <Property Name="correo_electronico" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_solicitud_facturas_distribucion_socios">
+    <Key>
+      <PropertyRef Name="id_solicitud" />
+      <PropertyRef Name="Id_empleado" />
+    </Key>
+    <Property Name="id_solicitud" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="Id_empleado" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="porcentaje_distribucion" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_solicitud_facturas_temp">
+    <Key>
+      <PropertyRef Name="id_empleado" />
+    </Key>
+    <Property Name="fecha" Type="datetime" />
+    <Property Name="id_oficina" Type="char" MaxLength="2" />
+    <Property Name="id_empleado" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="id_job" Type="char" MaxLength="10" />
+    <Property Name="id_cliente" Type="char" MaxLength="10" />
+    <Property Name="fecha_a_emitir" Type="datetime" />
+    <Property Name="id_entidad" Type="char" MaxLength="2" />
+    <Property Name="facturar_en_perido" Type="char" MaxLength="7" />
+    <Property Name="tipo_entrega" Type="char" MaxLength="1" />
+    <Property Name="total_solicitud" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="fecha_tentativa_cobro" Type="datetime" />
+    <Property Name="instrucciones" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_solicitud_temp">
+    <Key>
+      <PropertyRef Name="id_solicitud" />
+    </Key>
+    <Property Name="id_solicitud" Type="numeric" Precision="10" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fecha" Type="datetime" />
+    <Property Name="situacion" Type="char" MaxLength="1" />
+    <Property Name="id_oficina" Type="char" MaxLength="2" />
+    <Property Name="id_empleado" Type="char" MaxLength="6" />
+    <Property Name="id_job" Type="char" MaxLength="10" />
+    <Property Name="id_cliente" Type="char" MaxLength="10" />
+    <Property Name="fecha_a_emitir" Type="datetime" />
+    <Property Name="instrucciones" Type="varchar" MaxLength="100" />
+    <Property Name="id_entidad" Type="char" MaxLength="2" />
+    <Property Name="facturar_en_perido" Type="char" MaxLength="7" />
+    <Property Name="estado" Type="int" />
+    <Property Name="tipo_entrega" Type="char" MaxLength="1" />
+    <Property Name="total_solicitud" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="fecha_tentativa_cobro" Type="datetime" />
+    <Property Name="elaborado" Type="char" MaxLength="80" />
+    <Property Name="tasa_cambio" Type="numeric" Precision="18" Scale="5" />
+    <Property Name="total_solicitud_moneda_local" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="Imprime_Moneda_Tep" Type="int" />
+    <Property Name="codigo_moneda_impresion" Type="char" MaxLength="3" />
+    <Property Name="Lenguaje_impresion_spanish" Type="bit" />
+    <Property Name="Tasa_cambio_fiscal" Type="numeric" Precision="18" Scale="5" />
+    <Property Name="id_servicio" Type="char" MaxLength="4" />
+  </EntityType>
+  <EntityType Name="tbl_tasas_de_cambio">
+    <Key>
+      <PropertyRef Name="id_pais" />
+      <PropertyRef Name="periodo_tep" />
+    </Key>
+    <Property Name="id_pais" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="periodo_tep" Type="char" MaxLength="7" Nullable="false" />
+    <Property Name="tasa_de_cambio" Type="numeric" Precision="14" Scale="6" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_teams">
+    <Key>
+      <PropertyRef Name="id_team" />
+      <PropertyRef Name="id_oficina" />
+    </Key>
+    <Property Name="id_team" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="id_pais" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="id_oficina" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="Lider" Type="char" MaxLength="10" />
+    <Property Name="presupuesto_horas" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="nombre" Type="char" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_tiempo_cargable">
+    <Key>
+      <PropertyRef Name="Id_pais" />
+      <PropertyRef Name="id_oficina" />
+      <PropertyRef Name="periodo_tep_proceso" />
+      <PropertyRef Name="id_empleado" />
+      <PropertyRef Name="id_cliente" />
+      <PropertyRef Name="id_job" />
+      <PropertyRef Name="Id_departamento" />
+    </Key>
+    <Property Name="Id_pais" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="id_oficina" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="periodo_tep_proceso" Type="char" MaxLength="7" Nullable="false" />
+    <Property Name="id_empleado" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="id_cliente" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="id_job" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="Id_departamento" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="horas" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="honorarios" Type="numeric" Precision="20" Scale="2" />
+    <Property Name="gastos" Type="numeric" Precision="20" Scale="2" />
+  </EntityType>
+  <EntityType Name="tbl_tiempo_cargable_origen">
+    <Key>
+      <PropertyRef Name="Id_pais" />
+      <PropertyRef Name="id_oficina" />
+      <PropertyRef Name="periodo_tep_proceso" />
+      <PropertyRef Name="id_empleado" />
+      <PropertyRef Name="id_cliente" />
+      <PropertyRef Name="id_job" />
+      <PropertyRef Name="Id_departamento" />
+    </Key>
+    <Property Name="Id_pais" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="id_oficina" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="periodo_tep_proceso" Type="char" MaxLength="7" Nullable="false" />
+    <Property Name="id_empleado" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="id_cliente" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="id_job" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="Id_departamento" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="horas" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="honorarios" Type="numeric" Precision="20" Scale="2" />
+    <Property Name="gastos" Type="numeric" Precision="20" Scale="2" />
+  </EntityType>
+  <EntityType Name="tbl_tipo_documento">
+    <Key>
+      <PropertyRef Name="id_oficina" />
+      <PropertyRef Name="id_entidad" />
+      <PropertyRef Name="id_tipo_documento" />
+    </Key>
+    <Property Name="id_oficina" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="id_entidad" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="id_tipo_documento" Type="char" MaxLength="15" Nullable="false" />
+    <Property Name="fecha_creacion" Type="datetime" Nullable="false" />
+    <Property Name="usuario" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_trabajos">
+    <Key>
+      <PropertyRef Name="id_cliente" />
+      <PropertyRef Name="id_job" />
+    </Key>
+    <Property Name="id_cliente" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="id_job" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="id_pais" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="id_oficina" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="id_servicio" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="descripcion" Type="char" MaxLength="100" />
+    <Property Name="gastos_contratados" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="honorarios_contratados" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="id_socio" Type="char" MaxLength="10" />
+    <Property Name="id_encargado" Type="char" MaxLength="10" />
+    <Property Name="contacto" Type="char" MaxLength="60" />
+    <Property Name="horas_contratadas" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="segundo_socio" Type="char" MaxLength="10" />
+    <Property Name="estado" Type="numeric" Precision="1" Scale="0" Nullable="false" />
+    <Property Name="fecha_inicio_job" Type="datetime" />
+    <Property Name="perform_manager" Type="varchar" MaxLength="50" />
+    <Property Name="perform_parther" Type="varchar" MaxLength="50" />
+    <Property Name="afs_number" Type="varchar" MaxLength="25" />
+    <Property Name="conting_fee_flag" Type="varchar" MaxLength="25" />
+    <Property Name="refered_by" Type="varchar" MaxLength="25" />
+    <Property Name="realizacion_esperada" Type="int" />
+    <Property Name="Inactivo_Cargo_Horas" Type="bit" />
+    <Property Name="codigo_cabys" Type="varchar" MaxLength="13" />
+    <Property Name="id_propuesta" Type="varchar" MaxLength="16" />
+    <Property Name="Fecha_Baja" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_trabajos_distribucion">
+    <Key>
+      <PropertyRef Name="Id_tbl_trabajos_distribucion" />
+    </Key>
+    <Property Name="Id_tbl_trabajos_distribucion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_cliente" Type="char" MaxLength="10" />
+    <Property Name="id_job" Type="char" MaxLength="10" />
+    <Property Name="Id_empleado" Type="char" MaxLength="10" />
+    <Property Name="porcentaje_distribucion" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="Tbl_Trabajos_Oficina">
+    <Key>
+      <PropertyRef Name="Id_Cliente" />
+      <PropertyRef Name="Id_Job" />
+      <PropertyRef Name="Id_oficina" />
+    </Key>
+    <Property Name="Id_Cliente" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="Id_Job" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="Id_oficina" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="Activo" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_traslados">
+    <Key>
+      <PropertyRef Name="id_traslado" />
+    </Key>
+    <Property Name="id_traslado" Type="numeric" Precision="15" Scale="0" Nullable="false" />
+    <Property Name="id_oficina" Type="char" MaxLength="2" />
+    <Property Name="id_empleado" Type="char" MaxLength="10" />
+    <Property Name="id_oficina_traslado" Type="char" MaxLength="2" />
+    <Property Name="id_empleado_traslado" Type="char" MaxLength="10" />
+    <Property Name="id_cliente" Type="char" MaxLength="10" />
+    <Property Name="id_job" Type="char" MaxLength="10" />
+    <Property Name="id_cliente_traslado" Type="char" MaxLength="10" />
+    <Property Name="id_job_traslado" Type="char" MaxLength="10" />
+    <Property Name="horas" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="honorarios" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="gastos" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="periodo_tep_proceso" Type="char" MaxLength="7" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'tmp2.dbo.vw_claves_historicas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_claves_historicas">
+    <Key>
+      <PropertyRef Name="id_empleado" />
+    </Key>
+    <Property Name="id_empleado" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="clave" Type="varchar(max)" />
+    <Property Name="fecha_clave" Type="datetime" />
+    <Property Name="orden" Type="bigint" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'tmp2.dbo.vw_detalle_captura_temp_cargable' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_detalle_captura_temp_cargable">
+    <Key>
+      <PropertyRef Name="id_empleado" />
+      <PropertyRef Name="id_oficina" />
+      <PropertyRef Name="linea" />
+    </Key>
+    <Property Name="descripcion_cargo" Type="char" MaxLength="30" />
+    <Property Name="gastos" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="horas" Type="numeric" Precision="10" Scale="0" />
+    <Property Name="id_cliente" Type="char" MaxLength="10" />
+    <Property Name="Razon_Social" Type="char" MaxLength="100" />
+    <Property Name="id_empleado" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="nombre_empleado" Type="varchar" MaxLength="121" />
+    <Property Name="id_job" Type="char" MaxLength="10" />
+    <Property Name="descripcion" Type="char" MaxLength="100" />
+    <Property Name="id_oficina" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="Nombre" Type="char" MaxLength="30" />
+    <Property Name="linea" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'tmp2.dbo.vw_detalle_captura_temp_Nocargable' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_detalle_captura_temp_Nocargable">
+    <Key>
+      <PropertyRef Name="id_empleado" />
+      <PropertyRef Name="id_oficina" />
+      <PropertyRef Name="linea" />
+    </Key>
+    <Property Name="descripcion" Type="char" MaxLength="60" />
+    <Property Name="horas" Type="numeric" Precision="10" Scale="0" />
+    <Property Name="id_empleado" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="nombre_empleado" Type="varchar" MaxLength="121" />
+    <Property Name="id_oficina" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="Nombre" Type="char" MaxLength="30" />
+    <Property Name="id_concepto" Type="char" MaxLength="4" />
+    <Property Name="descConcepto" Type="char" MaxLength="100" />
+    <Property Name="linea" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'tmp2.dbo.vw_Empleados_Datos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_Empleados_Datos">
+    <Key>
+      <PropertyRef Name="id_oficina" />
+      <PropertyRef Name="id_empleado" />
+      <PropertyRef Name="usuario_administrativo" />
+      <PropertyRef Name="logged" />
+      <PropertyRef Name="tbl_claves_empleado_id" />
+    </Key>
+    <Property Name="id_oficina" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="id_empleado" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="iniciales" Type="char" MaxLength="6" />
+    <Property Name="id_puesto" Type="char" MaxLength="4" />
+    <Property Name="id_departamento" Type="char" MaxLength="4" />
+    <Property Name="Nombres" Type="char" MaxLength="60" />
+    <Property Name="apellidos" Type="char" MaxLength="60" />
+    <Property Name="cuota_facturacion_local" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="cuota_facturacion_interamerica" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="situacion_actual" Type="char" MaxLength="1" />
+    <Property Name="ultimo_reporte_entregado" Type="char" MaxLength="7" />
+    <Property Name="clave" Type="varchar(max)" />
+    <Property Name="presupuesto_horas" Type="numeric" Precision="5" Scale="0" />
+    <Property Name="fecha_ingreso" Type="datetime" />
+    <Property Name="fecha_nacimiento" Type="datetime" />
+    <Property Name="usuario_administrativo" Type="numeric" Precision="1" Scale="0" Nullable="false" />
+    <Property Name="id_team" Type="char" MaxLength="5" />
+    <Property Name="cem_costo" Type="varchar" MaxLength="25" />
+    <Property Name="ultima_fecha_pass" Type="datetime" />
+    <Property Name="logged" Type="bit" Nullable="false" />
+    <Property Name="fecha_baja" Type="datetime" />
+    <Property Name="tbl_claves_empleado_id" Type="int" Nullable="false" />
+    <Property Name="cambia_clave" Type="bit" />
+    <Property Name="fecha_expiracion" Type="datetime" />
+  </EntityType>
+  <Association Name="FK__tbl_Detal__id_so__70F5FFCD">
+    <End Role="tbl_solicitud_temp" Type="Self.tbl_solicitud_temp" Multiplicity="1" />
+    <End Role="tbl_Detalle_Sol_temp" Type="Self.tbl_Detalle_Sol_temp" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_solicitud_temp">
+        <PropertyRef Name="id_solicitud" />
+      </Principal>
+      <Dependent Role="tbl_Detalle_Sol_temp">
+        <PropertyRef Name="id_solicitud" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_frases__7D7BD243">
+    <End Role="tbl_entidad_legal" Type="Self.tbl_entidad_legal" Multiplicity="1" />
+    <End Role="tbl_frases" Type="Self.tbl_frases" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_entidad_legal">
+        <PropertyRef Name="id_oficina" />
+        <PropertyRef Name="id_entidad" />
+      </Principal>
+      <Dependent Role="tbl_frases">
+        <PropertyRef Name="Id_oficina" />
+        <PropertyRef Name="Id_entidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_autorizacion_documentos_tbl_tipo_documento">
+    <End Role="tbl_tipo_documento" Type="Self.tbl_tipo_documento" Multiplicity="1" />
+    <End Role="tbl_autorizacion_documentos" Type="Self.tbl_autorizacion_documentos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_tipo_documento">
+        <PropertyRef Name="id_oficina" />
+        <PropertyRef Name="id_entidad" />
+        <PropertyRef Name="id_tipo_documento" />
+      </Principal>
+      <Dependent Role="tbl_autorizacion_documentos">
+        <PropertyRef Name="id_oficina" />
+        <PropertyRef Name="id_entidad" />
+        <PropertyRef Name="id_tipo_documento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_certificacion_documento_tbl_cuenta_corriente">
+    <End Role="tbl_cuenta_corriente" Type="Self.tbl_cuenta_corriente" Multiplicity="1" />
+    <End Role="tbl_certificacion_documento" Type="Self.tbl_certificacion_documento" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_cuenta_corriente">
+        <PropertyRef Name="id_oficina" />
+        <PropertyRef Name="id_entidad" />
+        <PropertyRef Name="tipo_documento" />
+        <PropertyRef Name="numero_documento" />
+      </Principal>
+      <Dependent Role="tbl_certificacion_documento">
+        <PropertyRef Name="id_oficina" />
+        <PropertyRef Name="id_entidad" />
+        <PropertyRef Name="tipo_documento" />
+        <PropertyRef Name="numero_documento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_cuenta_corriente_gestion_cobro_tbl_cuenta_corriente_gestion_cobro">
+    <End Role="tbl_cuenta_corriente" Type="Self.tbl_cuenta_corriente" Multiplicity="1" />
+    <End Role="tbl_cuenta_corriente_gestion_cobro" Type="Self.tbl_cuenta_corriente_gestion_cobro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_cuenta_corriente">
+        <PropertyRef Name="id_oficina" />
+        <PropertyRef Name="id_entidad" />
+        <PropertyRef Name="tipo_documento" />
+        <PropertyRef Name="numero_documento" />
+      </Principal>
+      <Dependent Role="tbl_cuenta_corriente_gestion_cobro">
+        <PropertyRef Name="Id_oficina" />
+        <PropertyRef Name="Id_entidad" />
+        <PropertyRef Name="tipo_documento" />
+        <PropertyRef Name="numero_documento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_det_Solicitud_temp_tbl_solicitud_facturas_temp">
+    <End Role="tbl_solicitud_facturas_temp" Type="Self.tbl_solicitud_facturas_temp" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tbl_det_Solicitud_temp" Type="Self.tbl_det_Solicitud_temp" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_solicitud_facturas_temp">
+        <PropertyRef Name="id_empleado" />
+      </Principal>
+      <Dependent Role="tbl_det_Solicitud_temp">
+        <PropertyRef Name="id_empleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_detalle_cargable_temp_tbl_reportes_tiempo_temp">
+    <End Role="tbl_reportes_tiempo_temp" Type="Self.tbl_reportes_tiempo_temp" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tbl_detalle_cargable_temp" Type="Self.tbl_detalle_cargable_temp" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_reportes_tiempo_temp">
+        <PropertyRef Name="id_oficina" />
+        <PropertyRef Name="id_empleado" />
+      </Principal>
+      <Dependent Role="tbl_detalle_cargable_temp">
+        <PropertyRef Name="id_oficina" />
+        <PropertyRef Name="id_empleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_empleados_tbl_puestos">
+    <End Role="tbl_puestos" Type="Self.tbl_puestos" Multiplicity="0..1" />
+    <End Role="tbl_empleados" Type="Self.tbl_empleados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_puestos">
+        <PropertyRef Name="id_puesto" />
+      </Principal>
+      <Dependent Role="tbl_empleados">
+        <PropertyRef Name="id_puesto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_gastos_administrativos_detalle_empresas_tbl_gastos_administrativos">
+    <End Role="tbl_gastos_administrativos" Type="Self.tbl_gastos_administrativos" Multiplicity="1" />
+    <End Role="tbl_gastos_administrativos_detalle_empresas" Type="Self.tbl_gastos_administrativos_detalle_empresas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_gastos_administrativos">
+        <PropertyRef Name="id_gasto" />
+      </Principal>
+      <Dependent Role="tbl_gastos_administrativos_detalle_empresas">
+        <PropertyRef Name="Id_Gasto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_no_cargables_temp_tbl_reportes_tiempo_temp">
+    <End Role="tbl_reportes_tiempo_temp" Type="Self.tbl_reportes_tiempo_temp" Multiplicity="1" />
+    <End Role="tbl_no_cargables_temp" Type="Self.tbl_no_cargables_temp" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_reportes_tiempo_temp">
+        <PropertyRef Name="id_oficina" />
+        <PropertyRef Name="id_empleado" />
+      </Principal>
+      <Dependent Role="tbl_no_cargables_temp">
+        <PropertyRef Name="id_oficina" />
+        <PropertyRef Name="id_empleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_puestos_conversion_web_tbl_puestos">
+    <End Role="tbl_puestos" Type="Self.tbl_puestos" Multiplicity="1" />
+    <End Role="tbl_puestos_conversion_web" Type="Self.tbl_puestos_conversion_web" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_puestos">
+        <PropertyRef Name="id_puesto" />
+      </Principal>
+      <Dependent Role="tbl_puestos_conversion_web">
+        <PropertyRef Name="id_puesto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_puestos_conversion_web_tbl_puestos1">
+    <End Role="tbl_puestos" Type="Self.tbl_puestos" Multiplicity="1" />
+    <End Role="tbl_puestos_conversion_web" Type="Self.tbl_puestos_conversion_web" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_puestos">
+        <PropertyRef Name="id_puesto" />
+      </Principal>
+      <Dependent Role="tbl_puestos_conversion_web">
+        <PropertyRef Name="id_puesto_convertido" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_servicios_tbl_departamento">
+    <End Role="tbl_departamento" Type="Self.tbl_departamento" Multiplicity="0..1" />
+    <End Role="tbl_servicios" Type="Self.tbl_servicios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_departamento">
+        <PropertyRef Name="id_departamento" />
+      </Principal>
+      <Dependent Role="tbl_servicios">
+        <PropertyRef Name="id_departamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_solicitud_facturas_distribucion_socios_tbl_empleados">
+    <End Role="tbl_empleados" Type="Self.tbl_empleados" Multiplicity="1" />
+    <End Role="tbl_solicitud_facturas_distribucion_socios" Type="Self.tbl_solicitud_facturas_distribucion_socios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_empleados">
+        <PropertyRef Name="id_empleado" />
+      </Principal>
+      <Dependent Role="tbl_solicitud_facturas_distribucion_socios">
+        <PropertyRef Name="Id_empleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_solicitud_facturas_distribucion_socios_tbl_solicitud">
+    <End Role="tbl_solicitud_facturas" Type="Self.tbl_solicitud_facturas" Multiplicity="1" />
+    <End Role="tbl_solicitud_facturas_distribucion_socios" Type="Self.tbl_solicitud_facturas_distribucion_socios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_solicitud_facturas">
+        <PropertyRef Name="id_solicitud" />
+      </Principal>
+      <Dependent Role="tbl_solicitud_facturas_distribucion_socios">
+        <PropertyRef Name="id_solicitud" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_tipo_documento_tbl_entidad_legal">
+    <End Role="tbl_entidad_legal" Type="Self.tbl_entidad_legal" Multiplicity="1" />
+    <End Role="tbl_tipo_documento" Type="Self.tbl_tipo_documento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_entidad_legal">
+        <PropertyRef Name="id_oficina" />
+        <PropertyRef Name="id_entidad" />
+      </Principal>
+      <Dependent Role="tbl_tipo_documento">
+        <PropertyRef Name="id_oficina" />
+        <PropertyRef Name="id_entidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_trabajos_distribucion_tbl_empleados">
+    <End Role="tbl_empleados" Type="Self.tbl_empleados" Multiplicity="0..1" />
+    <End Role="tbl_trabajos_distribucion" Type="Self.tbl_trabajos_distribucion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_empleados">
+        <PropertyRef Name="id_empleado" />
+      </Principal>
+      <Dependent Role="tbl_trabajos_distribucion">
+        <PropertyRef Name="Id_empleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_trabajos_distribucion_tbl_trabajos">
+    <End Role="tbl_trabajos" Type="Self.tbl_trabajos" Multiplicity="0..1" />
+    <End Role="tbl_trabajos_distribucion" Type="Self.tbl_trabajos_distribucion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_trabajos">
+        <PropertyRef Name="id_cliente" />
+        <PropertyRef Name="id_job" />
+      </Principal>
+      <Dependent Role="tbl_trabajos_distribucion">
+        <PropertyRef Name="id_cliente" />
+        <PropertyRef Name="id_job" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Trabajos_Oficina_tbl_trabajos">
+    <End Role="tbl_trabajos" Type="Self.tbl_trabajos" Multiplicity="1" />
+    <End Role="Tbl_Trabajos_Oficina" Type="Self.Tbl_Trabajos_Oficina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_trabajos">
+        <PropertyRef Name="id_cliente" />
+        <PropertyRef Name="id_job" />
+      </Principal>
+      <Dependent Role="Tbl_Trabajos_Oficina">
+        <PropertyRef Name="Id_Cliente" />
+        <PropertyRef Name="Id_Job" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_trabajos_tbl_paises">
+    <End Role="tbl_paises" Type="Self.tbl_paises" Multiplicity="1" />
+    <End Role="tbl_trabajos" Type="Self.tbl_trabajos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_paises">
+        <PropertyRef Name="id_pais" />
+      </Principal>
+      <Dependent Role="tbl_trabajos">
+        <PropertyRef Name="id_pais" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_trabajos_tbl_servicios">
+    <End Role="tbl_servicios" Type="Self.tbl_servicios" Multiplicity="1" />
+    <End Role="tbl_trabajos" Type="Self.tbl_trabajos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_servicios">
+        <PropertyRef Name="id_servicio" />
+      </Principal>
+      <Dependent Role="tbl_trabajos">
+        <PropertyRef Name="id_servicio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="Factura_Electronica_GT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="entidad" Type="char" Mode="In" />
+    <Parameter Name="facturas" Type="varchar(max)" Mode="In" />
+    <Parameter Name="id_oficina" Type="char" Mode="In" />
+    <Parameter Name="Tipo_documento" Type="char" Mode="In" />
+  </Function>
+  <Function Name="Get_Claves_Historicas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_empleado" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Insert_Detalle_Cargable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CreateXml" Type="ntext" Mode="In" />
+  </Function>
+  <Function Name="Insert_Detalle_NoCargable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CreateXml" Type="ntext" Mode="In" />
+  </Function>
+  <Function Name="PROC_CIERRE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PERIODO_ACTUAL" Type="char" Mode="In" />
+    <Parameter Name="NUEVO_PERIODO" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_auxiliar_trabajo_proceso" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_Oficina" Type="char" Mode="In" />
+    <Parameter Name="Id_Socio" Type="char" Mode="In" />
+    <Parameter Name="Id_Encargado" Type="char" Mode="In" />
+    <Parameter Name="Id_cliente" Type="char" Mode="In" />
+    <Parameter Name="Id_servicio" Type="char" Mode="In" />
+    <Parameter Name="Id_Job" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_auxiliar_trabajo_proceso_facturas_anticipos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_oficina" Type="char" Mode="In" />
+    <Parameter Name="Id_cliente" Type="char" Mode="In" />
+    <Parameter Name="Id_Servicio" Type="char" Mode="In" />
+    <Parameter Name="Id_job" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_auxiliar_trabajo_proceso_sub_reporte" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_oficina" Type="char" Mode="In" />
+    <Parameter Name="Id_cliente" Type="char" Mode="In" />
+    <Parameter Name="Id_servicio" Type="char" Mode="In" />
+    <Parameter Name="Id_Job" Type="char" Mode="In" />
+    <Parameter Name="Id_socio" Type="char" Mode="In" />
+    <Parameter Name="Id_encargado" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_balance_antiguedad_saldo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_oficina" Type="char" Mode="In" />
+    <Parameter Name="fecha" Type="datetime" Mode="In" />
+    <Parameter Name="Ordenadopor" Type="char" Mode="In" />
+    <Parameter Name="Id_socio" Type="char" Mode="In" />
+    <Parameter Name="Id_encargado" Type="char" Mode="In" />
+    <Parameter Name="Id_cliente" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_balance_antiguedad_saldo_rangos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_oficina" Type="char" Mode="In" />
+    <Parameter Name="fecha" Type="datetime" Mode="In" />
+    <Parameter Name="rango1" Type="char" Mode="In" />
+    <Parameter Name="rango2" Type="char" Mode="In" />
+    <Parameter Name="rango3" Type="char" Mode="In" />
+    <Parameter Name="rango4" Type="char" Mode="In" />
+    <Parameter Name="rango5" Type="char" Mode="In" />
+    <Parameter Name="rango6" Type="char" Mode="In" />
+    <Parameter Name="rango7" Type="char" Mode="In" />
+    <Parameter Name="tipo_factura" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_balance_antiguedad_saldos_anticipos_por_aplicar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_oficina" Type="char" Mode="In" />
+    <Parameter Name="ala_fecha" Type="datetime" Mode="In" />
+    <Parameter Name="id_socio" Type="char" Mode="In" />
+    <Parameter Name="id_encargado" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_balance_antiguedad_saldos_resumen_definitiva" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_Oficina" Type="char" Mode="In" />
+    <Parameter Name="fecha" Type="datetime" Mode="In" />
+    <Parameter Name="Id_socio" Type="char" Mode="In" />
+    <Parameter Name="Id_encargado" Type="char" Mode="In" />
+    <Parameter Name="Id_cliente" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_balance_antiguedad_saldos_resumen_preliminar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_Oficina" Type="char" Mode="In" />
+    <Parameter Name="fecha" Type="datetime" Mode="In" />
+    <Parameter Name="Id_socio" Type="char" Mode="In" />
+    <Parameter Name="Id_encargado" Type="char" Mode="In" />
+    <Parameter Name="Id_cliente" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_catalogo_clientes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_Pais" Type="char" Mode="In" />
+    <Parameter Name="estado" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="rpt_catalogo_empleados" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_oficina" Type="char" Mode="In" />
+    <Parameter Name="situacion" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_catalogo_gastos_administrativos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="rpt_catalogo_grupos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="rpt_catalogo_industrias" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="rpt_catalogo_servicios" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="rpt_consulta_cliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_Oficina" Type="char" Mode="In" />
+    <Parameter Name="id_cliente" Type="char" Mode="In" />
+    <Parameter Name="Id_servicio" Type="char" Mode="In" />
+    <Parameter Name="Id_JOB" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_consulta_cliente_facturas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_Oficina" Type="char" Mode="In" />
+    <Parameter Name="id_cliente" Type="char" Mode="In" />
+    <Parameter Name="Id_servicio" Type="char" Mode="In" />
+    <Parameter Name="Id_JOB" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_consulta_cliente_fpreliminar_def" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_Oficina" Type="char" Mode="In" />
+    <Parameter Name="id_cliente" Type="char" Mode="In" />
+    <Parameter Name="Id_servicio" Type="char" Mode="In" />
+    <Parameter Name="Id_JOB" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_consulta_cliente_horas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_Oficina" Type="char" Mode="In" />
+    <Parameter Name="id_cliente" Type="char" Mode="In" />
+    <Parameter Name="Id_servicio" Type="char" Mode="In" />
+    <Parameter Name="Id_JOB" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_consulta_clientes_gastos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_oficina" Type="char" Mode="In" />
+    <Parameter Name="Id_cliente" Type="char" Mode="In" />
+    <Parameter Name="Id_servicio" Type="char" Mode="In" />
+    <Parameter Name="Id_Job" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_consulta_cobros_factura" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_Oficina" Type="char" Mode="In" />
+    <Parameter Name="Id_Entidad" Type="char" Mode="In" />
+    <Parameter Name="Tipo_documento" Type="char" Mode="In" />
+    <Parameter Name="numero_documento" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_consulta_factura" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_Oficina" Type="char" Mode="In" />
+    <Parameter Name="Id_Entidad" Type="char" Mode="In" />
+    <Parameter Name="Tipo_documento" Type="char" Mode="In" />
+    <Parameter Name="numero_documento" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_cuadre_tep" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_oficina" Type="char" Mode="In" />
+    <Parameter Name="periodo_tep" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_cuadre_tep_segundo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_oficina" Type="char" Mode="In" />
+    <Parameter Name="periodo_tep" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_distribucion_gastos_preview" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_oficina" Type="char" Mode="In" />
+    <Parameter Name="Periodo" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_empleados_sin_captar_tiempo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID_OFICINA" Type="char" Mode="In" />
+    <Parameter Name="Periodo_tep" Type="char" Mode="In" />
+    <Parameter Name="linea_servicio" Type="varchar" Mode="In" />
+    <Parameter Name="incluye_administrativos" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="rpt_estadistica_tiempo_cargado_destino" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_oficina" Type="char" Mode="In" />
+    <Parameter Name="Periodo" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_estadistica_tiempo_cargado_historico" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_oficina" Type="char" Mode="In" />
+    <Parameter Name="Periodo" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_estadistica_tiempo_cargado_proc" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_oficina" Type="char" Mode="In" />
+    <Parameter Name="Periodo" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_estadistica_tiempo_cargado_proc_periodo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_oficina" Type="char" Mode="In" />
+    <Parameter Name="Periodo_ini" Type="char" Mode="In" />
+    <Parameter Name="Periodo_fin" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_estadistica_tiempo_teams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_oficina" Type="char" Mode="In" />
+    <Parameter Name="Periodo" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_estadistica_tiempo_teams_periodo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_oficina" Type="char" Mode="In" />
+    <Parameter Name="Periodo_ini" Type="char" Mode="In" />
+    <Parameter Name="Periodo_fin" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_estado_cuenta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_oficina" Type="char" Mode="In" />
+    <Parameter Name="Id_cliente" Type="char" Mode="In" />
+    <Parameter Name="Id_Servicio" Type="char" Mode="In" />
+    <Parameter Name="Id_job" Type="char" Mode="In" />
+    <Parameter Name="facturas_consaldo" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_facturas_por_generar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_oficina" Type="char" Mode="In" />
+    <Parameter Name="al" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="rpt_gestion_cobro" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_oficina" Type="char" Mode="In" />
+    <Parameter Name="Id_socio" Type="char" Mode="In" />
+    <Parameter Name="Id_Encargado" Type="char" Mode="In" />
+    <Parameter Name="Imprime_Solo_Observaciones" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="rpt_gestion_cobro_detallado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_oficina" Type="char" Mode="In" />
+    <Parameter Name="Id_entidad" Type="char" Mode="In" />
+    <Parameter Name="Tipo_documento" Type="char" Mode="In" />
+    <Parameter Name="Numero_documento" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="rpt_historial_cargos_acumulados" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_oficina" Type="char" Mode="In" />
+    <Parameter Name="Id_empleado" Type="char" Mode="In" />
+    <Parameter Name="periodo" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_historial_cargos_acumulados_cliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_oficina" Type="char" Mode="In" />
+    <Parameter Name="Id_cliente" Type="char" Mode="In" />
+    <Parameter Name="periodo" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_historial_cargos_acumulados_cliente_resumen" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_oficina" Type="char" Mode="In" />
+    <Parameter Name="id_cliente" Type="char" Mode="In" />
+    <Parameter Name="periodo" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_historial_cargos_acumulados_empleado_resumen" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_oficina" Type="char" Mode="In" />
+    <Parameter Name="Id_empleado" Type="char" Mode="In" />
+    <Parameter Name="periodo" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_historial_cargos_acumulados_linea" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_oficina" Type="char" Mode="In" />
+    <Parameter Name="id_empleado" Type="char" Mode="In" />
+    <Parameter Name="periodo" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_imprime_factura_Net_New" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="entidad" Type="char" Mode="In" />
+    <Parameter Name="facturas" Type="varchar(max)" Mode="In" />
+    <Parameter Name="id_oficina" Type="char" Mode="In" />
+    <Parameter Name="tipo_documento" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_informe_facturacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_oficina" Type="char" Mode="In" />
+    <Parameter Name="Id_socio" Type="char" Mode="In" />
+    <Parameter Name="Id_encargado" Type="char" Mode="In" />
+    <Parameter Name="Mes" Type="char" Mode="In" />
+    <Parameter Name="Mes1" Type="char" Mode="In" />
+    <Parameter Name="Anio" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_ingresos_por_linea_servicio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_PAIS" Type="char" Mode="In" />
+    <Parameter Name="tasa_cambio" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="rpt_integracion_tep_empleado_gasto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_Oficina" Type="char" Mode="In" />
+    <Parameter Name="Id_Cliente" Type="char" Mode="In" />
+    <Parameter Name="Id_Servicio" Type="char" Mode="In" />
+    <Parameter Name="anio" Type="char" Mode="In" />
+    <Parameter Name="periodo" Type="char" Mode="In" />
+    <Parameter Name="Id_job" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_jobs" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_pais" Type="char" Mode="In" />
+    <Parameter Name="estado" Type="int" Mode="In" />
+  </Function>
+  <Function Name="rpt_libro_ventas_salvadoreño" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_oficina" Type="char" Mode="In" />
+    <Parameter Name="mes" Type="char" Mode="In" />
+    <Parameter Name="anio" Type="char" Mode="In" />
+    <Parameter Name="Tipo_reporte" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_libro_ventas_salvadoreño_resumen" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_oficina" Type="char" Mode="In" />
+    <Parameter Name="mes" Type="char" Mode="In" />
+    <Parameter Name="anio" Type="char" Mode="In" />
+    <Parameter Name="Tipo_reporte" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_listado_clientes_sin_movimiento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID_PAIS" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_listado_cumpleanios" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_oficina" Type="char" Mode="In" />
+    <Parameter Name="mes" Type="int" Mode="In" />
+  </Function>
+  <Function Name="rpt_listado_honorarios_cargados" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_Pais" Type="char" Mode="In" />
+    <Parameter Name="Periodo_Tep" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_Productividad_Control_Rentabilidad" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_oficina" Type="char" Mode="In" />
+    <Parameter Name="Fecha_desde" Type="datetime" Mode="In" />
+    <Parameter Name="Fecha_hasta" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="rpt_relacion_trabajo_proceso" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_pais" Type="char" Mode="In" />
+    <Parameter Name="id_oficina" Type="char" Mode="In" />
+    <Parameter Name="Periodo" Type="char" Mode="In" />
+    <Parameter Name="Ordenadopor" Type="char" Mode="In" />
+    <Parameter Name="Salta" Type="char" Mode="In" />
+    <Parameter Name="Id_socio" Type="char" Mode="In" />
+    <Parameter Name="Id_encargado" Type="char" Mode="In" />
+  </Function>
+  <Function Name="RPT_REPORTESXEMPLEADO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID_EMPLEADO" Type="char" Mode="In" />
+    <Parameter Name="ID_PERIODO" Type="char" Mode="In" />
+  </Function>
+  <Function Name="RPT_REPORTESXEMPLEADO_Diario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID_EMPLEADO" Type="char" Mode="In" />
+    <Parameter Name="ID_PERIODO" Type="char" Mode="In" />
+  </Function>
+  <Function Name="RPT_REPORTESXTEAM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_Oficina" Type="char" Mode="In" />
+    <Parameter Name="ID_TEAM" Type="char" Mode="In" />
+    <Parameter Name="ID_PERIODO" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_solicitud_factura" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_solicitud" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="rpt_sumario_facturacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_Pais" Type="char" Mode="In" />
+    <Parameter Name="Id_Oficina" Type="char" Mode="In" />
+    <Parameter Name="periodo_tep" Type="char" Mode="In" />
+    <Parameter Name="Tipo_reporte" Type="char" Mode="In" />
+    <Parameter Name="Salta_Socio" Type="char" Mode="In" />
+    <Parameter Name="Salta_Gerente" Type="char" Mode="In" />
+    <Parameter Name="Id_socio" Type="char" Mode="In" />
+    <Parameter Name="Id_encargado" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_tiempo_cargado_team_acumulado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_oficina" Type="char" Mode="In" />
+    <Parameter Name="Id_team" Type="char" Mode="In" />
+    <Parameter Name="Anio_tep" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="rpt_tiempo_cargado_team_periodo_tep" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_oficina" Type="char" Mode="In" />
+    <Parameter Name="Id_team" Type="char" Mode="In" />
+    <Parameter Name="Periodo_tep" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="rpt_tiempo_no_cargado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="oficina" Type="char" Mode="In" />
+    <Parameter Name="año" Type="char" Mode="In" />
+    <Parameter Name="grupo" Type="int" Mode="In" />
+    <Parameter Name="departamento" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_traslado_tiempo_gastos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_oficina" Type="char" Mode="In" />
+    <Parameter Name="Periodo_tep_proceso" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_traslado_tiempo_gastos_resumen" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_oficina" Type="char" Mode="In" />
+    <Parameter Name="Periodo_tep_proceso" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_validacion_anulacion_solicitudes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_oficina" Type="char" Mode="In" />
+    <Parameter Name="Del" Type="datetime" Mode="In" />
+    <Parameter Name="al" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="rpt_validacion_cobranzas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_oficina" Type="char" Mode="In" />
+    <Parameter Name="fecha_inicial" Type="datetime" Mode="In" />
+    <Parameter Name="fecha_final" Type="datetime" Mode="In" />
+    <Parameter Name="Id_entidad" Type="int" Mode="In" />
+    <Parameter Name="tipo_documento" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_validacion_cobranzas_Distribucion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_oficina" Type="char" Mode="In" />
+    <Parameter Name="fecha_inicial" Type="datetime" Mode="In" />
+    <Parameter Name="fecha_final" Type="datetime" Mode="In" />
+    <Parameter Name="Id_entidad" Type="int" Mode="In" />
+    <Parameter Name="tipo_documento" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_validacion_cobranzas_resumen" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_oficina" Type="char" Mode="In" />
+    <Parameter Name="fecha_inicial" Type="datetime" Mode="In" />
+    <Parameter Name="fecha_final" Type="datetime" Mode="In" />
+    <Parameter Name="Id_entidad" Type="int" Mode="In" />
+    <Parameter Name="Tipo_documento" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_validacion_cobros_notas_credito_anuladas_resumen" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_oficina" Type="char" Mode="In" />
+    <Parameter Name="id_entidad" Type="int" Mode="In" />
+    <Parameter Name="fecha_inicial" Type="datetime" Mode="In" />
+    <Parameter Name="fecha_final" Type="datetime" Mode="In" />
+    <Parameter Name="tipo" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_validacion_cobros_notascredito_anuladas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_Oficina" Type="char" Mode="In" />
+    <Parameter Name="Id_Entidad" Type="int" Mode="In" />
+    <Parameter Name="Fecha_Inicial" Type="datetime" Mode="In" />
+    <Parameter Name="Fecha_Final" Type="datetime" Mode="In" />
+    <Parameter Name="Tipo" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_validacion_credito_aplicaciones_aplicaciones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_transaccion" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="rpt_validacion_credito_aplicaciones_aplicaciones_resumen" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_Oficina" Type="char" Mode="In" />
+    <Parameter Name="Periodo_tep" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_validacion_creditos_aplicaciones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_Oficina" Type="char" Mode="In" />
+    <Parameter Name="Periodo" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_validacion_creditos_aplicaciones_listado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_Oficina" Type="char" Mode="In" />
+    <Parameter Name="Periodo" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_validacion_facturas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_Oficina" Type="char" Mode="In" />
+    <Parameter Name="fecha_inicial" Type="datetime" Mode="In" />
+    <Parameter Name="fecha_final" Type="datetime" Mode="In" />
+    <Parameter Name="Id_Entidad" Type="int" Mode="In" />
+    <Parameter Name="tipo" Type="int" Mode="In" />
+    <Parameter Name="periodo" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_validacion_facturas_anuladas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_Oficina" Type="char" Mode="In" />
+    <Parameter Name="Id_Entidad" Type="int" Mode="In" />
+    <Parameter Name="Fecha_Inicial" Type="datetime" Mode="In" />
+    <Parameter Name="Fecha_Final" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="rpt_validacion_facturas_por_generar_cxc" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_Oficina" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_validacion_gastos_administrativos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PERIODO" Type="char" Mode="In" />
+    <Parameter Name="Id_Oficina" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_validacion_gastos_administrativos_sumario_documento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_Oficina" Type="char" Mode="In" />
+    <Parameter Name="Periodo_tep_proceso" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_validacion_gastos_distribuidos_socios" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_Oficina" Type="char" Mode="In" />
+    <Parameter Name="Periodo" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_validacion_reportes_tiempo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_Oficina" Type="char" Mode="In" />
+    <Parameter Name="Periodo_Tep" Type="char" Mode="In" />
+  </Function>
+  <Function Name="rpt_validacion_reportes_tiempo_resumen" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_Oficina" Type="char" Mode="In" />
+    <Parameter Name="Periodo_Tep" Type="char" Mode="In" />
+  </Function>
+  <Function Name="sp_autoriza_tiempo_admon" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_oficina" Type="char" Mode="In" />
+    <Parameter Name="Periodo_tep_proceso" Type="char" Mode="In" />
+    <Parameter Name="Id_oficina_capta" Type="char" Mode="In" />
+  </Function>
+  <Function Name="sp_contabiliza_cxc_tep" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_oficina" Type="char" Mode="In" />
+    <Parameter Name="Id_entidad" Type="int" Mode="In" />
+    <Parameter Name="periodo_tep" Type="char" Mode="In" />
+  </Function>
+  <Function Name="sp_contabiliza_cxc_tep_detalle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_oficina" Type="char" Mode="In" />
+    <Parameter Name="Id_entidad" Type="int" Mode="In" />
+    <Parameter Name="periodo_tep" Type="char" Mode="In" />
+  </Function>
+  <Function Name="sp_copia_job" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_cliente" Type="char" Mode="In" />
+    <Parameter Name="id_job" Type="char" Mode="In" />
+  </Function>
+  <Function Name="sp_Get_Data_MagicPOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_solicitud" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_lista_cliente_x_servicio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_empleado" Type="char" Mode="In" />
+    <Parameter Name="id_oficina" Type="char" Mode="In" />
+    <Parameter Name="id_pais" Type="char" Mode="In" />
+    <Parameter Name="id_puesto" Type="char" Mode="In" />
+    <Parameter Name="id_servicio" Type="char" Mode="In" />
+  </Function>
+  <Function Name="sp_lista_encargado_x_cliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_empleado" Type="char" Mode="In" />
+    <Parameter Name="id_oficina" Type="char" Mode="In" />
+    <Parameter Name="id_pais" Type="char" Mode="In" />
+    <Parameter Name="id_puesto" Type="char" Mode="In" />
+    <Parameter Name="id_cliente" Type="char" Mode="In" />
+  </Function>
+  <Function Name="sp_lista_gerente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_socio" Type="char" Mode="In" />
+    <Parameter Name="oficina" Type="char" Mode="In" />
+    <Parameter Name="id_pais" Type="char" Mode="In" />
+    <Parameter Name="empleado_login" Type="char" Mode="In" />
+    <Parameter Name="id_puesto" Type="char" Mode="In" />
+  </Function>
+  <Function Name="sp_lista_servicio_x_job" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_empleado" Type="char" Mode="In" />
+    <Parameter Name="id_oficina" Type="char" Mode="In" />
+    <Parameter Name="id_pais" Type="char" Mode="In" />
+    <Parameter Name="id_job" Type="char" Mode="In" />
+  </Function>
+  <Function Name="sp_lista_socios" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_empleado" Type="char" Mode="In" />
+    <Parameter Name="id_oficina" Type="char" Mode="In" />
+    <Parameter Name="id_pais" Type="char" Mode="In" />
+    <Parameter Name="id_puesto" Type="char" Mode="In" />
+  </Function>
+  <Function Name="sp_lista_socios_x_encargado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_empleado" Type="char" Mode="In" />
+    <Parameter Name="id_oficina" Type="char" Mode="In" />
+    <Parameter Name="id_pais" Type="char" Mode="In" />
+    <Parameter Name="id_puesto" Type="char" Mode="In" />
+    <Parameter Name="id_encargado" Type="char" Mode="In" />
+  </Function>
+  <Function Name="sp_lista_tipo_FElectronicaCR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_lista_tipo_FElectronicaGT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_listado_clientes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_socio" Type="char" Mode="In" />
+    <Parameter Name="id_encargado" Type="char" Mode="In" />
+    <Parameter Name="id_oficina" Type="char" Mode="In" />
+  </Function>
+  <Function Name="sp_listado_jobs" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_socio" Type="char" Mode="In" />
+    <Parameter Name="id_encargado" Type="char" Mode="In" />
+    <Parameter Name="id_cliente" Type="char" Mode="In" />
+    <Parameter Name="id_servicio" Type="varchar" Mode="In" />
+    <Parameter Name="tipo" Type="int" Mode="In" />
+    <Parameter Name="id_pais" Type="char" Mode="In" />
+  </Function>
+  <Function Name="sp_listado_jobs_todos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_socio" Type="char" Mode="In" />
+    <Parameter Name="id_encargado" Type="char" Mode="In" />
+    <Parameter Name="id_cliente" Type="char" Mode="In" />
+    <Parameter Name="id_servicio" Type="varchar" Mode="In" />
+    <Parameter Name="tipo" Type="int" Mode="In" />
+    <Parameter Name="Id_pais" Type="char" Mode="In" />
+  </Function>
+  <Function Name="sp_listado_servicios" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_cliente" Type="char" Mode="In" />
+    <Parameter Name="id_oficina" Type="char" Mode="In" />
+    <Parameter Name="id_encargado" Type="char" Mode="In" />
+    <Parameter Name="id_socio" Type="char" Mode="In" />
+    <Parameter Name="tipo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_listado_servicios_depto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_cliente" Type="char" Mode="In" />
+    <Parameter Name="id_oficina" Type="char" Mode="In" />
+    <Parameter Name="id_encargado" Type="char" Mode="In" />
+    <Parameter Name="id_socio" Type="char" Mode="In" />
+    <Parameter Name="tipo" Type="int" Mode="In" />
+    <Parameter Name="id_departamento" Type="char" Mode="In" />
+  </Function>
+  <Function Name="sp_MarcaImpresaFactura" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="entidad" Type="char" Mode="In" />
+    <Parameter Name="facturas" Type="varchar(max)" Mode="In" />
+    <Parameter Name="id_oficina" Type="char" Mode="In" />
+  </Function>
+  <Function Name="sp_obtiene_facturas_socio_gerente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_socio" Type="char" Mode="In" />
+    <Parameter Name="id_encargado" Type="char" Mode="In" />
+    <Parameter Name="id_oficina" Type="char" Mode="In" />
+    <Parameter Name="id_entidad" Type="char" Mode="In" />
+  </Function>
+  <Function Name="sp_text_felectronica_CR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_oficina" Type="char" Mode="In" />
+    <Parameter Name="Id_entidad" Type="char" Mode="In" />
+    <Parameter Name="tipo_documento" Type="char" Mode="In" />
+    <Parameter Name="numero_documento" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="sp_text_felectronica_GT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_oficina" Type="char" Mode="In" />
+    <Parameter Name="Id_entidad" Type="char" Mode="In" />
+    <Parameter Name="tipo_documento" Type="char" Mode="In" />
+    <Parameter Name="numero_documento" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="tep_insertahoras_web" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_oficina" Type="char" Mode="In" />
+    <Parameter Name="Id_empleado" Type="char" Mode="In" />
+  </Function>
+  <Function Name="TP_lst_Clientes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Oficina" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="TP_lst_Jobs" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_oficina" Type="char" Mode="In" />
+    <Parameter Name="id_cliente" Type="char" Mode="In" />
+    <Parameter Name="id_servicio" Type="char" Mode="In" />
+    <Parameter Name="estado" Type="numeric" Mode="In" />
+  </Function>
+  <EntityContainer Name="TEPModelStoreContainer">
+    <EntitySet Name="CAES_Solicitados" EntityType="Self.CAES_Solicitados" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Actividad_Economica_CR" EntityType="Self.Tbl_Actividad_Economica_CR" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_anticipo_preliminar" EntityType="Self.tbl_anticipo_preliminar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_anulacion_facturas" EntityType="Self.tbl_anulacion_facturas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_aplicacion_gts_admon" EntityType="Self.tbl_aplicacion_gts_admon" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_aplicacion_tep" EntityType="Self.tbl_aplicacion_tep" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_aut_empleadojob" EntityType="Self.tbl_aut_empleadojob" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_autorizacion_documentos" EntityType="Self.tbl_autorizacion_documentos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_cargos_otras_oficinas" EntityType="Self.tbl_cargos_otras_oficinas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_certificacion_documento" EntityType="Self.tbl_certificacion_documento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_claves_empleado" EntityType="Self.tbl_claves_empleado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_clientes" EntityType="Self.tbl_clientes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_concepto_no_cargable" EntityType="Self.tbl_concepto_no_cargable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_condicion_cobro" EntityType="Self.Tbl_condicion_cobro" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_correlativos" EntityType="Self.tbl_correlativos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_creditos_aplicaciones" EntityType="Self.tbl_creditos_aplicaciones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_cuenta_corriente" EntityType="Self.tbl_cuenta_corriente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_cuenta_corriente_fiscal" EntityType="Self.tbl_cuenta_corriente_fiscal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_cuenta_corriente_gestion_cobro" EntityType="Self.tbl_cuenta_corriente_gestion_cobro" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_cuenta_corriente_por_generar" EntityType="Self.tbl_cuenta_corriente_por_generar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_cuentacorriente_cierre" EntityType="Self.tbl_cuentacorriente_cierre" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_departamento" EntityType="Self.tbl_departamento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_det_Solicitud" EntityType="Self.tbl_det_Solicitud" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_det_Solicitud_temp" EntityType="Self.tbl_det_Solicitud_temp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_detalle_cargable" EntityType="Self.tbl_detalle_cargable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_detalle_cargable_temp" EntityType="Self.tbl_detalle_cargable_temp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_detalle_cobros_anulaciones" EntityType="Self.tbl_detalle_cobros_anulaciones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_detalle_cobros_anulaciones_historia" EntityType="Self.tbl_detalle_cobros_anulaciones_historia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Detalle_Sol_temp" EntityType="Self.tbl_Detalle_Sol_temp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_distribucion_gastos" EntityType="Self.tbl_distribucion_gastos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_distribuidos" EntityType="Self.tbl_distribuidos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_documentos_fiscales" EntityType="Self.tbl_documentos_fiscales" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_documentos_gface" EntityType="Self.tbl_documentos_gface" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_empleado_entidad_legal" EntityType="Self.tbl_empleado_entidad_legal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_empleados" EntityType="Self.tbl_empleados" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_empleados_teams" EntityType="Self.tbl_empleados_teams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_empleados_trabajo" EntityType="Self.tbl_empleados_trabajo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_entes_clientes" EntityType="Self.tbl_entes_clientes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_entes_solicitud" EntityType="Self.tbl_entes_solicitud" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_entidad_legal" EntityType="Self.tbl_entidad_legal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_factura_oficina" EntityType="Self.tbl_factura_oficina" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_frases" EntityType="Self.tbl_frases" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_gastos_administrativos" EntityType="Self.tbl_gastos_administrativos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_gastos_administrativos_detalle_empresas" EntityType="Self.tbl_gastos_administrativos_detalle_empresas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_geografia" EntityType="Self.Tbl_geografia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_grupo_industria" EntityType="Self.tbl_grupo_industria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_grupos" EntityType="Self.tbl_grupos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_grupos_conceptos_no_cargables" EntityType="Self.tbl_grupos_conceptos_no_cargables" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_gts_automaticos" EntityType="Self.Tbl_gts_automaticos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_gts_automaticos_detalle" EntityType="Self.tbl_gts_automaticos_detalle" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_industrias" EntityType="Self.tbl_industrias" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Integracion_tep_Empleado_Gasto" EntityType="Self.tbl_Integracion_tep_Empleado_Gasto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_lineas" EntityType="Self.tbl_lineas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Log_Documento_Electronico" EntityType="Self.tbl_Log_Documento_Electronico" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_municipio" EntityType="Self.tbl_municipio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_niveles_acceso" EntityType="Self.tbl_niveles_acceso" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_niveles_empleado" EntityType="Self.tbl_niveles_empleado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_no_cargables" EntityType="Self.tbl_no_cargables" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_no_cargables_temp" EntityType="Self.tbl_no_cargables_temp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_oficina" EntityType="Self.tbl_oficina" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_opciones" EntityType="Self.tbl_opciones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_opciones_empleado" EntityType="Self.tbl_opciones_empleado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_opciones_puesto" EntityType="Self.tbl_opciones_puesto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_paises" EntityType="Self.tbl_paises" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_parametros" EntityType="Self.tbl_parametros" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_permisos" EntityType="Self.tbl_permisos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_permisos_asignados" EntityType="Self.tbl_permisos_asignados" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_plantilla_niveles" EntityType="Self.tbl_plantilla_niveles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_provincia_depto" EntityType="Self.Tbl_provincia_depto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_puestos" EntityType="Self.tbl_puestos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_puestos_conversion_web" EntityType="Self.tbl_puestos_conversion_web" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_reportes_tiempo" EntityType="Self.tbl_reportes_tiempo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_reportes_tiempo_temp" EntityType="Self.tbl_reportes_tiempo_temp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_saldo_gastos" EntityType="Self.tbl_saldo_gastos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_saldo_tep" EntityType="Self.tbl_saldo_tep" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_saldosgasto_cierre" EntityType="Self.tbl_saldosgasto_cierre" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_saldostep_cierre" EntityType="Self.tbl_saldostep_cierre" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_sector_industria" EntityType="Self.tbl_sector_industria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_servicios" EntityType="Self.tbl_servicios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_solicitud_facturas" EntityType="Self.tbl_solicitud_facturas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_solicitud_facturas_distribucion_socios" EntityType="Self.tbl_solicitud_facturas_distribucion_socios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_solicitud_facturas_temp" EntityType="Self.tbl_solicitud_facturas_temp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_solicitud_temp" EntityType="Self.tbl_solicitud_temp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_tasas_de_cambio" EntityType="Self.tbl_tasas_de_cambio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_teams" EntityType="Self.tbl_teams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_tiempo_cargable" EntityType="Self.tbl_tiempo_cargable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_tiempo_cargable_origen" EntityType="Self.tbl_tiempo_cargable_origen" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_tipo_documento" EntityType="Self.tbl_tipo_documento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_trabajos" EntityType="Self.tbl_trabajos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_trabajos_distribucion" EntityType="Self.tbl_trabajos_distribucion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Trabajos_Oficina" EntityType="Self.Tbl_Trabajos_Oficina" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_traslados" EntityType="Self.tbl_traslados" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_cancelacion_facturas_nc" EntityType="Self.tbl_cancelacion_facturas_nc" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [tbl_cancelacion_facturas_nc].[linea] AS [linea], 
+    [tbl_cancelacion_facturas_nc].[producto] AS [producto], 
+    [tbl_cancelacion_facturas_nc].[servicio] AS [servicio], 
+    [tbl_cancelacion_facturas_nc].[periodo_tep] AS [periodo_tep], 
+    [tbl_cancelacion_facturas_nc].[id_entidad] AS [id_entidad], 
+    [tbl_cancelacion_facturas_nc].[tipo_documento] AS [tipo_documento], 
+    [tbl_cancelacion_facturas_nc].[numero_documento] AS [numero_documento], 
+    [tbl_cancelacion_facturas_nc].[id_cliente] AS [id_cliente], 
+    [tbl_cancelacion_facturas_nc].[tipo_documento_aplicado] AS [tipo_documento_aplicado], 
+    [tbl_cancelacion_facturas_nc].[numero_documento_aplicado] AS [numero_documento_aplicado], 
+    [tbl_cancelacion_facturas_nc].[aplicado_definitivo] AS [aplicado_definitivo], 
+    [tbl_cancelacion_facturas_nc].[cliente] AS [cliente], 
+    [tbl_cancelacion_facturas_nc].[documento_aplicado] AS [documento_aplicado]
+    FROM [dbo].[tbl_cancelacion_facturas_nc] AS [tbl_cancelacion_facturas_nc]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Tbl_contabilizacion_servicios" EntityType="Self.Tbl_contabilizacion_servicios" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Tbl_contabilizacion_servicios].[ID_PAIS] AS [ID_PAIS], 
+    [Tbl_contabilizacion_servicios].[ID_OFICINA] AS [ID_OFICINA], 
+    [Tbl_contabilizacion_servicios].[ID_SERVICIO] AS [ID_SERVICIO], 
+    [Tbl_contabilizacion_servicios].[ID_CUENTA] AS [ID_CUENTA], 
+    [Tbl_contabilizacion_servicios].[ID_AUXILIAR] AS [ID_AUXILIAR], 
+    [Tbl_contabilizacion_servicios].[ID_DEPARTAMENTO] AS [ID_DEPARTAMENTO]
+    FROM [dbo].[Tbl_contabilizacion_servicios] AS [Tbl_contabilizacion_servicios]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="tbl_creditos_aplicaciones_new" EntityType="Self.tbl_creditos_aplicaciones_new" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [tbl_creditos_aplicaciones_new].[id_transaccion] AS [id_transaccion], 
+    [tbl_creditos_aplicaciones_new].[periodo_tep] AS [periodo_tep], 
+    [tbl_creditos_aplicaciones_new].[id_oficina] AS [id_oficina], 
+    [tbl_creditos_aplicaciones_new].[id_job] AS [id_job], 
+    [tbl_creditos_aplicaciones_new].[id_cliente] AS [id_cliente], 
+    [tbl_creditos_aplicaciones_new].[realizacion_gastos] AS [realizacion_gastos], 
+    [tbl_creditos_aplicaciones_new].[realizacion_honorarios] AS [realizacion_honorarios], 
+    [tbl_creditos_aplicaciones_new].[realizado_por] AS [realizado_por], 
+    [tbl_creditos_aplicaciones_new].[fecha] AS [fecha]
+    FROM [dbo].[tbl_creditos_aplicaciones_new] AS [tbl_creditos_aplicaciones_new]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="tbl_facturas_anuladas_finales" EntityType="Self.tbl_facturas_anuladas_finales" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [tbl_facturas_anuladas_finales].[linea] AS [linea], 
+    [tbl_facturas_anuladas_finales].[producto] AS [producto], 
+    [tbl_facturas_anuladas_finales].[servicio] AS [servicio], 
+    [tbl_facturas_anuladas_finales].[id_oficina] AS [id_oficina], 
+    [tbl_facturas_anuladas_finales].[id_entidad] AS [id_entidad], 
+    [tbl_facturas_anuladas_finales].[tipo_documento] AS [tipo_documento], 
+    [tbl_facturas_anuladas_finales].[numero_documento] AS [numero_documento], 
+    [tbl_facturas_anuladas_finales].[fecha_anulacion] AS [fecha_anulacion], 
+    [tbl_facturas_anuladas_finales].[id_cliente] AS [id_cliente], 
+    [tbl_facturas_anuladas_finales].[definitiva] AS [definitiva]
+    FROM [dbo].[tbl_facturas_anuladas_finales] AS [tbl_facturas_anuladas_finales]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="tbl_horas_cargadas_al_standard" EntityType="Self.tbl_horas_cargadas_al_standard" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [tbl_horas_cargadas_al_standard].[ID_PAIS] AS [ID_PAIS], 
+    [tbl_horas_cargadas_al_standard].[periodo_tep_proceso] AS [periodo_tep_proceso], 
+    [tbl_horas_cargadas_al_standard].[id_cliente] AS [id_cliente], 
+    [tbl_horas_cargadas_al_standard].[chrg_cd_hrs] AS [chrg_cd_hrs], 
+    [tbl_horas_cargadas_al_standard].[gross_rev_local] AS [gross_rev_local], 
+    [tbl_horas_cargadas_al_standard].[gross_rev] AS [gross_rev], 
+    [tbl_horas_cargadas_al_standard].[billing_variances] AS [billing_variances], 
+    [tbl_horas_cargadas_al_standard].[linea] AS [linea], 
+    [tbl_horas_cargadas_al_standard].[producto] AS [producto], 
+    [tbl_horas_cargadas_al_standard].[servicio] AS [servicio]
+    FROM [dbo].[tbl_horas_cargadas_al_standard] AS [tbl_horas_cargadas_al_standard]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="tbl_provision_cuentas_incobrables" EntityType="Self.tbl_provision_cuentas_incobrables" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [tbl_provision_cuentas_incobrables].[id_pais] AS [id_pais], 
+    [tbl_provision_cuentas_incobrables].[id_oficina] AS [id_oficina], 
+    [tbl_provision_cuentas_incobrables].[linea] AS [linea], 
+    [tbl_provision_cuentas_incobrables].[producto] AS [producto], 
+    [tbl_provision_cuentas_incobrables].[servicio] AS [servicio], 
+    [tbl_provision_cuentas_incobrables].[tipo_documento] AS [tipo_documento], 
+    [tbl_provision_cuentas_incobrables].[numero_documento] AS [numero_documento], 
+    [tbl_provision_cuentas_incobrables].[provision] AS [provision]
+    FROM [dbo].[tbl_provision_cuentas_incobrables] AS [tbl_provision_cuentas_incobrables]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="tbl_reserva_tep" EntityType="Self.tbl_reserva_tep" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [tbl_reserva_tep].[PAIS] AS [PAIS], 
+    [tbl_reserva_tep].[LINEA] AS [LINEA], 
+    [tbl_reserva_tep].[PRODUCTO] AS [PRODUCTO], 
+    [tbl_reserva_tep].[SERVICIO] AS [SERVICIO], 
+    [tbl_reserva_tep].[ID_CLIENTE] AS [ID_CLIENTE], 
+    [tbl_reserva_tep].[ID_JOB] AS [ID_JOB], 
+    [tbl_reserva_tep].[RESERVATEP] AS [RESERVATEP]
+    FROM [dbo].[tbl_reserva_tep] AS [tbl_reserva_tep]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="tbl_revenues" EntityType="Self.tbl_revenues" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [tbl_revenues].[pais] AS [pais], 
+    [tbl_revenues].[ORDEN] AS [ORDEN], 
+    [tbl_revenues].[periodo] AS [periodo], 
+    [tbl_revenues].[LINEA] AS [LINEA], 
+    [tbl_revenues].[DESCRIPCION] AS [DESCRIPCION], 
+    [tbl_revenues].[VALOR] AS [VALOR]
+    FROM [dbo].[tbl_revenues] AS [tbl_revenues]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_claves_historicas" EntityType="Self.vw_claves_historicas" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_claves_historicas].[id_empleado] AS [id_empleado], 
+    [vw_claves_historicas].[clave] AS [clave], 
+    [vw_claves_historicas].[fecha_clave] AS [fecha_clave], 
+    [vw_claves_historicas].[orden] AS [orden]
+    FROM [dbo].[vw_claves_historicas] AS [vw_claves_historicas]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_detalle_captura_temp_cargable" EntityType="Self.vw_detalle_captura_temp_cargable" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_detalle_captura_temp_cargable].[descripcion_cargo] AS [descripcion_cargo], 
+    [vw_detalle_captura_temp_cargable].[gastos] AS [gastos], 
+    [vw_detalle_captura_temp_cargable].[horas] AS [horas], 
+    [vw_detalle_captura_temp_cargable].[id_cliente] AS [id_cliente], 
+    [vw_detalle_captura_temp_cargable].[Razon_Social] AS [Razon_Social], 
+    [vw_detalle_captura_temp_cargable].[id_empleado] AS [id_empleado], 
+    [vw_detalle_captura_temp_cargable].[nombre_empleado] AS [nombre_empleado], 
+    [vw_detalle_captura_temp_cargable].[id_job] AS [id_job], 
+    [vw_detalle_captura_temp_cargable].[descripcion] AS [descripcion], 
+    [vw_detalle_captura_temp_cargable].[id_oficina] AS [id_oficina], 
+    [vw_detalle_captura_temp_cargable].[Nombre] AS [Nombre], 
+    [vw_detalle_captura_temp_cargable].[linea] AS [linea]
+    FROM [dbo].[vw_detalle_captura_temp_cargable] AS [vw_detalle_captura_temp_cargable]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_detalle_captura_temp_Nocargable" EntityType="Self.vw_detalle_captura_temp_Nocargable" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_detalle_captura_temp_Nocargable].[descripcion] AS [descripcion], 
+    [vw_detalle_captura_temp_Nocargable].[horas] AS [horas], 
+    [vw_detalle_captura_temp_Nocargable].[id_empleado] AS [id_empleado], 
+    [vw_detalle_captura_temp_Nocargable].[nombre_empleado] AS [nombre_empleado], 
+    [vw_detalle_captura_temp_Nocargable].[id_oficina] AS [id_oficina], 
+    [vw_detalle_captura_temp_Nocargable].[Nombre] AS [Nombre], 
+    [vw_detalle_captura_temp_Nocargable].[id_concepto] AS [id_concepto], 
+    [vw_detalle_captura_temp_Nocargable].[descConcepto] AS [descConcepto], 
+    [vw_detalle_captura_temp_Nocargable].[linea] AS [linea]
+    FROM [dbo].[vw_detalle_captura_temp_Nocargable] AS [vw_detalle_captura_temp_Nocargable]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_Empleados_Datos" EntityType="Self.vw_Empleados_Datos" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_Empleados_Datos].[id_oficina] AS [id_oficina], 
+    [vw_Empleados_Datos].[id_empleado] AS [id_empleado], 
+    [vw_Empleados_Datos].[iniciales] AS [iniciales], 
+    [vw_Empleados_Datos].[id_puesto] AS [id_puesto], 
+    [vw_Empleados_Datos].[id_departamento] AS [id_departamento], 
+    [vw_Empleados_Datos].[Nombres] AS [Nombres], 
+    [vw_Empleados_Datos].[apellidos] AS [apellidos], 
+    [vw_Empleados_Datos].[cuota_facturacion_local] AS [cuota_facturacion_local], 
+    [vw_Empleados_Datos].[cuota_facturacion_interamerica] AS [cuota_facturacion_interamerica], 
+    [vw_Empleados_Datos].[situacion_actual] AS [situacion_actual], 
+    [vw_Empleados_Datos].[ultimo_reporte_entregado] AS [ultimo_reporte_entregado], 
+    [vw_Empleados_Datos].[clave] AS [clave], 
+    [vw_Empleados_Datos].[presupuesto_horas] AS [presupuesto_horas], 
+    [vw_Empleados_Datos].[fecha_ingreso] AS [fecha_ingreso], 
+    [vw_Empleados_Datos].[fecha_nacimiento] AS [fecha_nacimiento], 
+    [vw_Empleados_Datos].[usuario_administrativo] AS [usuario_administrativo], 
+    [vw_Empleados_Datos].[id_team] AS [id_team], 
+    [vw_Empleados_Datos].[cem_costo] AS [cem_costo], 
+    [vw_Empleados_Datos].[ultima_fecha_pass] AS [ultima_fecha_pass], 
+    [vw_Empleados_Datos].[logged] AS [logged], 
+    [vw_Empleados_Datos].[fecha_baja] AS [fecha_baja], 
+    [vw_Empleados_Datos].[tbl_claves_empleado_id] AS [tbl_claves_empleado_id], 
+    [vw_Empleados_Datos].[cambia_clave] AS [cambia_clave], 
+    [vw_Empleados_Datos].[fecha_expiracion] AS [fecha_expiracion]
+    FROM [dbo].[vw_Empleados_Datos] AS [vw_Empleados_Datos]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__tbl_Detal__id_so__70F5FFCD" Association="Self.FK__tbl_Detal__id_so__70F5FFCD">
+      <End Role="tbl_solicitud_temp" EntitySet="tbl_solicitud_temp" />
+      <End Role="tbl_Detalle_Sol_temp" EntitySet="tbl_Detalle_Sol_temp" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_frases__7D7BD243" Association="Self.FK__tbl_frases__7D7BD243">
+      <End Role="tbl_entidad_legal" EntitySet="tbl_entidad_legal" />
+      <End Role="tbl_frases" EntitySet="tbl_frases" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_autorizacion_documentos_tbl_tipo_documento" Association="Self.FK_tbl_autorizacion_documentos_tbl_tipo_documento">
+      <End Role="tbl_tipo_documento" EntitySet="tbl_tipo_documento" />
+      <End Role="tbl_autorizacion_documentos" EntitySet="tbl_autorizacion_documentos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_certificacion_documento_tbl_cuenta_corriente" Association="Self.FK_tbl_certificacion_documento_tbl_cuenta_corriente">
+      <End Role="tbl_cuenta_corriente" EntitySet="tbl_cuenta_corriente" />
+      <End Role="tbl_certificacion_documento" EntitySet="tbl_certificacion_documento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_cuenta_corriente_gestion_cobro_tbl_cuenta_corriente_gestion_cobro" Association="Self.FK_tbl_cuenta_corriente_gestion_cobro_tbl_cuenta_corriente_gestion_cobro">
+      <End Role="tbl_cuenta_corriente" EntitySet="tbl_cuenta_corriente" />
+      <End Role="tbl_cuenta_corriente_gestion_cobro" EntitySet="tbl_cuenta_corriente_gestion_cobro" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_det_Solicitud_temp_tbl_solicitud_facturas_temp" Association="Self.FK_tbl_det_Solicitud_temp_tbl_solicitud_facturas_temp">
+      <End Role="tbl_solicitud_facturas_temp" EntitySet="tbl_solicitud_facturas_temp" />
+      <End Role="tbl_det_Solicitud_temp" EntitySet="tbl_det_Solicitud_temp" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_detalle_cargable_temp_tbl_reportes_tiempo_temp" Association="Self.FK_tbl_detalle_cargable_temp_tbl_reportes_tiempo_temp">
+      <End Role="tbl_reportes_tiempo_temp" EntitySet="tbl_reportes_tiempo_temp" />
+      <End Role="tbl_detalle_cargable_temp" EntitySet="tbl_detalle_cargable_temp" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_empleados_tbl_puestos" Association="Self.FK_tbl_empleados_tbl_puestos">
+      <End Role="tbl_puestos" EntitySet="tbl_puestos" />
+      <End Role="tbl_empleados" EntitySet="tbl_empleados" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_gastos_administrativos_detalle_empresas_tbl_gastos_administrativos" Association="Self.FK_tbl_gastos_administrativos_detalle_empresas_tbl_gastos_administrativos">
+      <End Role="tbl_gastos_administrativos" EntitySet="tbl_gastos_administrativos" />
+      <End Role="tbl_gastos_administrativos_detalle_empresas" EntitySet="tbl_gastos_administrativos_detalle_empresas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_no_cargables_temp_tbl_reportes_tiempo_temp" Association="Self.FK_tbl_no_cargables_temp_tbl_reportes_tiempo_temp">
+      <End Role="tbl_reportes_tiempo_temp" EntitySet="tbl_reportes_tiempo_temp" />
+      <End Role="tbl_no_cargables_temp" EntitySet="tbl_no_cargables_temp" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_puestos_conversion_web_tbl_puestos" Association="Self.FK_tbl_puestos_conversion_web_tbl_puestos">
+      <End Role="tbl_puestos" EntitySet="tbl_puestos" />
+      <End Role="tbl_puestos_conversion_web" EntitySet="tbl_puestos_conversion_web" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_puestos_conversion_web_tbl_puestos1" Association="Self.FK_tbl_puestos_conversion_web_tbl_puestos1">
+      <End Role="tbl_puestos" EntitySet="tbl_puestos" />
+      <End Role="tbl_puestos_conversion_web" EntitySet="tbl_puestos_conversion_web" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_servicios_tbl_departamento" Association="Self.FK_tbl_servicios_tbl_departamento">
+      <End Role="tbl_departamento" EntitySet="tbl_departamento" />
+      <End Role="tbl_servicios" EntitySet="tbl_servicios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_solicitud_facturas_distribucion_socios_tbl_empleados" Association="Self.FK_tbl_solicitud_facturas_distribucion_socios_tbl_empleados">
+      <End Role="tbl_empleados" EntitySet="tbl_empleados" />
+      <End Role="tbl_solicitud_facturas_distribucion_socios" EntitySet="tbl_solicitud_facturas_distribucion_socios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_solicitud_facturas_distribucion_socios_tbl_solicitud" Association="Self.FK_tbl_solicitud_facturas_distribucion_socios_tbl_solicitud">
+      <End Role="tbl_solicitud_facturas" EntitySet="tbl_solicitud_facturas" />
+      <End Role="tbl_solicitud_facturas_distribucion_socios" EntitySet="tbl_solicitud_facturas_distribucion_socios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_tipo_documento_tbl_entidad_legal" Association="Self.FK_tbl_tipo_documento_tbl_entidad_legal">
+      <End Role="tbl_entidad_legal" EntitySet="tbl_entidad_legal" />
+      <End Role="tbl_tipo_documento" EntitySet="tbl_tipo_documento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_trabajos_distribucion_tbl_empleados" Association="Self.FK_tbl_trabajos_distribucion_tbl_empleados">
+      <End Role="tbl_empleados" EntitySet="tbl_empleados" />
+      <End Role="tbl_trabajos_distribucion" EntitySet="tbl_trabajos_distribucion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_trabajos_distribucion_tbl_trabajos" Association="Self.FK_tbl_trabajos_distribucion_tbl_trabajos">
+      <End Role="tbl_trabajos" EntitySet="tbl_trabajos" />
+      <End Role="tbl_trabajos_distribucion" EntitySet="tbl_trabajos_distribucion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Trabajos_Oficina_tbl_trabajos" Association="Self.FK_Tbl_Trabajos_Oficina_tbl_trabajos">
+      <End Role="tbl_trabajos" EntitySet="tbl_trabajos" />
+      <End Role="Tbl_Trabajos_Oficina" EntitySet="Tbl_Trabajos_Oficina" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_trabajos_tbl_paises" Association="Self.FK_tbl_trabajos_tbl_paises">
+      <End Role="tbl_paises" EntitySet="tbl_paises" />
+      <End Role="tbl_trabajos" EntitySet="tbl_trabajos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_trabajos_tbl_servicios" Association="Self.FK_tbl_trabajos_tbl_servicios">
+      <End Role="tbl_servicios" EntitySet="tbl_servicios" />
+      <End Role="tbl_trabajos" EntitySet="tbl_trabajos" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

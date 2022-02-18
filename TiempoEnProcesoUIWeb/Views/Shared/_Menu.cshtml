@@ -1,0 +1,75 @@
+﻿     <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+         <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><img src="~/Images/logo pwc.png" /></a>
+                <a class="navbar-brand" style="font-family:Georgia; font-weight:bold; font-style:italic;" href="#">Ingreso de Tiempo</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="#"></a></li>
+                </ul>
+            
+                <ul class="nav navbar-top-links navbar-right">
+                    <li><a href="#"><img  src="~/Images/@ViewData["pais"]" /></a></li>
+                </ul>
+             </div>
+        </div>
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav navbar-collapse">
+                <ul class="nav" id="side-menu">
+                    <li>
+                        <a href="#"><i class="fa fa-file-text-o fa-fw"></i> Captura Web<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="@Url.Action("Captura","CapturaWeb")">Ingreso</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Captura","CambioClave")">Cambio Clave</a>
+                            </li>
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
+                    <!--<li>
+        <a href="#"><i class="fa fa-file-text-o fa-fw"></i> Solicitud Web<span class="fa arrow"></span></a>
+        <ul class="nav nav-second-level">
+            <li>
+                <a href="@Url.Action("Captura","SolicitudFactura")">Ingreso</a>
+            </li>
+        </ul>
+    </li>
+        -->
+    <li>
+        <a href="#"><i class="fa fa-file-text-o fa-fw"></i> Reportes<span class="fa arrow"></span></a>
+        <ul class="nav nav-second-level">
+            <li>
+                <a href="@Url.Action("PorCliente","Reporte")">Por Cliente</a>
+            </li>
+            <li>
+                <a href="@Url.Action("PorDia","Reporte")">Por Día</a>
+            </li>
+            @if (Convert.ToBoolean( ViewData[TiempoEnProcesoHelper.Constantes.S_TEAM]))
+            {
+            <!--<li>
+        <a href="@Url.Action("ParametersTeamAcumulado","Reporte")">Por Team Acumulado</a>
+    </li>
+    <li>
+        <a href="@Url.Action("ParametersTeamAcumuladoTep","Reporte")">Por Team - Periodo Tep</a>
+    </li>
+        -->
+            }
+        </ul>
+        <!-- /.nav-second-level -->
+                    </li>
+
+                    <li class="divider"></li>
+                    <li><a href="@Url.Action("Logout","Home")"><i class="fa fa-sign-out fa-fw"></i> Salir del Sistema</a></li>
+                </ul>
+            </div>
+            </div>
+        </nav>
