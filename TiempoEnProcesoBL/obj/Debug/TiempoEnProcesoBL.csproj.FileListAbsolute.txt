@@ -31,3 +31,32 @@ D:\Visual Studio\ATISA\TiempoEnProceso-demo\TiempoEnProcesoBL\obj\Debug\TiempoEn
 D:\Visual Studio\ATISA\TiempoEnProceso-demo\TiempoEnProcesoBL\obj\Debug\TiempoEnProcesoBL.csproj.CopyComplete
 D:\Visual Studio\ATISA\TiempoEnProceso-demo\TiempoEnProcesoBL\obj\Debug\TiempoEnProcesoBL.dll
 D:\Visual Studio\ATISA\TiempoEnProceso-demo\TiempoEnProcesoBL\obj\Debug\TiempoEnProcesoBL.pdb
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoBL\bin\Debug\TiempoEnProcesoBL.dll.config
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoBL\bin\Debug\TiempoEnProcesoBL.dll
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoBL\bin\Debug\TiempoEnProcesoBL.pdb
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoBL\bin\Debug\AutoMapper.dll
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoBL\bin\Debug\EntityFramework.dll
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoBL\bin\Debug\EntityFramework.SqlServer.dll
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoBL\bin\Debug\TiempoEnProcesoDL.dll
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoBL\bin\Debug\TiempoEnProcesoEN.dll
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoBL\bin\Debug\TiempoEnProcesoHelper.dll
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoBL\bin\Debug\FirmaXadesNet.dll
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoBL\bin\Debug\Infragistics4.Win.v19.1.dll
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoBL\bin\Debug\Infragistics4.Shared.v19.1.dll
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoBL\bin\Debug\Infragistics4.Win.UltraWinGrid.v19.1.dll
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoBL\bin\Debug\Infragistics4.Win.Misc.v19.1.dll
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoBL\bin\Debug\ValidaterUserEncript.dll
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoBL\bin\Debug\Microsoft.Xades.dll
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoBL\bin\Debug\TiempoEnProcesoDL.pdb
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoBL\bin\Debug\TiempoEnProcesoDL.dll.config
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoBL\bin\Debug\TiempoEnProcesoEN.pdb
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoBL\bin\Debug\TiempoEnProcesoHelper.pdb
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoBL\bin\Debug\TiempoEnProcesoHelper.dll.config
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoBL\bin\Debug\AutoMapper.xml
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoBL\bin\Debug\EntityFramework.xml
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoBL\bin\Debug\EntityFramework.SqlServer.xml
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoBL\obj\Debug\TiempoEnProcesoBL.csprojAssemblyReference.cache
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoBL\obj\Debug\TiempoEnProcesoBL.csproj.CoreCompileInputs.cache
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoBL\obj\Debug\TiempoEnProcesoBL.csproj.CopyComplete
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoBL\obj\Debug\TiempoEnProcesoBL.dll
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoBL\obj\Debug\TiempoEnProcesoBL.pdb

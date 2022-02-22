@@ -39,3 +39,36 @@ D:\Visual Studio\ATISA\TiempoEnProceso-demo\TiempoEnProcesoHelper\obj\Debug\Tiem
 D:\Visual Studio\ATISA\TiempoEnProceso-demo\TiempoEnProcesoHelper\obj\Debug\TiempoEnProcesoHelper.csproj.CopyComplete
 D:\Visual Studio\ATISA\TiempoEnProceso-demo\TiempoEnProcesoHelper\obj\Debug\TiempoEnProcesoHelper.dll
 D:\Visual Studio\ATISA\TiempoEnProceso-demo\TiempoEnProcesoHelper\obj\Debug\TiempoEnProcesoHelper.pdb
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoHelper\bin\Debug\TiempoEnProcesoHelper.dll.config
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoHelper\bin\Debug\TiempoEnProcesoHelper.dll
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoHelper\bin\Debug\TiempoEnProcesoHelper.pdb
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoHelper\bin\Debug\BouncyCastle.Crypto.dll
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoHelper\bin\Debug\FirmaXadesNet.dll
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoHelper\bin\Debug\Microsoft.Win32.Primitives.dll
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoHelper\bin\Debug\Microsoft.Xades.dll
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoHelper\bin\Debug\System.AppContext.dll
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoHelper\bin\Debug\System.ComponentModel.Primitives.dll
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoHelper\bin\Debug\System.Console.dll
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoHelper\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoHelper\bin\Debug\System.Globalization.Calendars.dll
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoHelper\bin\Debug\System.IO.Compression.dll
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoHelper\bin\Debug\System.IO.Compression.ZipFile.dll
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoHelper\bin\Debug\System.IO.FileSystem.dll
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoHelper\bin\Debug\System.IO.FileSystem.Primitives.dll
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoHelper\bin\Debug\System.Net.Http.dll
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoHelper\bin\Debug\System.Net.Sockets.dll
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoHelper\bin\Debug\System.Reflection.TypeExtensions.dll
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoHelper\bin\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoHelper\bin\Debug\System.Security.Cryptography.Algorithms.dll
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoHelper\bin\Debug\System.Security.Cryptography.Encoding.dll
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoHelper\bin\Debug\System.Security.Cryptography.Primitives.dll
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoHelper\bin\Debug\System.Security.Cryptography.X509Certificates.dll
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoHelper\bin\Debug\System.Xml.ReaderWriter.dll
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoHelper\bin\Debug\XploRe.Runtime.dll
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoHelper\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoHelper\bin\Debug\XploRe.Runtime.xml
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoHelper\obj\Debug\TiempoEnProcesoHelper.csprojAssemblyReference.cache
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoHelper\obj\Debug\TiempoEnProcesoHelper.csproj.CoreCompileInputs.cache
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoHelper\obj\Debug\TiempoEnProcesoHelper.csproj.CopyComplete
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoHelper\obj\Debug\TiempoEnProcesoHelper.dll
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoHelper\obj\Debug\TiempoEnProcesoHelper.pdb

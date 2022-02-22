@@ -1,0 +1,39 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/BI-Blioteca/v16
+/.vs
+/BIBlioteca.Web/obj
+/BI-Blioteca/BIBlioteca/BIBlioteca.Web/bin/Debug/netcoreapp3.1
+/BI-Blioteca/BIBlioteca/BIBlioteca.Web/obj
+/BI-Blioteca/BIBlioteca/.vs/BIBlioteca
+/BI-Blioteca/BIBlioteca/BIBlioteca.API/bin/Debug/netcoreapp3.1
+/BI-Blioteca/BIBlioteca/BIBlioteca.API/obj
+/BI-Blioteca/BIBlioteca/BIBlioteca.DAL/bin/Debug
+/BI-Blioteca/BIBlioteca/BIBlioteca.DAL/obj
+/BI-Blioteca/BIBlioteca/BIBlioteca.Entities/bin/Debug
+/BI-Blioteca/BIBlioteca/BIBlioteca.Entities/obj
+/BI-Blioteca/BIBlioteca/BIBlioteca.Web - Copy
+/BI-Blioteca/BIBlioteca/BIBlioteca.Web - OLD
+/BI-Blioteca/BIBlioteca/BIBlioteca.web - New
+/BI-Blioteca/BIBlioteca/BIBlioteca.Web/wwwroot/uploadfiles
+/BI-Blioteca/BIBlioteca/BIBlioteca.API/wwwroot/images/contenido/1
+/BI-Blioteca/BIBlioteca/BIBlioteca.API/wwwroot/images/premio/2
+/BI-Blioteca/BIBlioteca/BIBlioteca.Mobile/BIBlioteca.Mobile/bin/Debug/netstandard2.0
+/BI-Blioteca/BIBlioteca/BIBlioteca.Mobile/BIBlioteca.Mobile/obj
+/BI-Blioteca/BIBlioteca/BIBlioteca.Mobile/BIBlioteca.Mobile.Android/bin/Debug
+/BI-Blioteca/BIBlioteca/BIBlioteca.Mobile/BIBlioteca.Mobile.Android/obj
+/BI-Blioteca/BIBlioteca/BIBlioteca.Mobile/BIBlioteca.Mobile/bin/Debug/netstandard2.1
+/BI-Blioteca/BIBlioteca/ConsoleGenMobileData/bin/Debug/netcoreapp3.1
+/BI-Blioteca/BIBlioteca/ConsoleGenMobileData/obj
+/BI-Blioteca/BIBlioteca/BIBlioteca.API/wwwroot/images/contenido/2
+/BI-Blioteca/BIBlioteca/BIBlioteca.API/wwwroot/images
+/BI-Blioteca/BIBlioteca/BIBlioteca.API/wwwroot/Reportes
+/BI-Blioteca/BIBlioteca/BIBlioteca.API/bin/Release/netcoreapp3.1
+/BI-Blioteca/BIBlioteca/BIBlioteca.DAL/bin/Release/netstandard2.1
+/BI-Blioteca/BIBlioteca/BIBlioteca.Entities/bin/Release/netstandard2.1
+/BI-Blioteca/BIBlioteca/BIBlioteca.Mobile/BIBlioteca.Mobile/bin/Release/netstandard2.1
+/BI-Blioteca/BIBlioteca/BIBlioteca.Mobile/BIBlioteca.Mobile.Android/bin/Release
+/BI-Blioteca/BIBlioteca/BIBlioteca.Web/bin/Release/netcoreapp3.1
+/BI-Blioteca/BIBlioteca/ConsoleGenMobileData/bin/Release/netcoreapp3.1

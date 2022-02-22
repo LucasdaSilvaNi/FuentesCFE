@@ -10,3 +10,15 @@ D:\Visual Studio\ATISA\TiempoEnProceso-demo\TiempoEnProcesoDL\obj\Debug\TiempoEn
 D:\Visual Studio\ATISA\TiempoEnProceso-demo\TiempoEnProcesoDL\obj\Debug\TiempoEnProcesoDL.csproj.CopyComplete
 D:\Visual Studio\ATISA\TiempoEnProceso-demo\TiempoEnProcesoDL\obj\Debug\TiempoEnProcesoDL.dll
 D:\Visual Studio\ATISA\TiempoEnProceso-demo\TiempoEnProcesoDL\obj\Debug\TiempoEnProcesoDL.pdb
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoDL\bin\Debug\TiempoEnProcesoDL.dll.config
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoDL\bin\Debug\TiempoEnProcesoDL.dll
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoDL\bin\Debug\TiempoEnProcesoDL.pdb
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoDL\bin\Debug\EntityFramework.dll
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoDL\bin\Debug\EntityFramework.SqlServer.dll
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoDL\bin\Debug\EntityFramework.xml
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoDL\bin\Debug\EntityFramework.SqlServer.xml
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoDL\obj\Debug\TiempoEnProcesoDL.csprojAssemblyReference.cache
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoDL\obj\Debug\TiempoEnProcesoDL.csproj.CoreCompileInputs.cache
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoDL\obj\Debug\TiempoEnProcesoDL.csproj.CopyComplete
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoDL\obj\Debug\TiempoEnProcesoDL.dll
+D:\proyectos_visualstudio\repos\CTA\FuentesCFE\TiempoEnProcesoDL\obj\Debug\TiempoEnProcesoDL.pdb
