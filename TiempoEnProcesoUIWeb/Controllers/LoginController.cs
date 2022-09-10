@@ -1,26 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Security;
 using TiempoEnProcesoBL;
+using TiempoEnProcesoBL.Interfaces;
 using TiempoEnProcesoEN;
 
 namespace TiempoEnProcesoUIWeb.Controllers
 {
     public class LoginController : Controller
     {
+        private readonly ILoginService loginService;
+
+        public LoginController(ILoginService _loginService)
+        {
+            loginService = _loginService;
+        }
+
         public ActionResult Login(Models.LoginModel oModel)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    EmpleadosBL _empBL = new EmpleadosBL();
                     EmpleadoEN _empleado = new EmpleadoEN();
 
-                    if (_empBL.ValidarIngresoAdmin(oModel.Login, oModel.Password, ref _empleado))
+                    if (loginService.ValidarIngresoAdmin(oModel.Login, oModel.Password, ref _empleado))
                     {
                         TiempoEnProcesoHelper.Helper.empleado = _empleado.id_empleado;
 
@@ -30,7 +33,9 @@ namespace TiempoEnProcesoUIWeb.Controllers
                         //Session.Add(TiempoEnProcesoHelper.Constantes.S_PUESTO, (new PuestosBL()).PuestoWeb(_empleado.id_puesto));
                         FormsAuthentication.SetAuthCookie(oModel.Login, false);
 
-                        if (!_empBL.TipoValidacion() && _empBL.CambiaClave(oModel.Login))
+                        EmpleadosBL _empBL = new EmpleadosBL();
+
+                        if (loginService.ValidarCambioChave(oModel.Login))
                             return RedirectToAction("Captura", "CambioClave");
 
                         return RedirectToAction("Main", "Dashboard");

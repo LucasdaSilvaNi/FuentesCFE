@@ -1,30 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using TiempoEnProcesoBL;
+﻿using TiempoEnProcesoBL;
+using TiempoEnProcesoDL;
+using TiempoEnProcesoEN;
 
 namespace TiempoEnProcesoUIWeb
 {
-    public class MapeoModel
+    public class MapeoModel : AutoMapper.Profile
     {
         public static void Mapeos()
         {
-            MapFromModelToEntity();
-            MapFromEntityToModel();
+            //MapFromModelToEntity();
+            //MapFromEntityToModel();
 
-            MapeoBL.MapFromEntityToEntityFramework();
-            MapeoBL.MapFromEntityFrameworkToEntity();
+            //MapeoBL.MapFromEntityToEntityFramework();
+            //MapeoBL.MapFromEntityFrameworkToEntity();
         }
 
-        private static void MapFromModelToEntity()
-        {
+        //private static void MapFromModelToEntity()
+        //{
+        //}
 
+        //private static void MapFromEntityToModel()
+        //{
+        //    //AutoMapper.Mapper.CreateMap(typeof(FoxOnAir_EN.SalesTeamEN), typeof(Models.SalesTeamModel));
+        //}
+
+        public static void Run()
+        {
+            AutoMapper.Mapper.Initialize(a => a.AddProfile<MapeoModel>());
         }
 
-        private static void MapFromEntityToModel()
+        protected override void Configure()
         {
-            //AutoMapper.Mapper.CreateMap(typeof(FoxOnAir_EN.SalesTeamEN), typeof(Models.SalesTeamModel));
+            CreateMap<tbl_empleados, EmpleadoEN>();
+            CreateMap<tbl_oficina, OficinaEN>();
         }
     }
 }
