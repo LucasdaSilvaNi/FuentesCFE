@@ -1,6 +1,6 @@
 ﻿using TiempoEnProcesoEN;
 
-namespace TiempoEnProcesoBL.Interfaces
+namespace TiempoEnProcesoBL.Interfaces.Services
 {
     public interface ILoginService
     {

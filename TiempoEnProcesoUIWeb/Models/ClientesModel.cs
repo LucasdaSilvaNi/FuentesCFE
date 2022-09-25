@@ -1,22 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
-using GridMvc;
-using GridMvc.DataAnnotations;
 
 namespace TiempoEnProcesoUIWeb.Models
 {
+
     public class ClientesModel
     {
         public string id_cliente { get; set; }
-        public string nombre { get; set; }
+        public string razon_social { get; set; }
+        public bool status { get; set; }
     }
 
     public class BusquedaClienteModel
     {
-        [Display(Name="ID Cliente")]
+        [Display(Name = "ID Cliente")]
         public string id_cliente { get; set; }
 
         [Display(Name = "Nombre")]

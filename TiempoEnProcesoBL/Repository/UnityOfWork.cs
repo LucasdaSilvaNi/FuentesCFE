@@ -18,6 +18,10 @@ namespace TiempoEnProcesoBL.Repository
 
         private NoCargableRepository noCargableRepo { get; set; }
 
+        private PuestoRepository puestoRepo { get; set; }
+
+        private ClienteRepository clienteRepo { get; set; }
+
         public UnityOfWork()
         {
             tep = new TEPEntities(TiempoEnProcesoHelper.Helper.CadenaConexion);
@@ -86,6 +90,28 @@ namespace TiempoEnProcesoBL.Repository
                     noCargableRepo = new NoCargableRepository(tep);
 
                 return noCargableRepo;
+            }
+        }
+
+        public PuestoRepository PuestoRepository
+        {
+            get
+            {
+                if (puestoRepo == null)
+                    puestoRepo = new PuestoRepository(tep);
+
+                return puestoRepo;
+            }
+        }
+
+        public ClienteRepository ClienteRepository
+        {
+            get
+            {
+                if (clienteRepo == null)
+                    clienteRepo = new ClienteRepository(tep);
+
+                return clienteRepo;
             }
         }
 

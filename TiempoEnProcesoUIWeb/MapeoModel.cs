@@ -1,6 +1,6 @@
-﻿using TiempoEnProcesoBL;
-using TiempoEnProcesoDL;
+﻿using TiempoEnProcesoDL;
 using TiempoEnProcesoEN;
+using TiempoEnProcesoUIWeb.Models;
 
 namespace TiempoEnProcesoUIWeb
 {
@@ -33,6 +33,12 @@ namespace TiempoEnProcesoUIWeb
         {
             CreateMap<tbl_empleados, EmpleadoEN>();
             CreateMap<tbl_oficina, OficinaEN>();
+
+            CreateMap<TP_lst_Clientes_Result, ClienteEN>()
+                .ForMember(dest => dest.id_cliente, opt => opt.MapFrom(src => src.Clave))
+                .ForMember(dest => dest.razon_social, opt => opt.MapFrom(src => src.Nombre));
+
+            CreateMap<ClienteEN, ClientesModel>();
         }
     }
 }

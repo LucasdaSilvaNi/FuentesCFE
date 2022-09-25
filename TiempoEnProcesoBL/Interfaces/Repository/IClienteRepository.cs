@@ -3,8 +3,8 @@ using TiempoEnProcesoDL;
 
 namespace TiempoEnProcesoBL.Interfaces.Repository
 {
-    public interface IConceptosRepository
+    public interface IClienteRepository
     {
-        List<tbl_concepto_no_cargable> ListarTodosAtivos();
+        IEnumerable<TP_lst_Clientes_Result> ListarTodo(string id_oficina);
     }
 }

@@ -50,7 +50,7 @@ namespace TiempoEnProcesoBL
             return lst;
         }
 
-        public List<ClienteEN> ListarTodo(string id_oficina,string id_empleado, string nombre, int offset)
+        public List<ClienteEN> ListarTodo(string id_oficina, string id_empleado, string nombre, int offset)
         {
             List<ClienteEN> lst = new List<ClienteEN>();
             AutoMapper.MapperConfiguration _map = new AutoMapper.MapperConfiguration(cfg => cfg.CreateMap<TP_lst_Clientes_Result, ClienteEN>()

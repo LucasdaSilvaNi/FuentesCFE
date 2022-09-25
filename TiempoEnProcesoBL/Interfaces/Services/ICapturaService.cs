@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace TiempoEnProcesoBL.Interfaces
+namespace TiempoEnProcesoBL.Interfaces.Services
 {
     public interface ICapturaService
     {

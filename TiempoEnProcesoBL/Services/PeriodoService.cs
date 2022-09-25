@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
-using TiempoEnProcesoBL.Interfaces;
+using TiempoEnProcesoBL.Interfaces.Services;
 using TiempoEnProcesoEN;
 
 namespace TiempoEnProcesoBL.Services

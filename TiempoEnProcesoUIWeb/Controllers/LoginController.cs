@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Web.Security;
 using TiempoEnProcesoBL;
-using TiempoEnProcesoBL.Interfaces;
+using TiempoEnProcesoBL.Interfaces.Services;
 using TiempoEnProcesoEN;
 
 namespace TiempoEnProcesoUIWeb.Controllers
@@ -9,10 +9,12 @@ namespace TiempoEnProcesoUIWeb.Controllers
     public class LoginController : Controller
     {
         private readonly ILoginService loginService;
+        private readonly IOficinaService oficinaService;
 
-        public LoginController(ILoginService _loginService)
+        public LoginController(ILoginService _loginService, IOficinaService _oficinaService)
         {
             loginService = _loginService;
+            oficinaService = _oficinaService;
         }
 
         public ActionResult Login(Models.LoginModel oModel)
@@ -28,12 +30,10 @@ namespace TiempoEnProcesoUIWeb.Controllers
                         TiempoEnProcesoHelper.Helper.empleado = _empleado.id_empleado;
 
                         Session.Add(TiempoEnProcesoHelper.Constantes.S_EMPLEADO, _empleado);
-                        Session.Add(TiempoEnProcesoHelper.Constantes.S_OFICINA, (new OficinaBL()).DevuelveDatos(_empleado.id_oficina));
+                        Session.Add(TiempoEnProcesoHelper.Constantes.S_OFICINA, oficinaService.Retorna(_empleado.id_oficina));
 
-                        //Session.Add(TiempoEnProcesoHelper.Constantes.S_PUESTO, (new PuestosBL()).PuestoWeb(_empleado.id_puesto));
+                        Session.Add(TiempoEnProcesoHelper.Constantes.S_PUESTO, (new PuestosBL()).PuestoWeb(_empleado.id_puesto));
                         FormsAuthentication.SetAuthCookie(oModel.Login, false);
-
-                        EmpleadosBL _empBL = new EmpleadosBL();
 
                         if (loginService.ValidarCambioChave(oModel.Login))
                             return RedirectToAction("Captura", "CambioClave");

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using TiempoEnProcesoBL;
-using TiempoEnProcesoBL.Interfaces;
+using TiempoEnProcesoBL.Interfaces.Services;
 using TiempoEnProcesoBL.Repository;
 using TiempoEnProcesoEN;
 using TiempoEnProcesoHelper;
@@ -16,12 +16,14 @@ namespace TiempoEnProcesoUIWeb.Controllers
         private UnityOfWork uow { get; }
         private IPeriodoService periodoService { get; }
         private ICapturaService capturaService { get; }
+        private IClienteService clienteService { get; }
 
-        public CapturaWebController(UnityOfWork _uow, IPeriodoService _periodoService, ICapturaService _capturaService)
+        public CapturaWebController(UnityOfWork _uow, IPeriodoService _periodoService, ICapturaService _capturaService, IClienteService _clienteService)
         {
             uow = _uow;
             periodoService = _periodoService;
             capturaService = _capturaService;
+            clienteService = _clienteService;
         }
 
         public ActionResult Captura(string id_cliente)
@@ -82,7 +84,8 @@ namespace TiempoEnProcesoUIWeb.Controllers
             ViewData.Add(TiempoEnProcesoHelper.Constantes.S_OFCEMP, AutoMapper.Mapper.Map<List<OficinaEN>>(uow.OficinaRepository.OficinaEmpleado(_empleado.id_empleado)));
             ViewData.Add(Constantes.S_ENTIDAD_CLIENTE, lstEnt);
 
-            _model.clientes = (new List<ClientesModel>()).AsQueryable<ClientesModel>();
+            //_model.clientes = (new List<ClientesModel>()).AsQueryable<ClientesModel>();
+            _model.clientes = new List<ClientesModel>();
 
             if (uow.ReportesTiempoRepository.ContemReporteTiempo(_empleado.id_empleado))
             {
@@ -118,30 +121,14 @@ namespace TiempoEnProcesoUIWeb.Controllers
         public ActionResult Clientes()
         {
             OficinaEN _oficina = (OficinaEN)Session[TiempoEnProcesoHelper.Constantes.S_OFICINA];
-            List<ClientesModel> lst = new List<ClientesModel>();
-            foreach (ClienteEN _cli in (new ClientesBL()).ListarTodo(_oficina.id_oficina))
-                lst.Add(new ClientesModel() { id_cliente = _cli.id_cliente, nombre = _cli.razon_social });
-
+            var lst = AutoMapper.Mapper.Map<List<ClientesModel>>(clienteService.PesquisaPorOficina(_oficina.id_oficina, null, null, 0));
             return PartialView(lst);
         }
 
         public ActionResult BusquedaClientes(BusquedaClienteModel _model)
         {
-            if (!string.IsNullOrEmpty(_model.id_cliente) ||
-                !string.IsNullOrEmpty(_model.nombre))
-            {
-                int _offset = (_model.pageNo ?? 0) * 10;
-                List<ClientesModel> lst = new List<ClientesModel>();
-                OficinaEN _oficina = (OficinaEN)Session[TiempoEnProcesoHelper.Constantes.S_OFICINA0];
-                foreach (ClienteEN _cli in (new ClientesBL()).ListarTodo(_oficina.id_oficina, _model.id_cliente, _model.nombre, _offset))
-                    lst.Add(new ClientesModel() { id_cliente = _cli.id_cliente, nombre = _cli.razon_social });
-
-                _model.clientes = lst.AsQueryable<ClientesModel>();
-            }
-            else
-            {
-                _model.clientes = (new List<ClientesModel>()).AsQueryable<ClientesModel>();
-            }
+            OficinaEN _oficina = (OficinaEN)Session[TiempoEnProcesoHelper.Constantes.S_OFICINA0];
+            _model.clientes = AutoMapper.Mapper.Map<List<ClientesModel>>(clienteService.PesquisaPorOficina(_oficina.id_oficina, _model.id_cliente, _model.nombre, (_model.pageNo ?? 0) * 10));
 
             return View(_model);
         }

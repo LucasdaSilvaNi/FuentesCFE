@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using TiempoEnProcesoBL.Interfaces;
+using TiempoEnProcesoBL.Interfaces.Repository;
 using TiempoEnProcesoDL;
 
 namespace TiempoEnProcesoBL.Repository

@@ -1,34 +1,40 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Security;
-using TiempoEnProcesoBL;
+using TiempoEnProcesoBL.Interfaces.Services;
 using TiempoEnProcesoEN;
 
 namespace TiempoEnProcesoWeb.Controllers
 {
     public class LoginController : Controller
     {
+        private readonly ILoginService loginService;
+        private readonly IOficinaService oficinaService;
+        private readonly IPuestoService puestoService;
+
+        public LoginController(ILoginService _loginService, IOficinaService _oficinaService, IPuestoService _puestoService)
+        {
+            loginService = _loginService;
+            oficinaService = _oficinaService;
+            puestoService = _puestoService;
+        }
+
         public ActionResult Login(Models.LoginModel oModel)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    EmpleadosBL _empBL = new EmpleadosBL();
                     EmpleadoEN _empleado = new EmpleadoEN();
 
-                    if (_empBL.ValidarIngreso(oModel.Login, oModel.Password, ref _empleado))
+                    if (loginService.ValidarIngresoAdmin(oModel.Login, oModel.Password, ref _empleado))
                     {
                         TiempoEnProcesoHelper.Helper.empleado = _empleado.id_empleado;
                         TiempoEnProcesoHelper.Helper.Oficina = _empleado.id_oficina;
 
                         Session.Add(TiempoEnProcesoHelper.Constantes.S_EMPLEADO, _empleado);
-                        Session.Add(TiempoEnProcesoHelper.Constantes.S_OFICINA, (new OficinaBL()).DevuelveDatos(_empleado.id_oficina));
+                        Session.Add(TiempoEnProcesoHelper.Constantes.S_OFICINA, oficinaService.Retorna(_empleado.id_oficina));
 
-                        Session.Add(TiempoEnProcesoHelper.Constantes.S_PUESTO, (new PuestosBL()).PuestoWeb(_empleado.id_puesto));
+                        Session.Add(TiempoEnProcesoHelper.Constantes.S_PUESTO, puestoService.RetornaIdDeConversionWeb(_empleado.id_puesto));
                         Session.Add(TiempoEnProcesoHelper.Constantes.S_NOMBREEMP, _empleado.Nombres + " " + _empleado.apellidos);
                         FormsAuthentication.SetAuthCookie(oModel.Login, false);
 
@@ -39,7 +45,7 @@ namespace TiempoEnProcesoWeb.Controllers
                         oModel.Error = true;
                     }
                 }
-                catch
+                catch (System.Exception e)
                 {
                     oModel.Login = string.Empty;
                     oModel.Password = string.Empty;

@@ -5,7 +5,7 @@ using TiempoEnProcesoBL.Services;
 using TiempoEnProcesoBL.Repository;
 using TiempoEnProcesoBL.Interfaces.Services;
 
-namespace TiempoEnProcesoUIWeb
+namespace TiempoEnProcesoWeb
 {
     public static class Bootstrapper
     {
@@ -23,13 +23,13 @@ namespace TiempoEnProcesoUIWeb
             // register all your components with the container here
             // it is NOT necessary to register your controllers
 
-            // e.g. container.RegisterType<ITestService, TestService>();
+            // e.g. container.RegisterType<ITestService, TestService>();            
             container.RegisterType<UnityOfWork>();
             container.RegisterType<ILoginService, LoginService>();
             container.RegisterType<IPeriodoService, PeriodoService>();
             container.RegisterType<ICapturaService, CapturaService>();
             container.RegisterType<IOficinaService, OficinaService>();
-            container.RegisterType<IClienteService, ClienteService>();
+            container.RegisterType<IPuestoService, PuestoService>();
 
             return container;
         }
