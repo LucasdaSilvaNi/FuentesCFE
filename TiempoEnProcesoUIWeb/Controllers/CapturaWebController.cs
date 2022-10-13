@@ -7,11 +7,12 @@ using TiempoEnProcesoBL.Interfaces.Services;
 using TiempoEnProcesoBL.Repository;
 using TiempoEnProcesoEN;
 using TiempoEnProcesoHelper;
+using TiempoEnProcesoUIWeb.Extensions;
 using TiempoEnProcesoUIWeb.Models;
 
 namespace TiempoEnProcesoUIWeb.Controllers
 {
-    public class CapturaWebController : Controller
+    public class CapturaWebController : BaseController
     {
         private UnityOfWork uow { get; }
         private IPeriodoService periodoService { get; }
@@ -29,11 +30,11 @@ namespace TiempoEnProcesoUIWeb.Controllers
         public ActionResult Captura(string id_cliente)
         {
             CapturaWebModel _model = new CapturaWebModel();
-            OficinaEN _oficina = (OficinaEN)Session[TiempoEnProcesoHelper.Constantes.S_OFICINA];
+            OficinaEN _oficina = GetOficina();
             _model.ClienteC = id_cliente;
             _model.NombreClienteC = string.IsNullOrEmpty(id_cliente) ? string.Empty : (new ClientesBL()).ListarPorId(id_cliente, _oficina.id_pais).razon_social;
 
-            EmpleadoEN _empleado = (EmpleadoEN)Session[TiempoEnProcesoHelper.Constantes.S_EMPLEADO];
+            EmpleadoEN _empleado = GetEmpleado();
             Session[TiempoEnProcesoHelper.Constantes.S_OFICINA0] = _oficina;
             //string _puesto = Session[TiempoEnProcesoHelper.Constantes.S_PUESTO].ToString();
 
@@ -120,7 +121,7 @@ namespace TiempoEnProcesoUIWeb.Controllers
 
         public ActionResult Clientes()
         {
-            OficinaEN _oficina = (OficinaEN)Session[TiempoEnProcesoHelper.Constantes.S_OFICINA];
+            OficinaEN _oficina = GetOficina();
             var lst = AutoMapper.Mapper.Map<List<ClientesModel>>(clienteService.PesquisaPorOficina(_oficina.id_oficina, null, null, 0));
             return PartialView(lst);
         }

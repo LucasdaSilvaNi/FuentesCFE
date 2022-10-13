@@ -22,7 +22,7 @@ namespace TiempoEnProcesoUIWeb.Controllers
 
          public PartialViewResult Menu()
          {
-             OficinaEN _oficina = (OficinaEN)Session[TiempoEnProcesoHelper.Constantes.S_OFICINA];
+            OficinaEN _oficina = GetOficina();
              
 
              @ViewData.Add("pais", string.Format("{0}.png",_oficina.id_pais.Trim()));

@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using TiempoEnProcesoUIWeb.Models;
 using TiempoEnProcesoEN;
 using TiempoEnProcesoBL;
 
-namespace TiempoEnProcesoWeb.Controllers
+namespace TiempoEnProcesoUIWeb.Controllers
 {
-    public class ReporteController : Controller
+    public class ReporteController : BaseController
     {
         //
         // GET: /AuxiliarTep/
@@ -21,7 +17,7 @@ namespace TiempoEnProcesoWeb.Controllers
 
         public ActionResult ParametersTeamAcumulado()
         {
-            OficinaEN _oficina = (OficinaEN)Session[TiempoEnProcesoHelper.Constantes.S_OFICINA];
+            OficinaEN _oficina = GetOficina();
 
             TeamAcumuladoModel _model = new TeamAcumuladoModel();
 
@@ -33,7 +29,7 @@ namespace TiempoEnProcesoWeb.Controllers
 
         public ActionResult ParametersTeamAcumuladoTep()
         {
-            OficinaEN _oficina = (OficinaEN)Session[TiempoEnProcesoHelper.Constantes.S_OFICINA];
+            OficinaEN _oficina = GetOficina();
 
             TeamAcumuladoModel _model = new TeamAcumuladoModel();
 
@@ -45,8 +41,8 @@ namespace TiempoEnProcesoWeb.Controllers
         public ActionResult PorCliente()
         {
             ReportModel _rpt = new ReportModel();
-            OficinaEN _oficina = (OficinaEN)Session[TiempoEnProcesoHelper.Constantes.S_OFICINA];
-            EmpleadoEN _empleado = (EmpleadoEN)Session[TiempoEnProcesoHelper.Constantes.S_EMPLEADO];
+            OficinaEN _oficina = GetOficina();
+            EmpleadoEN _empleado = GetEmpleado();
 
 
             _rpt.Data = (new ReportesBL()).Reporte_Por_Empleado(_empleado.id_empleado, _oficina.periodo_proceso);
@@ -57,8 +53,8 @@ namespace TiempoEnProcesoWeb.Controllers
         public ActionResult PorDia()
         {
             ReportModel _rpt = new ReportModel();
-            OficinaEN _oficina = (OficinaEN)Session[TiempoEnProcesoHelper.Constantes.S_OFICINA];
-            EmpleadoEN _empleado = (EmpleadoEN)Session[TiempoEnProcesoHelper.Constantes.S_EMPLEADO];
+            OficinaEN _oficina = GetOficina();
+            EmpleadoEN _empleado = GetEmpleado();
 
             _rpt.Data = (new ReportesBL()).Reporte_Por_Dia(_empleado.id_empleado, _oficina.periodo_proceso);
 
@@ -68,7 +64,7 @@ namespace TiempoEnProcesoWeb.Controllers
         public ActionResult PorTeamAcumulado(TeamAcumuladoModel _report)
         {
             ReportModel _rpt = new ReportModel();
-            OficinaEN _oficina = (OficinaEN)Session[TiempoEnProcesoHelper.Constantes.S_OFICINA];
+            OficinaEN _oficina = GetOficina();
 
             _rpt.Data = (new ReportesBL()).Reporte_Team_Acumulado(_oficina.id_oficina, _report.id_team, _oficina.periodo_proceso.Substring(3));
 
@@ -78,7 +74,7 @@ namespace TiempoEnProcesoWeb.Controllers
         public ActionResult PorTeamPeriodoTep(TeamAcumuladoModel _report)
         {
             ReportModel _rpt = new ReportModel();
-            OficinaEN _oficina = (OficinaEN)Session[TiempoEnProcesoHelper.Constantes.S_OFICINA];
+            OficinaEN _oficina = GetOficina();
 
             _rpt.Data = (new ReportesBL()).Reporte_Team_Periodo(_oficina.id_oficina, _report.id_team, _oficina.periodo_proceso);
 

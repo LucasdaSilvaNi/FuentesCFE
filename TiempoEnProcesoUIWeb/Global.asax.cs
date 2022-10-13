@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
-using System.Web.Http;
 using System.Web.Mvc;
-using System.Web.Optimization;
 using System.Web.Routing;
+using System.Web.Script.Serialization;
+using System.Web.Security;
+using TiempoEnProcesoUIWeb.Extensions;
 
 namespace TiempoEnProcesoUIWeb
 {
@@ -14,6 +13,26 @@ namespace TiempoEnProcesoUIWeb
 
     public class MvcApplication : System.Web.HttpApplication
     {
+        protected void Application_PostAuthenticateRequest(Object sender, EventArgs e)
+        {
+            HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
+
+            if (authCookie != null)
+            {
+                FormsAuthenticationTicket authTicket = FormsAuthentication.Decrypt(authCookie.Value);
+
+                JavaScriptSerializer serializer = new JavaScriptSerializer();
+
+                SessionUserModel serializeModel = serializer.Deserialize<SessionUserModel>(authTicket.UserData);
+
+                SessionUser newUser = new SessionUser(authTicket.Name);
+                newUser.empleado = serializeModel.empleado;
+                newUser.oficina = serializeModel.oficina;
+
+                HttpContext.Current.User = newUser;
+            }
+        }
+
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
@@ -25,29 +44,11 @@ namespace TiempoEnProcesoUIWeb
             Bootstrapper.Initialise();
 
             MapeoModel.Run();
-
         }
 
         protected void Session_Start()
         {
             TiempoEnProcesoHelper.Helper.Inicializa();
-
-            if (User.Identity.IsAuthenticated &&
-                Session[TiempoEnProcesoHelper.Constantes.S_EMPLEADO] == null)
-            {
-                TiempoEnProcesoBL.EmpleadosBL _empBL = new TiempoEnProcesoBL.EmpleadosBL();
-                TiempoEnProcesoEN.EmpleadoEN _empleado = _empBL.DevuelveDatos(User.Identity.Name);
-
-                TiempoEnProcesoHelper.Helper.empleado = _empleado.id_empleado;
-
-
-                if (_empleado != null)
-                {
-                     Session.Add(TiempoEnProcesoHelper.Constantes.S_EMPLEADO, _empleado);
-                     Session.Add(TiempoEnProcesoHelper.Constantes.S_OFICINA, (new TiempoEnProcesoBL.OficinaBL()).DevuelveDatos(_empleado.id_oficina));
-                     //Session.Add(TiempoEnProcesoHelper.Constantes.S_PUESTO, (new TiempoEnProcesoBL.PuestosBL()).PuestoWeb(_empleado.id_puesto));
-                }
-            }
         }
     }
 }

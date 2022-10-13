@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using TiempoEnProcesoBL;
 using TiempoEnProcesoEN;
@@ -10,13 +9,13 @@ using TiempoEnProcesoUIWeb.Models;
 
 namespace TiempoEnProcesoUIWeb.Controllers
 {
-    public class SolicitudFacturaController: Controller
+    public class SolicitudFacturaController : BaseController
     {
         public ActionResult Captura()
         {
             SolicitudFacturaModel _model = new SolicitudFacturaModel();
-            OficinaEN _oficina = (OficinaEN)Session[TiempoEnProcesoHelper.Constantes.S_OFICINA];
-            EmpleadoEN _empleado = (EmpleadoEN)Session[TiempoEnProcesoHelper.Constantes.S_EMPLEADO];
+            OficinaEN _oficina = GetOficina();
+            EmpleadoEN _empleado = GetEmpleado();
 
             Session[TiempoEnProcesoHelper.Constantes.S_OFICINA0] = _oficina;
 
@@ -41,7 +40,7 @@ namespace TiempoEnProcesoUIWeb.Controllers
 
             ViewData.Add(Constantes.S_JOBS, (new JobsBL()).ListarTodos(Constantes.S_TODOS, Constantes.S_TODOS, Constantes.S_TODOS, TiempoEnProcesoHelper.Constantes.S_TODOS, _oficina.id_oficina));
 
-            ViewData.Add(Constantes.S_ENTIDAD_LEGAL, (new EntidadLegalBL()).Listar( _oficina.id_oficina));
+            ViewData.Add(Constantes.S_ENTIDAD_LEGAL, (new EntidadLegalBL()).Listar(_oficina.id_oficina));
 
             ViewData.Add(Constantes.S_TIPO_SOL, (new EntidadBL()).ListarTipoSolicitud());
 
@@ -49,7 +48,7 @@ namespace TiempoEnProcesoUIWeb.Controllers
 
             ViewData.Add(Constantes.S_IDIOMA_IMP, (new EntidadBL()).IdiomaImpSol());
 
-            ViewData.Add(Constantes.S_PERIODO,(new PeriodoBL()).ListarSiguiente(_oficina.periodo_proceso));
+            ViewData.Add(Constantes.S_PERIODO, (new PeriodoBL()).ListarSiguiente(_oficina.periodo_proceso));
 
             ViewData.Add(Constantes.S_CLIENTE_ENTIDAD, new List<EntidadEN>());
 
@@ -64,9 +63,9 @@ namespace TiempoEnProcesoUIWeb.Controllers
                                                                                             .ForMember(dest => dest.Lenguaje_impresion_spanish, opt => opt.MapFrom(src => src.Lenguaje_impresion_spanish.Value ? 1 : 0))
                                                                                             .ForMember(dest => dest.Cliente, opt => opt.MapFrom(src => src.id_cliente ?? "TODOS"))
                                                                                             .ForMember(dest => dest.Servicio, opt => opt.MapFrom(src => src.id_servicio ?? "TODOS"))
-                                                                                            .ForMember(dest=> dest.codigo_moneda_impresion, opt => opt.MapFrom(src=> src.codigo_moneda_impresion??""))
+                                                                                            .ForMember(dest => dest.codigo_moneda_impresion, opt => opt.MapFrom(src => src.codigo_moneda_impresion ?? ""))
                                                                                             .ForMember(dest => dest.Job, opt => opt.MapFrom(src => src.id_job))
-                                                                                            .ForMember(dest => dest.fecha_solicitud, opt => opt.MapFrom(src => src.fecha?? DateTime.Now.Date))
+                                                                                            .ForMember(dest => dest.fecha_solicitud, opt => opt.MapFrom(src => src.fecha ?? DateTime.Now.Date))
                                                                                           );
             var mapper = ConfMapper.CreateMapper();
 
@@ -86,8 +85,8 @@ namespace TiempoEnProcesoUIWeb.Controllers
 
         public JsonResult GrabaDetalle(SolicitudFacturaModel _model)
         {
-            OficinaEN _oficina = (OficinaEN)Session[TiempoEnProcesoHelper.Constantes.S_OFICINA];
-            EmpleadoEN _empleado = (EmpleadoEN)Session[TiempoEnProcesoHelper.Constantes.S_EMPLEADO];
+            OficinaEN _oficina = GetOficina();
+            EmpleadoEN _empleado = GetEmpleado();
 
             try
             {
@@ -143,13 +142,13 @@ namespace TiempoEnProcesoUIWeb.Controllers
 
         public JsonResult GrabaCabecera(SolicitudFacturaModel _model)
         {
-            OficinaEN _oficina = (OficinaEN)Session[TiempoEnProcesoHelper.Constantes.S_OFICINA];
-            EmpleadoEN _empleado = (EmpleadoEN)Session[TiempoEnProcesoHelper.Constantes.S_EMPLEADO];
+            OficinaEN _oficina = GetOficina();
+            EmpleadoEN _empleado = GetEmpleado();
 
             try
             {
                 if (string.IsNullOrEmpty(_model.Cliente))
-                    _model.Cliente= _model.id_cliente;
+                    _model.Cliente = _model.id_cliente;
 
                 if (string.IsNullOrEmpty(_model.id_entidad))
                     _model.id_entidad = _model.id_entidad_D;
@@ -161,7 +160,7 @@ namespace TiempoEnProcesoUIWeb.Controllers
                                                                                                       .ForMember(dest => dest.fecha, opt => opt.MapFrom(src => src.fecha_solicitud))
                                                                                                       .ForMember(dest => dest.id_cliente, opt => opt.MapFrom(src => src.Cliente))
                                                                                                       .ForMember(dest => dest.id_servicio, opt => opt.MapFrom(src => src.Servicio))
-                                                                                                      .ForMember(dest=> dest.id_solicitud , opt=> opt.MapFrom(src=> src.id_solicitud_captura))
+                                                                                                      .ForMember(dest => dest.id_solicitud, opt => opt.MapFrom(src => src.id_solicitud_captura))
                                                                                                       .ForMember(dest => dest.id_job, opt => opt.MapFrom(src => src.Job))
                                                                                                       .ForMember(dest => dest.Lenguaje_impresion_spanish, opt => opt.MapFrom(src => src.Lenguaje_impresion_spanish == 1))
                                                                                                       );

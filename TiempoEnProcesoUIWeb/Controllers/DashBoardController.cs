@@ -2,7 +2,7 @@
 
 namespace TiempoEnProcesoUIWeb.Controllers
 {
-    public class DashBoardController : Controller
+    public class DashBoardController : BaseController
     {
         //
         // GET: /DashBoard/

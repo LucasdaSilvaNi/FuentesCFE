@@ -208,6 +208,7 @@
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\ReporteController.cs" />
     <Compile Include="Controllers\SolicitudFacturaController.cs" />
+    <Compile Include="Extensions\SessionUser.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

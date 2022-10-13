@@ -1,8 +1,11 @@
-﻿using System.Web.Mvc;
+﻿using System.Web;
+using System.Web.Mvc;
+using System.Web.Script.Serialization;
 using System.Web.Security;
-using TiempoEnProcesoBL;
 using TiempoEnProcesoBL.Interfaces.Services;
+using TiempoEnProcesoBL.Repository;
 using TiempoEnProcesoEN;
+using TiempoEnProcesoUIWeb.Extensions;
 
 namespace TiempoEnProcesoUIWeb.Controllers
 {
@@ -10,11 +13,13 @@ namespace TiempoEnProcesoUIWeb.Controllers
     {
         private readonly ILoginService loginService;
         private readonly IOficinaService oficinaService;
+        private UnityOfWork uow;
 
-        public LoginController(ILoginService _loginService, IOficinaService _oficinaService)
+        public LoginController(ILoginService _loginService, IOficinaService _oficinaService, UnityOfWork _uow)
         {
             loginService = _loginService;
             oficinaService = _oficinaService;
+            uow = _uow;
         }
 
         public ActionResult Login(Models.LoginModel oModel)
@@ -29,11 +34,7 @@ namespace TiempoEnProcesoUIWeb.Controllers
                     {
                         TiempoEnProcesoHelper.Helper.empleado = _empleado.id_empleado;
 
-                        Session.Add(TiempoEnProcesoHelper.Constantes.S_EMPLEADO, _empleado);
-                        Session.Add(TiempoEnProcesoHelper.Constantes.S_OFICINA, oficinaService.Retorna(_empleado.id_oficina));
-
-                        Session.Add(TiempoEnProcesoHelper.Constantes.S_PUESTO, (new PuestosBL()).PuestoWeb(_empleado.id_puesto));
-                        FormsAuthentication.SetAuthCookie(oModel.Login, false);
+                        AdicionaCookieAlResponse(_empleado, oModel.Login);
 
                         if (loginService.ValidarCambioChave(oModel.Login))
                             return RedirectToAction("Captura", "CambioClave");
@@ -45,7 +46,7 @@ namespace TiempoEnProcesoUIWeb.Controllers
                         oModel.Error = true;
                     }
                 }
-                catch
+                catch (System.Exception e)
                 {
                     oModel.Login = string.Empty;
                     oModel.Password = string.Empty;
@@ -89,5 +90,29 @@ namespace TiempoEnProcesoUIWeb.Controllers
             return RedirectToAction("Login");
         }
 
+        private void AdicionaCookieAlResponse(EmpleadoEN _empleado, string name)
+        {
+            SessionUserModel sessionUser = new SessionUserModel();
+            sessionUser.empleado = _empleado;
+            sessionUser.oficina = oficinaService.Retorna(_empleado.id_oficina);
+            sessionUser.name = name;
+
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+
+            string userData = serializer.Serialize(sessionUser);
+
+            FormsAuthenticationTicket authTicket = new FormsAuthenticationTicket(
+                                    1,
+                                    name,
+                                    System.DateTime.Now,
+                                    System.DateTime.Now.AddMinutes(15),
+                                    false,
+                                    userData);
+
+            string encTicket = FormsAuthentication.Encrypt(authTicket);
+            HttpCookie faCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encTicket);
+
+            Response.Cookies.Add(faCookie);
+        }
     }
 }

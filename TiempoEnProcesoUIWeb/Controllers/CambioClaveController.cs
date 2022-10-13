@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using TiempoEnProcesoBL;
 using TiempoEnProcesoEN;
@@ -10,11 +7,11 @@ using TiempoEnProcesoUIWeb.Models;
 
 namespace TiempoEnProcesoUIWeb.Controllers
 {
-    public class CambioClaveController: Controller
+    public class CambioClaveController : BaseController
     {
         public ActionResult Captura()
         {
-            EmpleadoEN _empleado = (EmpleadoEN)Session[TiempoEnProcesoHelper.Constantes.S_EMPLEADO];
+            EmpleadoEN _empleado = GetEmpleado();
             return View(new CambioClaveModel() { id_empleado = _empleado.id_empleado });
         }
 
@@ -24,9 +21,9 @@ namespace TiempoEnProcesoUIWeb.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    if (string.IsNullOrEmpty( _model.PasswordActual) ||
-                        string.IsNullOrEmpty( _model.Password) ||
-                        string.IsNullOrEmpty( _model.ConfPassword))
+                    if (string.IsNullOrEmpty(_model.PasswordActual) ||
+                        string.IsNullOrEmpty(_model.Password) ||
+                        string.IsNullOrEmpty(_model.ConfPassword))
                         return Json(new { Resultado = Constantes.S_ADVERTENCIA, MensajeError = "Valores invalidos", Modulo = "GrabarCambioClave" });
 
                     if (_model.Password != _model.ConfPassword)
